@@ -1,17 +1,102 @@
 <!doctype html>
 <html lang="ur" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>دارالعلوم سیدنا بلالؓ</title>
-  <link rel="icon" href="/assets/لوگو دارالعلوم سیدنا بلال .-1.png" />
-  <style>
-    /* Basic CSS to ensure React root fills */
-    html,body,#root{height:100%;margin:0;padding:0;background:#f7fbf7;font-family:AkramUnicode, JameelNastaleeq, 'Rubik', sans-serif}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>دارالعلوم سیدنا بلالؓ</title>
+<link rel="icon" href="assets/لوگو دارالعلوم سیدنا بلال .-1.png" />
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="root">React app goes here. See README for integration steps.</div>
-  <!-- When you create React app, copy the component into src/components and import it in App.js -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="ayah">يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ</div>
+      <div class="ayah-trans">اللہ اہلِ ایمان اور اہلِ علم کے درجے بلند کرتا ہے — (سورۃ المجادلہ : 11)</div>
+    </div>
+
+    <div class="header-main">
+      <img src="assets/لوگو دارالعلوم سیدنا بلال .-1.png" class="logo left" alt="logo left" />
+      <div class="school-name">
+        <div class="name">دارالعلوم سیدنا بلالؓ</div>
+        <div class="address">مقام ناکھنول، تحصیل تجارہ، ضلع خیرتھل، راجستھان — 301707</div>
+      </div>
+      <img src="assets/لوگو دارالعلوم سیدنا بلال .-1.png" class="logo right" alt="logo right" />
+    </div>
+
+    <div class="lang-switch">
+      <button data-lang="ur" class="active">اردو</button>
+      <button data-lang="hi">हिन्दी</button>
+      <button data-lang="en">English</button>
+    </div>
+
+    <nav class="nav-box">
+      <a href="#home">ہوم</a>
+      <a href="#intro">تعارف</a>
+      <a href="#activities">تعلیمی سرگرمیاں</a>
+      <a href="#curriculum">نصابِ تعلیم</a>
+      <a href="#departments">شعبہ جات</a>
+      <a href="#admissions">جدید داخلے</a>
+      <a href="#results">نتائج</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="slideshow">
+        <img src="assets/slide1.jpg" class="slide show" />
+        <img src="assets/slide2.jpg" class="slide" />
+        <img src="assets/slide3.jpg" class="slide" />
+        <img src="assets/slide4.jpg" class="slide" />
+        <img src="assets/slide5.jpg" class="slide" />
+      </div>
+    </section>
+
+    <section id="intro" class="card">
+      <h2>تعارف</h2>
+      <p>دارالعلوم سیدنا بلالؓ ایک روایتی مدرسہ ہے جو دینی اور عصری دونوں قسم کی تعلیم مہیا کرتا ہے۔</p>
+    </section>
+
+    <section id="activities" class="card">
+      <h2>تعلیمی سرگرمیاں</h2>
+      <p>حفظِ قرآن، دروسِ حدیث، فقہ، عربی اور عصری مضامین شامل ہیں۔</p>
+    </section>
+
+    <section id="curriculum" class="card">
+      <h2>نصابِ تعلیم</h2>
+      <div class="accordion">
+        <details><summary>شعبہ ناظرہ</summary><p>ناظرہ کا نصاب...</p></details>
+        <details><summary>شعبہ تحفیظ</summary><p>تحفیظ کا نصاب...</p></details>
+        <details><summary>شعبہ فارسی</summary><p>فارسی کا نصاب...</p></details>
+        <details><summary>عربی اول</summary><p>عربی اول کا نصاب...</p></details>
+        <details><summary>عربی دوم</summary><p>عربی دوم کا نصاب...</p></details>
+      </div>
+    </section>
+
+    <section id="departments" class="card">
+      <h2>شعبہ جات</h2>
+      <div class="accordion">
+        <details><summary>قرآن و تجوید</summary><p>تفصیل شعبہ قرآن</p></details>
+        <details><summary>تجوید و حدیث</summary><p>تفصیل شعبہ تجوید</p></details>
+      </div>
+    </section>
+
+    <section id="admissions" class="card">
+      <h2>جدید داخلے</h2>
+      <p>داخلہ فارم آن لائن دستیاب ہوگا۔</p>
+    </section>
+
+    <section id="results" class="card">
+      <h2>نتائج</h2>
+      <p>ششماہی / سالانہ نتائج شعبہ وار اور سال وار یہاں دکھائے جائیں گے۔</p>
+      <div id="results-list">کوئی نتائج اپلوڈ نہیں ہوئے۔</div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <!-- intentionally left blank as requested -->
+  </footer>
+
+<script src="script.js"></script>
 </body>
 </html>
