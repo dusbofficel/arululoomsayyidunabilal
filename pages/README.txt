@@ -1,26 +1,21 @@
-DarulUloom — GitHub Pages site (Urdu/Hindi/English)
-Files:
+Darul Uloom — GitHub Pages deployment
+Files to upload:
 - index.html
 - style.css
 - script.js
-- assets/   (images)
-- pdfs/     (uploaded PDFs)
-- pages/    (sub pages like arab1.html, nazerah.html etc.)
+- /assets/   (all images)
+- /pdfs/     (all pdfs)
+- /pages/    (sub pages like nazerah.html, arab1.html etc. use coming-soon.html as template)
 
-How to deploy:
-1) Create repo (e.g. dusbofficial/arululoomsayyidunabilal).
-2) Upload these files and folders to repo root (Add file → Upload files).
-3) Go to Settings → Pages → Source: main / (root) → Save.
-4) Wait 1–2 minutes, then open: https://YOURUSERNAME.github.io/REPONAME/
+Steps:
+1) Create repo (dusbofficial/arululoomsayyidunabilal).
+2) Upload files/folders to repo root.
+3) Settings -> Pages -> Source: main / (root) -> Save.
+4) Wait 1-2 minutes and open: https://dusbofficel.github.io/arululoomsayyidunabilal/
 
-How to add details:
-- For each curriculum/department add a file in pages/, e.g. pages/arab1.html.
-- In index.html the dropdown links already point to pages/arab1.html etc.
-- For PDFs put them in pdfs/ and link from any page using relative path: ../pdfs/YourFile.pdf
-
-Language:
-- The site uses client-side language switcher. Language choice is saved in localStorage.
-- To add translated text for a specific section, edit script.js CONTENT object and/or edit individual pages.
+To add details:
+- Create /pages/<slug>.html and replace content with your text or embedded PDFs.
+- Use relative links: ../pdfs/YourFile.pdf
 
 Security:
-- For admin uploads and secure result uploads, use Firebase (admin folder scaffold can be added).
+- For secure uploads (results), we recommend configuring Firebase — I can provide admin upload code later.
