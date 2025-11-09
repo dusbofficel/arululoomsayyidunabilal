@@ -1,0 +1,23 @@
+/ (root)
+  index.html
+  style.css
+  script.js
+  /assets/
+     logo.png
+     slide1.jpg
+     slide2.jpg
+     slide3.jpg
+     slide4.jpg
+     slide5.jpg
+     gallery1.jpg ... gallery8.jpg
+  /pdfs/
+     Taaru_Book_Urdu.pdf
+     Nisab_Taleem.pdf
+     Degar_Nashatat.pdf
+     Hidayat_Sarparastan.pdf
+     Admissions.pdf
+     Tawun_Apeel.pdf
+     Mashahir_Ulama.pdf
+  /admin/
+     index.html
+     firebase-config.js
