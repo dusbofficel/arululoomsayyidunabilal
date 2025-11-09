@@ -4,252 +4,156 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Darul Uloom Sayyiduna Bilal — dusbofficial</title>
-  <link rel="icon" href="assets/logo.png" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="./assets/logo.png" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
   <header class="site-header">
-    <div class="header-top" id="header-ayah">
-      <div class="ayah" data-lang-ur="يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ"
-           data-lang-hi="اللَّه उन्नत करता है उन लोगों को जो तुम में से ईमान लाए और जिन्हें इल्म दिया गया"
-           data-lang-en="Allah raises in status those of you who believe and those who were given knowledge.">
-        (اللہ اہلِ ایمان اور اہلِ علم کے درجے بلند کرتا ہے — سورۃ المجادلہ:11)
-      </div>
+    <div class="header-top">
+      <div class="ayah" id="ayah-arabic">يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ</div>
+      <div class="ayah-translation" id="ayah-translation">(اللہ اہلِ ایمان اور اہلِ علم کے درجے بلند کرتا ہے — سورۃ المجادلہ:11)</div>
     </div>
 
     <div class="header-main">
-      <img src="./assets/لوگو دارالعلوم سیدنا بلال .-1.png" alt="لوگو دارالعلوم سیدنا بلالؓ">
+      <img src="./assets/logo.png" class="logo left" alt="logo left" />
       <div class="school-name">
-        <div id="school-name" class="name"
-             data-lang-ur="دارالعلوم سیدنا بلالؓ"
-             data-lang-hi="دارالعلوم سيدنا بلال (हिन्दी)"
-             data-lang-en="Darul Uloom Sayyiduna Bilal">
-          دارالعلوم سیدنا بلالؓ
-        </div>
-        <div id="school-address" class="address"
-             data-lang-ur="مقام ناکھنول، تحصیل تجارہ، ضلع خیرتھل، راجستھان — 301707"
-             data-lang-hi="स्थान: नकहनोल, तहसील तिजारा, जिला खैरथल, राजस्थान — 301707"
-             data-lang-en="Location: Nakhanol, Tijara Tehsil, Khairthal District, Rajasthan — 301707">
-          مقام ناکھنول، تحصیل تجارہ، ضلع خیرتھل، راجستھان — 301707
-        </div>
+        <div id="school-name" class="name">دارالعلوم سیدنا بلالؓ</div>
+        <div id="school-address" class="address">مقام ناکھنول، تحصیل تجارہ، ضلع خیرتھل، راجستھان — 301707</div>
       </div>
-      <img src="assets/logo.png" class="logo right" alt="logo right" />
+      <img src="./assets/logo.png" class="logo right" alt="logo right" />
     </div>
 
-    <div class="lang-switch">
-      <button data-lang="ur" class="active">اردو</button>
-      <button data-lang="hi">हिन्दी</button>
-      <button data-lang="en">English</button>
+    <div class="controls">
+      <div class="lang-switch">
+        <button data-lang="ur" class="lang-btn active">اردو</button>
+        <button data-lang="hi" class="lang-btn">हिन्दी</button>
+        <button data-lang="en" class="lang-btn">English</button>
+      </div>
+      <a class="youtube-btn" href="https://youtube.com/@mewatidunyanaat?si=wOB5Cwt89x5z3V9i" target="_blank" title="YouTube">
+        🔴 YouTube
+      </a>
     </div>
 
-    <nav class="nav-box" id="nav-box">
-      <!-- populated by JS -->
+    <nav class="nav" id="main-nav">
+      <!-- menu populated by JS -->
     </nav>
   </header>
 
-  <main>
-    <section id="home" class="hero card">
-      <div class="slideshow">
-       <img src="./assets/WhatsApp Image 2025-11-08 at 15.06.24_3c64e6c6.jpg" alt="مدرسہ کی تصویر">
-      <img src="./assets/WhatsApp Image 2025-11-08 at 15.06.25_bc1eb8bd.jpg" alt="تقریب مدرسہ">
+  <main id="main-content">
+    <!-- Home / Hero -->
+    <section id="home" class="card hero">
+      <div class="slideshow" id="home-slides">
+        <img src="./assets/slide1.jpg" class="slide show" alt="slide1" />
+        <img src="./assets/slide2.jpg" class="slide" alt="slide2" />
+        <img src="./assets/slide3.jpg" class="slide" alt="slide3" />
+        <img src="./assets/slide4.jpg" class="slide" alt="slide4" />
+        <img src="./assets/slide5.jpg" class="slide" alt="slide5" />
       </div>
-      <div class="welcome" id="welcome-text"></div>
+      <div id="welcome-text" class="welcome"></div>
     </section>
 
+    <!-- Intro -->
     <section id="intro" class="card">
-      <h2 id="intro-title"></h2>
-      <div id="intro-content"></div>
-      <p><a id="intro-pdf" href="pdfs/Taaru_Book_Urdu.pdf" target="_blank">Read source PDF</a></p>
+      <h2 id="intro-title">تعارف</h2>
+      <div id="intro-content">مختصر تعارفی متن یہاں ظاہر ہوگا۔</div>
+      <p><a href="./pdfs/Taaru_Book_Urdu.pdf" target="_blank" id="intro-pdf">اصل کتابچہ دیکھیں</a></p>
     </section>
 
-    <section id="plan" class="card">
-      <h2 id="plan-title"></h2>
-      <div id="plan-content"></div>
-    </section>
-
+    <!-- Curriculum placeholder (links to pages/<slug>.html) -->
     <section id="curriculum" class="card">
-      <h2 id="curriculum-title"></h2>
-      <p>View full curriculum PDF: <a href="pdfs/Nisab_Taleem.pdf" target="_blank">Open PDF</a></p>
-    </section>
-
-    <section id="departments" class="card">
-      <h2 id="departments-title"></h2>
-      <p>Details available in booklet and syllabus PDFs.</p>
-    </section>
-
-    <section id="activities" class="card">
-      <h2 id="activities-title"></h2>
-      <p>Details: <a href="pdfs/Degar_Nashatat.pdf" target="_blank">Open PDF</a></p>
-    </section>
-
-    <section id="results" class="card">
-      <h2 id="results-title"></h2>
-      <p id="results-note"></p>
-      <div id="results-list">کوئی نتائج اپلوڈ نہیں ہوئے۔</div>
-    </section>
-
-    <section id="admissions" class="card">
-      <h2 id="admissions-title"></h2>
-      <p>Admission details: <a id="admissions-pdf" href="pdfs/Admissions.pdf" target="_blank">Open PDF</a></p>
-    </section>
-
-    <section id="gallery" class="card">
-      <h2 id="gallery-title"></h2>
-      <div class="gallery-slideshow">
-        <img src="assets/gallery1.jpg" class="gslide gshow" alt="g1" />
-        <img src="assets/gallery2.jpg" class="gslide" alt="g2" />
-        <img src="assets/gallery3.jpg" class="gslide" alt="g3" />
-        <img src="assets/gallery4.jpg" class="gslide" alt="g4" />
-        <img src="assets/gallery5.jpg" class="gslide" alt="g5" />
-        <img src="assets/gallery6.jpg" class="gslide" alt="g6" />
-        <img src="assets/gallery7.jpg" class="gslide" alt="g7" />
-        <img src="assets/gallery8.jpg" class="gslide" alt="g8" />
+      <h2 id="curriculum-title">نصابِ تعلیم</h2>
+      <div class="dropdown-list">
+        <button class="dropdown-toggle" data-target="curriculum-list">دیکھیں ▾</button>
+        <ul id="curriculum-list" class="dropdown-menu">
+          <li><a href="./pages/nazerah.html">شعبہ ناظرہ</a></li>
+          <li><a href="./pages/hifz.html">شعبہ تحفیظ</a></li>
+          <li><a href="./pages/farsi.html">شعبہ فارسی</a></li>
+          <li><a href="./pages/arab1.html">عربی — اول</a></li>
+          <li><a href="./pages/arab2.html">عربی — دوم</a></li>
+          <li><a href="./pages/arab3.html">عربی — سوم</a></li>
+          <li><a href="./pages/arab4.html">عربی — چہارم</a></li>
+          <li><a href="./pages/arab5.html">عربی — پنجم</a></li>
+        </ul>
       </div>
     </section>
 
-    <section id="administration" class="card">
-      <h2 id="administration-title"></h2>
-      <div id="administration-content"></div>
+    <!-- Departments -->
+    <section id="departments" class="card">
+      <h2 id="departments-title">شعبہ جات</h2>
+      <div class="dropdown-list">
+        <button class="dropdown-toggle" data-target="departments-list">دیکھیں ▾</button>
+        <ul id="departments-list" class="dropdown-menu">
+          <li><a href="./pages/daralfatawa.html">دارالافتاء</a></li>
+          <li><a href="./pages/daralhadith.html">دارالحدیث</a></li>
+          <li><a href="./pages/daraltafseer.html">دارالتفسیر</a></li>
+          <li><a href="./pages/daraltahfiz.html">دارالتحفیظ</a></li>
+          <li><a href="./pages/daralqiraat.html">دارالقراءت</a></li>
+          <li><a href="./pages/daraladab.html">دارالادب العربی</a></li>
+          <li><a href="./pages/daraltaalim.html">دارالتعلیم الابتدائی</a></li>
+        </ul>
+      </div>
+    </section>
 
-      <!-- Statistics (تعداد) -->
-      <div id="statistics" class="stats-card"></div>
+    <!-- Activities -->
+    <section id="activities" class="card">
+      <h2 id="activities-title">دیگر نشاطات</h2>
+      <p>تفصیل: <a href="./pdfs/Degar_Nashatat.pdf" target="_blank">PDF دیکھیں</a></p>
+    </section>
+
+    <!-- Results -->
+    <section id="results" class="card">
+      <h2 id="results-title">نتائج امتحان</h2>
+      <p id="results-note">ششماہی/سالانہ نتائج admin کے ذریعے اپلوڈ ہوں گے۔</p>
+    </section>
+
+    <!-- Admissions -->
+    <section id="admissions" class="card">
+      <h2 id="admissions-title">جدید داخلے</h2>
+      <p>تفصیل: <a href="./pdfs/Admissions.pdf" target="_blank">داخلہ کا طریقۂ کار</a></p>
+    </section>
+
+    <!-- Gallery (slideshow) -->
+    <section id="gallery" class="card">
+      <h2 id="gallery-title">مدرسہ گیلری</h2>
+      <div class="gallery-slideshow">
+        <img src="./assets/gallery1.jpg" class="gslide gshow" alt="g1" />
+        <img src="./assets/gallery2.jpg" class="gslide" alt="g2" />
+        <img src="./assets/gallery3.jpg" class="gslide" alt="g3" />
+        <img src="./assets/gallery4.jpg" class="gslide" alt="g4" />
+        <img src="./assets/gallery5.jpg" class="gslide" alt="g5" />
+        <img src="./assets/gallery6.jpg" class="gslide" alt="g6" />
+        <img src="./assets/gallery7.jpg" class="gslide" alt="g7" />
+        <img src="./assets/gallery8.jpg" class="gslide" alt="g8" />
+      </div>
+    </section>
+
+    <!-- Administration & statistics -->
+    <section id="administration" class="card">
+      <h2 id="administration-title">انتظامی امور و ہدایات برائے سرپرستان</h2>
+      <p>تفصیل: <a href="./pdfs/Hidayat_Sarparastan.pdf" target="_blank">PDF دیکھیں</a></p>
+
+      <div id="statistics" class="stats-card">
+        <!-- populated by JS -->
+      </div>
     </section>
 
     <section id="mashahir" class="card">
-      <h2 id="mashahir-title"></h2>
-      <p>See details PDF: <a href="pdfs/Mashahir_Ulama.pdf" target="_blank">Open PDF</a></p>
+      <h2 id="mashahir-title">مشاہیر علماء کا ورودِ مسعود</h2>
+      <p>تفصیل: <a href="./pdfs/Mashahir_Ulama.pdf" target="_blank">PDF دیکھیں</a></p>
     </section>
 
     <section id="appeal" class="card">
-      <h2 id="appeal-title"></h2>
-      <p>See details: <a href="pdfs/Tawun_Apeel.pdf" target="_blank">Open PDF</a></p>
+      <h2 id="appeal-title">تعاون کی اپیل</h2>
+      <p>تفصیل: <a href="./pdfs/Tawun_Apeel.pdf" target="_blank">PDF دیکھیں</a></p>
     </section>
 
   </main>
 
   <footer class="site-footer">
-    <div class="contact" id="contact-info"></div>
+    <div id="contact-info">رابطہ: 9024352763 / 9309026986 — dusb212@gmail.com</div>
+    <div class="small">© Darul Uloom Sayyiduna Bilal</div>
   </footer>
 
-<script src="script.js"></script>
-<script>
-// Multilingual content
-const L = {
-  ur: {
-    menu: ['ہوم پیج','تعارف','تعلیمی منصوبے','نظام تعلیم','نصابِ تعلیم ▾','شعبہ جات ▾','دیگر نشاطات','نتائج امتحان ▾','جدید داخلے'],
-    introTitle: 'تعارف',
-    introText: `یہاں ادارے کا خلاصہ شامل ہوگا۔ ادارہ اہلِ علم کی تربیت اور دینی قدروں کے فروغ کے لیے وقف ہے۔`,
-    planTitle: 'تعلیمی منصوبے و اہداف',
-    planText: `یہاں تعلیمی اہداف و طریقۂ کار کا خلاصہ شامل ہوگا۔`,
-    welcome: 'خوش آمدید — دارالعلوم سیدنا بلالؓ کی سرکاری ویب سائٹ',
-    resultsNote: 'نتائج ششماہی اور سالانہ یہاں admin کے ذریعے اپلوڈ ہوں گے۔',
-    admissionsTitle: 'جدید داخلے',
-    galleryTitle: 'مدرسہ گیلری',
-    departmentsTitle: 'شعبہ جات',
-    activitiesTitle: 'دیگر نشاطات',
-    administrationTitle: 'انتظامی امور و ہدایات برائے سرپرستان',
-    mashahirTitle: 'مشاہیر علماء کا ورودِ مسعود',
-    appealTitle: 'تعاون کی اپیل',
-    contact: 'رابطہ: 9024352763 / 9309026986 — dusb212@gmail.com'
-  },
-  hi: {
-    menu: ['होम पेज','परिचय','शैक्षिक योजनाएँ','शिक्षा प्रणाली','पाठ्यक्रम ▾','विभाग ▾','अन्य गतिविधियाँ','परीक्षा परिणाम ▾','नवीन प्रवेश'],
-    introTitle: 'परिचय',
-    introText: `यहाँ संस्थान का सारांश रखा जाएगा। संस्था धार्मिक और शैक्षिक प्रशिक्षण के लिए समर्पित है।`,
-    planTitle: 'शैक्षिक योजनाएँ اور اہداف',
-    planText: `यहाँ शैक्षिक लक्ष्य اور कार्यपद्धति کا सारांश होगा۔`,
-    welcome: 'स्वागत है — Darul Uloom Sayyiduna Bilal की आधिकारिक साइट',
-    resultsNote: 'परिणाम अर्द्धवार्षिक اور वार्षिक रूप से यहाँ अपलोड किए جائیں گے۔',
-    admissionsTitle: 'नवीन प्रवेश',
-    galleryTitle: 'संस्थान गैलरी',
-    departmentsTitle: 'विभाग',
-    activitiesTitle: 'अन्य गतिविधियाँ',
-    administrationTitle: 'प्रशासनिक कार्य और अभिभावकों के लिए निर्देश',
-    mashahirTitle: 'आगंतुक विद्वान',
-    appealTitle: 'सहायता हेतु अपील',
-    contact: 'संपर्क: 9024352763 / 9309026986 — dusb212@gmail.com'
-  },
-  en: {
-    menu: ['Home','Introduction','Educational Plans','Education System','Curriculum ▾','Departments ▾','Other Activities','Exam Results ▾','Admissions'],
-    introTitle: 'Introduction',
-    introText: `A brief about the institution will appear here. The seminary is dedicated to religious and academic training.`,
-    planTitle: 'Educational Plans & Objectives',
-    planText: `Summary of objectives and methods.`,
-    welcome: 'Welcome — Official website of Darul Uloom Sayyiduna Bilal',
-    resultsNote: 'Midterm and annual results will be uploaded here by the admin.',
-    admissionsTitle: 'Admissions',
-    galleryTitle: 'Institution Gallery',
-    departmentsTitle: 'Departments',
-    activitiesTitle: 'Other Activities',
-    administrationTitle: 'Administration & Guidelines for Guardians',
-    mashahirTitle: 'Visiting Scholars',
-    appealTitle: 'Appeal for Support',
-    contact: 'Contact: 9024352763 / 9309026986 — dusb212@gmail.com'
-  }
-};
-
-function setLanguage(lang){
-  document.documentElement.dir = (lang==='ur') ? 'rtl' : 'ltr';
-  document.getElementById('school-name').textContent = document.getElementById('school-name').getAttribute('data-lang-'+lang);
-  document.getElementById('school-address').textContent = document.getElementById('school-address').getAttribute('data-lang-'+lang);
-  // menu
-  const nav = document.getElementById('nav-box');
-  nav.innerHTML = '';
-  L[lang].menu.forEach((m,i)=>{
-    const a = document.createElement('a');
-    a.href = ['#home','#intro','#plan','#system','#curriculum','#departments','#activities','#results','#admissions'][i] || '#home';
-    a.textContent = m;
-    nav.appendChild(a);
-  });
-  // headings
-  document.getElementById('welcome-text').textContent = L[lang].welcome;
-  document.getElementById('intro-title').textContent = L[lang].introTitle;
-  document.getElementById('intro-content').textContent = L[lang].introText;
-  document.getElementById('plan-title').textContent = L[lang].planTitle;
-  document.getElementById('plan-content').textContent = L[lang].planText;
-  document.getElementById('curriculum-title').textContent = (lang==='ur'?'نصابِ تعلیم':'Curriculum');
-  document.getElementById('departments-title').textContent = L[lang].departmentsTitle;
-  document.getElementById('activities-title').textContent = L[lang].activitiesTitle;
-  document.getElementById('results-title').textContent = (lang==='ur'?'نتائج امتحان':'Exam Results');
-  document.getElementById('results-note').textContent = L[lang].resultsNote;
-  document.getElementById('admissions-title').textContent = L[lang].admissionsTitle;
-  document.getElementById('gallery-title').textContent = L[lang].galleryTitle;
-  document.getElementById('administration-title').textContent = L[lang].administrationTitle;
-  document.getElementById('mashahir-title').textContent = L[lang].mashahirTitle;
-  document.getElementById('appeal-title').textContent = L[lang].appealTitle;
-  document.getElementById('contact-info').textContent = L[lang].contact;
-
-  // fixed statistics (Urdu text used for labels)
-  document.getElementById('statistics').innerHTML = `
-    <h3>تعدادِ طلبہ و اساتذہ و ملازمین</h3>
-    <div class="stats-grid">
-      <div><strong>کل طلبہ و طالبات:</strong> 954</div>
-      <div><strong>اقامتی طلبہ:</strong> 334</div>
-      <div><strong>غیر اقامتی طلبہ:</strong> 510</div>
-      <div><strong>حفظ و تجوید کے طلبہ:</strong> 198</div>
-      <div><strong>ناظرہ کے طلبہ:</strong> 182</div>
-      <div><strong>عربی و فارسی کے طلبہ:</strong> 75</div>
-      <div><strong>کل فارغین شعبہ تجوید:</strong> 12</div>
-      <div><strong>کل فارغین حفاظ (سال 1436ھ تا 1445ھ):</strong> 96</div>
-      <div><strong>کل تعداد اساتذہ و ملازمین:</strong> 80</div>
-      <div><strong>اساتذہ عربی:</strong> 8</div>
-      <div><strong>اساتذہ حفظ و تجوید:</strong> 13</div>
-      <div><strong>اساتذہ ناظرہ و ابتدائیہ:</strong> 16</div>
-      <div><strong>اساتذہ اسکول:</strong> 21</div>
-      <div><strong>ملازمین و عملہ:</strong> 12</div>
-    </div>
-  `;
-}
-
-// initial
-setLanguage('ur');
-document.querySelectorAll('.lang-switch button').forEach(b=>{
-  b.addEventListener('click', ()=>{
-    document.querySelectorAll('.lang-switch button').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active');
-    setLanguage(b.getAttribute('data-lang'));
-  });
-});
-</script>
+<script src="./script.js"></script>
 </body>
 </html>
