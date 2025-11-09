@@ -1,26 +1,47 @@
-:root{--green-700:#047857;--gold:#d4af37}
-*{box-sizing:border-box}body{margin:0;font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;background:#f7fbf7;color:#06383d}
-.site-header{background:linear-gradient(90deg,#ecfdf5,#f0fdf4);padding:12px;border-bottom:1px solid #e6f4ea}
-.header-top{text-align:center;padding:6px}.ayah{color:var(--gold);font-weight:700;font-size:20px}
-.header-main{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1100px;margin:8px auto;padding:6px}
-.logo{width:100px;height:100px;object-fit:contain}.school-name{text-align:center}
-.school-name .name{font-family:Adil, AkramUnicode, serif;font-size:40px;font-weight:900;color:#064e3b}
-.school-name .address{font-family:'Jameel Noori Kasheeda', serif;font-size:15px;color:#11403c;margin-top:6px}
-.lang-switch{display:flex;gap:8px;justify-content:center;margin-top:6px}
-.lang-switch button{background:transparent;border:1px solid #cfeee5;padding:6px 10px;border-radius:6px;cursor:pointer;color:#064e3b}
-.lang-switch button.active{background:#064e3b;color:white}
-.nav-box{max-width:1200px;margin:12px auto;background:white;padding:8px;border-radius:10px;display:flex;gap:8px;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(2,6,23,0.06);flex-wrap:wrap}
-.nav-box a{color:var(--green-700);text-decoration:none;padding:8px 12px;border-radius:6px;font-weight:600}
-.hero{max-width:1100px;margin:10px auto;padding:0 12px}
+:root{
+  --green:#047857;
+  --light:#f6fff6;
+  --gold:#d4af37;
+  --card-bg:#ffffff;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;background:var(--light);color:#0b3b30}
+.site-header{padding:8px 12px;border-bottom:1px solid rgba(4,64,55,.06)}
+.header-top{text-align:center;padding:6px}
+.ayah{font-size:20px;color:var(--gold);font-weight:700}
+.ayah-translation{font-size:14px;color:#083b1d}
+.header-main{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:8px auto;padding:6px}
+.logo{width:90px;height:90px;object-fit:contain}
+.school-name{text-align:center}
+.school-name .name{font-family:Adil, 'Akram Unicode', serif;font-size:36px;font-weight:800;color:var(--green)}
+.school-name .address{font-family:'Jameel Noori Kasheeda', serif;font-size:15px;color:#11403c}
+.controls{max-width:1100px;margin:6px auto;display:flex;align-items:center;justify-content:space-between;padding:0 8px}
+.lang-switch{display:flex;gap:8px}
+.lang-btn{background:transparent;border:1px solid rgba(4,64,55,.08);padding:6px 10px;border-radius:6px;cursor:pointer;color:var(--green)}
+.lang-btn.active{background:var(--green);color:#fff}
+.youtube-btn{background:transparent;color:#c00;padding:6px 10px;border-radius:6px;text-decoration:none;font-weight:700}
+.nav{max-width:1200px;margin:12px auto;background:var(--card-bg);padding:8px;border-radius:8px;display:flex;gap:8px;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(2,6,23,0.04);flex-wrap:wrap}
+.nav a, .dropdown-toggle{color:var(--green);text-decoration:none;padding:8px 12px;border-radius:6px;font-weight:600;cursor:pointer;background:transparent;border:none}
+.card{max-width:1100px;margin:18px auto;background:var(--card-bg);padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,0.03)}
+.hero{padding:0}
 .slideshow{position:relative;overflow:hidden;border-radius:12px;height:360px}
 .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
 .slide.show{opacity:1}
-.card{max-width:1100px;margin:18px auto;background:white;padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,0.04)}
-.card h2{color:var(--green-700);margin-top:0}
 .gallery-slideshow{position:relative;overflow:hidden;border-radius:8px;height:300px}
 .gslide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
 .gslide.gshow{opacity:1}
+.dropdown-list{position:relative;display:inline-block}
+.dropdown-menu{display:none;position:absolute;top:40px;right:0;background:white;min-width:200px;border-radius:8px;box-shadow:0 8px 18px rgba(2,6,23,0.08);padding:8px;z-index:50;text-align:right}
+.dropdown-menu li{list-style:none;padding:6px 8px}
+.dropdown-menu li a{color:#06383d;text-decoration:none;font-weight:600}
+.dropdown-list.open .dropdown-menu{display:block}
 .stats-card{background:#ffffff;padding:12px;border-radius:8px;margin-top:12px}
 .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.site-footer{height:80px;background:#fff;margin-top:20px;border-top:1px solid #eef6f3;display:flex;align-items:center;justify-content:center;padding:12px}
-@media(max-width:720px){.header-main{flex-direction:column}.logo{width:72px;height:72px}.school-name .name{font-size:28px}.stats-grid{grid-template-columns:1fr}}
+.site-footer{background:var(--light);padding:18px;text-align:center;border-top:1px solid rgba(4,64,55,0.05);margin-top:20px}
+@media(max-width:720px){
+  .header-main{flex-direction:column}
+  .logo{width:70px;height:70px}
+  .school-name .name{font-size:26px}
+  .stats-grid{grid-template-columns:1fr}
+  .dropdown-menu{right:8px;left:8px}
+}
