@@ -1,6 +1,0 @@
-<!doctype html><html><head><meta charset="utf-8"><title>Admin - Darul Uloom</title></head>
-<body>
-  <h2>Admin Panel (Firebase required)</h2>
-  <p>Place your Firebase web config in <code>admin/firebase-config.js</code>.</p>
-  <p>After config, I will provide upload code to save PDFs/images/results to Firebase Storage & Firestore.</p>
-</body></html>
