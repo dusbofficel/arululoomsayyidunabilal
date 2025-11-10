@@ -10,12 +10,12 @@ body{margin:0;font-family: "Segoe UI", Tahoma, Arial, sans-serif;background:var(
 .site-header{border-bottom:4px solid var(--dark-green)}
 .top-ayat{background:linear-gradient(90deg,#f7fff7,#eefef0);padding:10px;text-align:center}
 .ayah-arabic{color:var(--dark-green);font-weight:800;font-size:20px}
-.ayah-translation{color:#234a3f;font-size:13px;margin-top:4px}
+.ayah-translation{font-family:'Jameel Noori Nastaleeq Kasheeda', color:#234a3f;font-size:14px;margin-top:4px}
 .header-main{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:10px auto;padding:10px}
 .logo{width:90px;height:90px;object-fit:contain}
 .brand{text-align:center}
-.school-name{font-family:'Akram Unicode', 'Adil', serif;font-size:34px;color:var(--dark-green);font-weight:800}
-.school-address{font-family:'Jameel Noori Kasheeda', serif;color:#11403c;font-size:14px}
+.school-name{font-family:'Akram Unicode', 'Adil', serif;font-size:48px;color:var(--dark-green);font-weight:800}
+.school-address{font-family:'Jameel Noori Nastaleeq Kasheeda', serif;color:#11403c;font-size:16px}
 .controls-row{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:8px}
 .lang-switch{display:flex;gap:8px}
 .lang-btn{padding:6px 10px;border-radius:6px;border:1px solid rgba(4,64,55,.08);background:transparent;color:var(--dark-green);cursor:pointer}
