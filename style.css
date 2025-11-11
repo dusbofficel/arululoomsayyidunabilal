@@ -134,3 +134,20 @@ nav ul li ul a:hover {
     margin: 6px 0;
   }
 }
+#gallery h2 {
+  color: #1b5e20;
+  font-size: 28px;
+  border-bottom: 2px solid #81c784;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+#gallery figcaption {
+  margin-top: 5px;
+  font-size: 16px;
+  color: #33691e;
+}
+#gallery img:hover {
+  transform: scale(1.03);
+  transition: 0.4s;
+}
+
