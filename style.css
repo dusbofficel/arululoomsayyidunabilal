@@ -6,16 +6,18 @@ body {
   background-color: #fdfdfd;
   direction: rtl;
   text-align: right;
+  scroll-behavior: smooth;
 }
 
-header, nav, section, footer {
+section, header, nav, footer {
   width: 100%;
+  text-align: center;
 }
 
 /* ─── قرآنِ کریم کی آیت ───────────────────────── */
 #quran-verse {
   background: #e8f5e9;
-  padding: 15px;
+  padding: 12px;
   border-bottom: 2px solid #a5d6a7;
 }
 #quran-verse h3 {
@@ -28,17 +30,38 @@ header, nav, section, footer {
   color: #33691e;
 }
 
-/* ─── مدرسے کا نام اور ایڈریس ─────────────────── */
-.madarsa-name {
+/* ─── ہیڈر ───────────────────────────── */
+#madarsa-header {
+  background: #c8e6c9;
+  padding: 20px 0;
+  border-bottom: 2px solid #81c784;
+  position: relative;
+}
+.logo {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  top: 10px;
+}
+.logo.left { left: 10%; }
+.logo.right { right: 10%; }
+
+#madarsa-header h1 {
+  font-family: "Adil", "Jameel Noori Kasheeda";
   font-size: 42px;
   color: #004d40;
+  margin-bottom: 5px;
 }
-.address {
+#madarsa-header p {
   font-size: 20px;
   color: #00695c;
+  margin: 0;
 }
 
-/* ─── زبان سوئچر ─────────────────────────────── */
+/* ─── زبان بٹن ───────────────────────── */
+#language-switcher {
+  margin: 15px 0;
+}
 #language-switcher button {
   background-color: #a5d6a7;
   border: none;
@@ -55,45 +78,39 @@ header, nav, section, footer {
   color: white;
 }
 
-/* ─── نیویگیشن مینو ───────────────────────────── */
-nav {
+/* ─── نیویگیشن ───────────────────────── */
+#main-menu {
   background-color: #c8e6c9;
   border-top: 2px solid #81c784;
   border-bottom: 2px solid #81c784;
   font-size: 18px;
   font-weight: bold;
-  direction: rtl;
-  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
-
-nav ul {
+#main-menu ul {
   list-style: none;
   margin: 0;
-  padding: 0;
-  display: inline-block;
+  padding: 10px 0;
 }
-
-nav ul li {
+#main-menu li {
   display: inline-block;
   margin: 0 10px;
   position: relative;
 }
-
-nav a {
+#main-menu a {
   color: #004d40;
   text-decoration: none;
   padding: 8px 10px;
   border-radius: 6px;
   transition: 0.3s;
 }
-
-nav a:hover {
+#main-menu a:hover {
   background-color: #81c784;
   color: white;
 }
-
-/* ─── ڈراپ ڈاؤن ──────────────────────────────── */
-nav ul li ul {
+#main-menu li ul {
   display: none;
   position: absolute;
   right: 0;
@@ -101,38 +118,36 @@ nav ul li ul {
   border-radius: 6px;
   padding: 8px;
   min-width: 180px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   z-index: 100;
 }
-
-nav ul li ul li {
+#main-menu li ul li {
   display: block;
   margin: 5px 0;
 }
-
-nav ul li ul a {
+#main-menu li:hover ul {
   display: block;
-  padding: 6px 8px;
-  color: #1b5e20;
 }
 
-nav ul li ul a:hover {
-  background-color: #a5d6a7;
-  color: white;
+/* ─── سلائیڈر ───────────────────────── */
+#slider {
+  margin-top: 20px;
+  text-align: center;
+}
+#slider img {
+  width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+#slide-caption {
+  font-size: 20px;
+  margin-top: 8px;
+  color: #2e7d32;
 }
 
-/* ─── Responsive (موبائل پر بہتر دکھائی دے) ───── */
-@media (max-width: 768px) {
-  .madarsa-name {
-    font-size: 30px;
-  }
-  .address {
-    font-size: 18px;
-  }
-  nav ul li {
-    display: block;
-    margin: 6px 0;
-  }
+/* ─── گیلری ───────────────────────── */
+#gallery {
+  margin: 40px 0;
 }
 #gallery h2 {
   color: #1b5e20;
@@ -141,14 +156,34 @@ nav ul li ul a:hover {
   display: inline-block;
   padding-bottom: 6px;
 }
+.gallery-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+}
+#gallery figure {
+  width: 30%;
+}
+#gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: 0.4s;
+}
+#gallery img:hover {
+  transform: scale(1.03);
+}
 #gallery figcaption {
   margin-top: 5px;
   font-size: 16px;
   color: #33691e;
 }
-#gallery img:hover {
-  transform: scale(1.03);
-  transition: 0.4s;
+
+/* ─── یوٹیوب سیکشن ───────────────────────── */
+#youtube {
+  margin: 50px 0;
 }
 #youtube h2 {
   color: #d32f2f;
@@ -157,11 +192,54 @@ nav ul li ul a:hover {
   display: inline-block;
   padding-bottom: 5px;
 }
-
-#youtube img:hover {
-  transform: scale(1.02);
-  transition: 0.4s;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+#youtube-box {
+  display: inline-block;
+  position: relative;
+  width: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+#youtube-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+#play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 0, 0, 0.85);
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* ─── فُٹر ───────────────────────── */
+footer {
+  background-color: #e8f5e9;
+  border-top: 2px solid #81c784;
+  padding: 20px 0;
+  color: #004d40;
+  font-size: 16px;
+}
+#blink {
+  color: #c62828;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
 
+/* ─── موبائل کے لیے ───────────────────────── */
+@media (max-width: 768px) {
+  #madarsa-header h1 { font-size: 30px; }
+  #madarsa-header p { font-size: 18px; }
+  #gallery figure { width: 90%; }
+  .logo.left, .logo.right { display: none; }
+}
