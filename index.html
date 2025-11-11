@@ -1,185 +1,0 @@
-<!doctype html>
-<html lang="ur" dir="rtl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Darul Uloom Sayyiduna Bilal — dusbofficial</title>
-  <link rel="icon" href="./assets/logo.png" />
-  <link rel="stylesheet" href="./style.css" />
-</head>
-<body>
-
-<!-- HEADER -->
-<header class="site-header">
-  <div class="top-ayat">
-    <div class="ayah-arabic">يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ</div>
-    <div class="ayah-translation" id="ayah-translation">(اللہ اہلِ ایمان اور اہلِ علم کے درجے بلند کرتا ہے — سورۃ المجادلہ:11)</div>
-  </div>
-
-  <div class="header-main">
-    <img src="./assets/logo.png" alt="logo" class="logo left">
-    <div class="brand">
-      <div class="school-name">دارالعلوم سیدنا بلالؓ</div>
-      <div class="school-address">مقام ناکھنول، تحصیل تجارہ، ضلع خیرتھل، راجستھان — 301707</div>
-    </div>
-    <img src="./assets/logo.png" alt="logo" class="logo right">
-  </div>
-
-  <div class="controls-row">
-    <div class="lang-switch">
-      <button class="lang-btn active" data-lang="ur">اردو</button>
-      <button class="lang-btn" data-lang="hi">हिन्दी</button>
-      <button class="lang-btn" data-lang="en">English</button>
-    </div>
-    <a class="yt-btn" href="https://youtube.com/@mewatidunyanaat?si=wOB5Cwt89x5z3V9i" target="_blank">🔴 یوٹیوب</a>
-  </div>
-
-  <nav class="main-nav" id="main-nav">
-    <a href="#home" class="nav-link">ہوم</a>
-    <a href="#intro" class="nav-link">تعارف</a>
-
-    <div class="nav-dropdown" data-name="curriculum">
-      <button class="nav-toggle">نصابِ تعلیم ▾</button>
-      <div class="nav-menu">
-        <a href="./pages/nazerah.html">شعبہ ناظرہ</a>
-        <a href="./pages/hifz.html">شعبہ تحفیظ</a>
-        <a href="./pages/farsi.html">شعبہ فارسی</a>
-        <a href="./pages/arab1.html">عربی — اول</a>
-        <a href="./pages/arab2.html">عربی — دوم</a>
-        <a href="./pages/arab3.html">عربی — سوم</a>
-        <a href="./pages/arab4.html">عربی — چہارم</a>
-        <a href="./pages/arab5.html">عربی — پنجم</a>
-      </div>
-    </div>
-
-    <div class="nav-dropdown" data-name="departments">
-      <button class="nav-toggle">شعبہ جات ▾</button>
-      <div class="nav-menu">
-        <a href="./pages/daralfatawa.html">ناظرہ</a>
-        <a href="./pages/daralhadith.html">تحفیظ</a>
-        <a href="./pages/daraltafseer.html">تجویدوقرأت</a>
-        <a href="./pages/daraltahfiz.html">فارسی</a>
-        <a href="./pages/daralqiraat.html">عربی</a>
-        <a href="./pages/daraladab.html">اسکول</a>
-        <a href="./pages/daraltaalim.html">انجمن</a>
-        <a href="./pages/daraltaalim.html">سائنس و ٹیکنالوجی</a>  
-        <a href="./pages/daraltaalim.html">انگلش</a>
-    </div>
-
-    <a href="#activities" class="nav-link">دیگر نشاطات</a>
-    <a href="#results" class="nav-link">نتائج</a>
-    <a href="#admissions" class="nav-link">جدید داخلے</a>
-    <a href="#contact" class="nav-link">رابطہ</a>
-  </nav>
-</header>
-
-<!-- NEWS TICKER -->
-<div class="news-bar" id="news-bar">
-  <div class="news-inner" id="news-inner">
-    <span>جدید داخلوں کا اعلان بہت جلد جاری کردیا جائے گا</span>
-    <span>نوٹس: سالانہ نتائج جلد اپلوڈ کیے جائیں گے</span>
-    <span>گیلری اپڈیٹ: محفلِ علمی کے مناظر شامل کر دیے گئے</span>
-  </div>
-</div>
-
-<!-- MAIN -->
-<main id="main-content">
-  <!-- HERO / SLIDER -->
-  <section id="home" class="hero card">
-    <div class="slider" id="slider">
-      <img src="./assets/slide1.jpg" class="slide show" alt="slide1">
-      <img src="./assets/slide2.jpg" class="slide" alt="slide2">
-      <img src="./assets/slide3.jpg" class="slide" alt="slide3">
-      <img src="./assets/slide4.jpg" class="slide" alt="slide4">
-      <img src="./assets/slide5.jpg" class="slide" alt="slide5">
-    </div>
-  </section>
-
-  <!-- INTRO -->
-  <section id="intro" class="card">
-    <h2 class="section-title" id="intro-title">تعارف</h2>
-    <div id="intro-content">مختصر تعارفی متن یہاں دکھایا جائے گا۔ آپ بعد میں PDF سے تفصیل لگا سکتے ہیں۔</div>
-    <p><a href="./pdfs/Taaru_Book_Urdu.pdf" target="_blank">پڑھیں: مکمل کتابچہ (PDF)</a></p>
-  </section>
-
-  <!-- CURRICULUM (drop-down handled in nav) -->
-  <section id="curriculum" class="card">
-    <h2 class="section-title" id="curriculum-title">نصابِ تعلیم</h2>
-    <p>نصابِ تعلیم کی تفصیل pages/ فولڈر میں موجود فائلز سے کھلے گی۔</p>
-  </section>
-
-  <!-- DEPARTMENTS -->
-  <section id="departments" class="card">
-    <h2 class="section-title" id="departments-title">شعبہ جات</h2>
-    <p>ہر شعبہ کی تفصیل الگ صفحہ (pages/) میں موجود ہے۔</p>
-  </section>
-
-  <!-- Activities -->
-  <section id="activities" class="card">
-    <h2 class="section-title" id="activities-title">دیگر نشاطات</h2>
-    <p>تفصیل: <a href="./pdfs/Degar_Nashatat.pdf" target="_blank">PDF دیکھیں</a></p>
-  </section>
-
-  <!-- Results -->
-  <section id="results" class="card">
-    <h2 class="section-title" id="results-title">نتائج امتحان</h2>
-    <p id="results-note">ششماہی / سالانہ نتائج admin کے ذریعے اپلوڈ کیے جائیں گے۔</p>
-  </section>
-
-  <!-- Admissions -->
-  <section id="admissions" class="card">
-    <h2 class="section-title" id="admissions-title">جدید داخلے</h2>
-    <p>تفصیل: <a href="./pdfs/Admissions.pdf" target="_blank">داخلہ کا طریقۂ کار (PDF)</a></p>
-  </section>
-
-  <!-- Gallery -->
-  <section id="gallery" class="card">
-    <h2 class="section-title" id="gallery-title">گیلری</h2>
-    <div class="gallery" id="gallery">
-      <img src="./assets/gallery1.jpg" class="gimg show" alt="g1">
-      <img src="./assets/gallery2.jpg" class="gimg" alt="g2">
-      <img src="./assets/gallery3.jpg" class="gimg" alt="g3">
-      <img src="./assets/gallery4.jpg" class="gimg" alt="g4">
-      <img src="./assets/gallery5.jpg" class="gimg" alt="g5">
-      <img src="./assets/gallery6.jpg" class="gimg" alt="g6">
-      <img src="./assets/gallery7.jpg" class="gimg" alt="g7">
-      <img src="./assets/gallery8.jpg" class="gimg" alt="g8">
-    </div>
-  </section>
-
-  <!-- Administration & Stats -->
-  <section id="administration" class="card">
-    <h2 class="section-title">انتظامی امور</h2>
-    <p>سرپرستان کے لیے ہدایات: <a href="./pdfs/Hidayat_Sarparastan.pdf" target="_blank">PDF</a></p>
-    <div class="stats" id="stats">
-      <!-- populated by JS -->
-    </div>
-  </section>
-
-  <!-- Mashahir & Appeal -->
-  <section id="mashahir" class="card">
-    <h2 class="section-title">مشاہیر علماء کا ورود</h2>
-    <p><a href="./pdfs/Mashahir_Ulama.pdf" target="_blank">تفصیل دیکھیں</a></p>
-  </section>
-
-  <section id="appeal" class="card">
-    <h2 class="section-title">تعاون کی اپیل</h2>
-    <p><a href="./pdfs/Tawun_Apeel.pdf" target="_blank">تفصیل دیکھیں</a></p>
-  </section>
-
-</main>
-
-<!-- FOOTER -->
-<footer class="site-footer" id="contact">
-  <div class="f-left">
-    <p>رابطہ: 9024352763 / 9309026986</p>
-    <p>ای میل: dusb212@gmail.com</p>
-  </div>
-  <div class="f-right">
-    <p>© Darul Uloom Sayyiduna Bilal</p>
-  </div>
-</footer>
-
-<script src="./script.js"></script>
-</body>
-</html>
