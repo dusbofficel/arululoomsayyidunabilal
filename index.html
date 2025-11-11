@@ -1,72 +1,119 @@
-<!DOCTYPE html>
-<html lang="ur" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>دارالعلوم سیدنا بلالؓ</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
-</head>
-<body>
-  <!-- لوڈر -->
-  <div id="loader">
-    <div class="spinner"></div>
+<!-- ─── قرآنِ کریم کی آیت ────────────────────────────── -->
+<section id="quran-verse" style="text-align:center; margin-top:10px;">
+  <h3 
+    data-lang
+    data-ur="اِنَّمَا یَخْشَی اللّٰہَ مِنْ عِبَادِہِ الْعُلَمٰؤُا"
+    data-hi="निश्चय ही अल्लाह से केवल विद्वान डरते हैं"
+    data-en="Indeed, only those who have knowledge fear Allah">
+    اِنَّمَا یَخْشَی اللّٰہَ مِنْ عِبَادِہِ الْعُلَمٰؤُا
+  </h3>
+  <p 
+    data-lang
+    data-ur="(ترجمہ: بے شک اللہ سے صرف علم والے ہی ڈرتے ہیں)"
+    data-hi="(अनुवाद: निस्संदेह केवल ज्ञानी लोग ही अल्लाह से डरते हैं)"
+    data-en="(Translation: Surely, only those with knowledge truly fear Allah)">
+    (ترجمہ: بے شک اللہ سے صرف علم والے ہی ڈرتے ہیں)
+  </p>
+</section>
+
+<!-- ─── مدرسے کا نام اور ایڈریس ────────────────────────────── -->
+<header style="text-align:center; margin-top:15px; position:relative;">
+  <img src="assets/logo.png" alt="Logo Right" style="width:90px; height:90px; position:absolute; right:10%; top:10px;">
+  <div style="display:inline-block; text-align:center;">
+    <h1 
+      class="madarsa-name" 
+      style="font-family:'Adil'; font-size:42px; margin:0;"
+      data-lang
+      data-ur="دارالعلوم سیدنا بلالؓ"
+      data-hi="दारुल उलूम सैयदुना बिलाल"
+      data-en="Darul Uloom Sayyiduna Bilal">
+      دارالعلوم سیدنا بلالؓ
+    </h1>
+
+    <p 
+      class="address" 
+      style="font-family:'Jameel Noori Kasheeda'; font-size:22px; margin:5px 0;"
+      data-lang
+      data-ur="مقام ناکھنول، تحصیل تجارہ، ضلع خیرتھل، راجستھان - 301707"
+      data-hi="स्थान: नखनोल, तहसील तिजारा, ज़िला खैरथल, राजस्थान - 301707"
+      data-en="Location: Nakhnaul, Tehsil Tijara, District Khairthal, Rajasthan - 301707">
+      مقام ناکھنول، تحصیل تجارہ، ضلع خیرتھل، راجستھان - 301707
+    </p>
   </div>
+  <img src="assets/logo.png" alt="Logo Left" style="width:90px; height:90px; position:absolute; left:10%; top:10px;">
+</header>
 
-  <!-- ہیڈر -->
-  <header>
-    <img src="assets/logo.png" class="logo" alt="Logo Left">
-    <div class="title">
-      <h1>دارالعلوم سیدنا بلالؓ</h1>
-      <p class="address">مقام ناکھنول، تحصیل تجارہ، ضلع خیرتھل، راجستھان 301707</p>
-      <p>﴿رَبِّ زِدْنِي عِلْمًا﴾ <br> (اے میرے رب! میرے علم میں اضافہ فرما)</p>
-    </div>
-    <img src="assets/logo.png" class="logo" alt="Logo Right">
-  </header>
+<!-- ─── زبان منتخب کرنے کا بٹن ────────────────────────────── -->
+<div id="language-switcher" style="text-align:center; margin:20px 0;">
+  <button onclick="setLanguage('ur')">اردو</button>
+  <button onclick="setLanguage('hi')">हिन्दी</button>
+  <button onclick="setLanguage('en')">English</button>
+</div>
 
-  <!-- زبان منتخب کرنے والا -->
-  <div class="language-selector">
-    <button onclick="setLanguage('ur')">اردو</button>
-    <button onclick="setLanguage('hi')">हिंदी</button>
-    <button onclick="setLanguage('en')">English</button>
-  </div>
+<!-- ─── نیویگیشن مینو (ڈراپ ڈاؤن کے ساتھ) ────────────────────────────── -->
+<nav style="background:#e8f5e9; text-align:center; padding:12px 0; font-size:18px; position:relative;">
+  <ul style="list-style:none; padding:0; margin:0; display:inline-block;">
+    
+    <li style="display:inline-block; margin:0 12px; position:relative;">
+      <a href="index.html" data-lang data-ur="ہوم" data-hi="मुखपृष्ठ" data-en="Home">ہوم</a>
+    </li>
 
-  <!-- نیویگیشن -->
-  <nav>
-    <ul>
-      <li><a href="index.html">🏠 ہوم</a></li>
-      <li><a href="pages/ta'aruf.html">📖 تعارف</a></li>
-      <li><a href="pages/taleemi-hedaf.html">🎓 تعلیمی اہداف</a></li>
-      <li><a href="pages/nisab.html">📚 نصاب تعلیم</a></li>
-      <li><a href="pages/shobajat.html">🏫 شعبہ جات</a></li>
-      <li><a href="pages/deegar-nashatat.html">🎯 دیگر نشاطات</a></li>
-      <li><a href="pages/nataij.html">📊 نتائج امتحان</a></li>
-      <li><a href="pages/jadeed-dakhila.html">📝 جدید داخلے</a></li>
-    </ul>
-  </nav>
+    <li style="display:inline-block; margin:0 12px; position:relative;">
+      <a href="pages/ta'aruf.html" data-lang data-ur="تعارف" data-hi="परिचय" data-en="About">تعارف</a>
+    </li>
 
-  <!-- سلائیڈر -->
-  <div class="slider">
-    <img src="assets/slide1.jpg" class="slide active" alt="">
-    <img src="assets/slide2.jpg" class="slide" alt="">
-    <img src="assets/slide3.jpg" class="slide" alt="">
-  </div>
+    <li style="display:inline-block; margin:0 12px; position:relative;">
+      <a href="pages/taleemi-hedaf.html" data-lang data-ur="تعلیمی اہداف" data-hi="शैक्षिक उद्देश्य" data-en="Educational Goals">تعلیمی اہداف</a>
+    </li>
 
-  <!-- گیلری -->
-  <section id="gallery">
-    <h2>مدرسہ کی تصویری گیلری</h2>
-    <div class="gallery-grid">
-      <img src="assets/gallery1.jpg" alt="">
-      <img src="assets/gallery2.jpg" alt="">
-      <img src="assets/gallery3.jpg" alt="">
-    </div>
-    <a href="https://youtube.com/@mewatidunyanaat?si=wOB5Cwt89x5z3V9i" target="_blank" class="yt-link">🎥 Visit YouTube Channel</a>
-  </section>
+    <!-- ─── نصاب تعلیم (ڈراپ ڈاؤن) ─── -->
+    <li style="display:inline-block; margin:0 12px; position:relative;">
+      <a href="#" data-lang data-ur="نصاب تعلیم" data-hi="पाठ्यक्रम" data-en="Curriculum">نصاب تعلیم ▾</a>
+      <ul style="display:none; position:absolute; right:0; background:#f1f8e9; padding:8px; border-radius:6px;">
+        <li><a href="pages/nisab.html#nazira" data-lang data-ur="شعبہ ناظرہ" data-hi="नाज़िरा विभाग" data-en="Nazirah Section">شعبہ ناظرہ</a></li>
+        <li><a href="pages/nisab.html#hifz" data-lang data-ur="شعبہ تحفیظ" data-hi="हिफ़्ज़ विभाग" data-en="Hifz Section">شعبہ تحفیظ</a></li>
+        <li><a href="pages/nisab.html#farsi" data-lang data-ur="شعبہ فارسی" data-hi="फारसी विभाग" data-en="Farsi Section">شعبہ فارسی</a></li>
+        <li><a href="pages/nisab.html#arabic" data-lang data-ur="شعبہ عربی" data-hi="अरबी विभाग" data-en="Arabic Section">شعبہ عربی</a></li>
+      </ul>
+    </li>
 
-  <!-- فوٹر -->
-  <footer>
-    <p>© 2025 دارالعلوم سیدنا بلالؓ | Designed with guidance and support</p>
-  </footer>
-</body>
-</html>
+    <!-- ─── شعبہ جات (ڈراپ ڈاؤن) ─── -->
+    <li style="display:inline-block; margin:0 12px; position:relative;">
+      <a href="#" data-lang data-ur="شعبہ جات" data-hi="विभाग" data-en="Departments">شعبہ جات ▾</a>
+      <ul style="display:none; position:absolute; right:0; background:#f1f8e9; padding:8px; border-radius:6px;">
+        <li><a href="pages/shobajat.html#iftah" data-lang data-ur="شعبہ افتاء" data-hi="इफ्ता विभाग" data-en="Iftaa Section">شعبہ افتاء</a></li>
+        <li><a href="pages/shobajat.html#arabic" data-lang data-ur="شعبہ عربی" data-hi="अरबी विभाग" data-en="Arabic Dept.">شعبہ عربی</a></li>
+        <li><a href="pages/shobajat.html#hifz" data-lang data-ur="شعبہ تحفیظ" data-hi="हिफ़्ज़ विभाग" data-en="Hifz Dept.">شعبہ تحفیظ</a></li>
+      </ul>
+    </li>
 
+    <!-- ─── دیگر مینو ─── -->
+    <li style="display:inline-block; margin:0 12px;"><a href="pages/deegar-nashatat.html" data-lang data-ur="دیگر نشاطات" data-hi="अन्य गतिविधियाँ" data-en="Activities">دیگر نشاطات</a></li>
+
+    <!-- ─── نتائج امتحان (ڈراپ ڈاؤن) ─── -->
+    <li style="display:inline-block; margin:0 12px; position:relative;">
+      <a href="#" data-lang data-ur="نتائج امتحان" data-hi="परीक्षा परिणाम" data-en="Results">نتائج امتحان ▾</a>
+      <ul style="display:none; position:absolute; right:0; background:#f1f8e9; padding:8px; border-radius:6px;">
+        <li><a href="pages/nataij.html#half" data-lang data-ur="ششماہی نتائج" data-hi="अर्धवार्षिक" data-en="Half-yearly Results">ششماہی نتائج</a></li>
+        <li><a href="pages/nataij.html#annual" data-lang data-ur="سالانہ نتائج" data-hi="वार्षिक" data-en="Annual Results">سالانہ نتائج</a></li>
+      </ul>
+    </li>
+
+    <li style="display:inline-block; margin:0 12px;"><a href="pages/jadeed-dakhila.html" data-lang data-ur="جدید داخلے" data-hi="प्रवेश" data-en="Admissions">جدید داخلے</a></li>
+
+  </ul>
+</nav>
+
+<!-- ─── ڈراپ ڈاؤن شو/ہائڈ کیلئے تھوڑا جاوا اسکرپٹ ─── -->
+<script>
+  document.querySelectorAll('nav li').forEach(li => {
+    li.addEventListener('mouseenter', () => {
+      const submenu = li.querySelector('ul');
+      if (submenu) submenu.style.display = 'block';
+    });
+    li.addEventListener('mouseleave', () => {
+      const submenu = li.querySelector('ul');
+      if (submenu) submenu.style.display = 'none';
+    });
+  });
+</script>
