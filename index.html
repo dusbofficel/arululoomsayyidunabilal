@@ -49,6 +49,52 @@
   <button onclick="setLanguage('hi')">हिन्दी</button>
   <button onclick="setLanguage('en')">English</button>
 </div>
+<!-- ─── سلائیڈر سیکشن ────────────────────────────── -->
+<section id="slider" style="position:relative; text-align:center; margin-top:20px;">
+  <img id="slide-image" src="assets/slide1.jpg" alt="Slide" style="width:90%; height:auto; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+  <p id="slide-caption" 
+     data-lang 
+     data-ur="مدرسہ کی جامع عمارت" 
+     data-hi="मदरसें की भव्य इमारत" 
+     data-en="The main campus building"
+     style="font-size:20px; margin-top:8px; color:#2e7d32;">
+     مدرسہ کی جامع عمارت
+  </p>
+</section>
+
+<!-- ─── گیلری سیکشن ────────────────────────────── -->
+<section id="gallery" style="text-align:center; margin:40px 0;">
+  <h2 
+    data-lang 
+    data-ur="مدرسے کی تصویری جھلکیاں" 
+    data-hi="मदरसे की झलकियाँ" 
+    data-en="Glimpses of the Madrasa">
+    مدرسے کی تصویری جھلکیاں
+  </h2>
+
+  <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:15px;">
+    <figure style="width:30%;">
+      <img src="assets/gallery1.jpg" alt="Gallery 1" style="width:100%; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.2);">
+      <figcaption data-lang data-ur="طلبہ کا درس کے دوران منظر" data-hi="छात्रों का अध्ययन दृश्य" data-en="Students during class">
+        طلبہ کا درس کے دوران منظر
+      </figcaption>
+    </figure>
+
+    <figure style="width:30%;">
+      <img src="assets/gallery2.jpg" alt="Gallery 2" style="width:100%; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.2);">
+      <figcaption data-lang data-ur="اساتذہ کی مجلس" data-hi="शिक्षकों की सभा" data-en="Teachers' gathering">
+        اساتذہ کی مجلس
+      </figcaption>
+    </figure>
+
+    <figure style="width:30%;">
+      <img src="assets/gallery3.jpg" alt="Gallery 3" style="width:100%; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.2);">
+      <figcaption data-lang data-ur="ادارہ کے ہال کا منظر" data-hi="संस्थान के हॉल का दृश्य" data-en="View of the main hall">
+        ادارہ کے ہال کا منظر
+      </figcaption>
+    </figure>
+  </div>
+</section>
 
 <!-- ─── نیویگیشن مینو (ڈراپ ڈاؤن کے ساتھ) ────────────────────────────── -->
 <nav style="background:#e8f5e9; text-align:center; padding:12px 0; font-size:18px; position:relative;">
@@ -117,3 +163,4 @@
     });
   });
 </script>
+
