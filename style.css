@@ -150,4 +150,18 @@ nav ul li ul a:hover {
   transform: scale(1.03);
   transition: 0.4s;
 }
+#youtube h2 {
+  color: #d32f2f;
+  font-size: 26px;
+  border-bottom: 2px solid #ef9a9a;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+#youtube img:hover {
+  transform: scale(1.02);
+  transition: 0.4s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
 
