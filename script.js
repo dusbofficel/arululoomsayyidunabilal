@@ -47,12 +47,19 @@ function showNextSlide() {
 
 setInterval(showNextSlide, 3000); // ہر 3 سیکنڈ بعد تصویر بدلے
 
-// ─── Page Loading Animation ───
-window.addEventListener("load", function() {
+// ─── Page Loading Animation (Fixed Version) ───
+window.addEventListener("load", function () {
   const loader = document.getElementById("loader");
+
+  // 1 second delay for animation
   setTimeout(() => {
     loader.classList.add("fade-out");
-    setTimeout(() => loader.style.display = "none", 800);
   }, 1000);
+
+  // 1.8 seconds later remove it completely
+  setTimeout(() => {
+    loader.style.display = "none";
+  }, 1800);
 });
+
 
