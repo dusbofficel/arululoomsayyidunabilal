@@ -4,6 +4,8 @@ function setLanguage(lang) {
     const text = el.getAttribute(`data-${lang}`);
     if (text) el.innerText = text;
   });
+  document.documentElement.lang = lang;
+  document.body.dir = lang === "en" ? "ltr" : "rtl";
 }
 
 // ─── سلائیڈر ───
@@ -35,7 +37,6 @@ showSlide();
 
 // ─── Scroll Animation ───
 const sections = document.querySelectorAll(".content-section");
-
 function revealSections() {
   sections.forEach(section => {
     const rect = section.getBoundingClientRect();
