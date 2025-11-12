@@ -55,3 +55,29 @@ window.addEventListener("load", function () {
   setTimeout(() => loader.classList.add("fade-out"), 1000);
   setTimeout(() => loader.style.display = "none", 1800);
 });
+
+// ─── موبائل مینو ───
+function toggleMenu() {
+  const menu = document.querySelector("#main-menu ul");
+  menu.classList.toggle("active");
+}
+
+// ─── موبائل dropdown toggle ───
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdowns = document.querySelectorAll(".dropdown > .dropbtn");
+  dropdowns.forEach(btn => {
+    btn.addEventListener("click", e => {
+      // صرف موبائل پر dropdown کھلے
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const parent = btn.parentElement;
+        parent.classList.toggle("open");
+
+        // باقی سب dropdown بند ہو جائیں
+        document.querySelectorAll(".dropdown").forEach(d => {
+          if (d !== parent) d.classList.remove("open");
+        });
+      }
+    });
+  });
+});
