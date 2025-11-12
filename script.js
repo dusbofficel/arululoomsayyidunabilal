@@ -1,65 +1,56 @@
-// Loader animation
-window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-  if (loader) {
-    loader.style.opacity = "0";
-    setTimeout(() => loader.style.display = "none", 500);
-  }
-});
-
-// Slider
-let currentSlide = 0;
-const slides = document.querySelectorAll(".slide");
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove("active");
-    if (i === index) slide.classList.add("active");
+// ─── زبان کا نظام ───
+function setLanguage(lang) {
+  document.querySelectorAll("[data-lang]").forEach(el => {
+    const text = el.getAttribute(`data-${lang}`);
+    if (text) el.innerText = text;
   });
 }
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-}
-setInterval(nextSlide, 3000);
 
-// Language switching
-function setLanguage(lang) {
-  alert("زبان منتخب: " + (lang === 'ur' ? 'اردو' : lang === 'hi' ? 'हिंदी' : 'English'));
-  // بعد میں یہاں ترجمے کی فائلیں لنک کی جا سکتی ہیں
-}
-// ─── سلائیڈر کے لیے ───────────────
-let slides = [
-  { img: "assets/slide1.jpg", ur: "مدرسہ کی جامع عمارت", hi: "मदरसें की भव्य इमारत", en: "The main campus building" },
-  { img: "assets/slide2.jpg", ur: "طلبہ کا مطالعہ کرتے ہوئے منظر", hi: "छात्र अध्ययन करते हुए", en: "Students studying" },
-  { img: "assets/slide3.jpg", ur: "اساتذہ کی تربیتی نشست", hi: "शिक्षकों की प्रशिक्षण बैठक", en: "Teachers' training session" }
+// ─── سلائیڈر ───
+let slideIndex = 0;
+const slides = [
+  "assets/slide1.jpg",
+  "assets/slide2.jpg",
+  "assets/slide3.jpg",
+  "assets/slide4.jpg",
+  "assets/slide5.jpg"
+];
+const captions = [
+  "مدرسے کی جامع عمارت",
+  "طلبہ کا درس",
+  "اساتذہ کی مجلس",
+  "کلاس کا منظر",
+  "دعائیہ اجتماع"
 ];
 
-let currentSlide = 0;
-function showNextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
+function showSlide() {
   const img = document.getElementById("slide-image");
   const cap = document.getElementById("slide-caption");
-  const lang = localStorage.getItem('siteLanguage') || 'ur';
-  
-  img.src = slides[currentSlide].img;
-  cap.textContent = slides[currentSlide][lang];
+  img.src = slides[slideIndex];
+  cap.innerText = captions[slideIndex];
+  slideIndex = (slideIndex + 1) % slides.length;
 }
+setInterval(showSlide, 3000);
+showSlide();
 
-setInterval(showNextSlide, 3000); // ہر 3 سیکنڈ بعد تصویر بدلے
+// ─── Scroll Animation ───
+const sections = document.querySelectorAll(".content-section");
 
-// ─── Page Loading Animation (Fixed Version) ───
+function revealSections() {
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      section.classList.add("visible");
+    }
+  });
+}
+sections.forEach(section => section.classList.add("fade-in-section"));
+window.addEventListener("scroll", revealSections);
+window.addEventListener("load", revealSections);
+
+// ─── Page Loading Animation ───
 window.addEventListener("load", function () {
   const loader = document.getElementById("loader");
-
-  // 1 second delay for animation
-  setTimeout(() => {
-    loader.classList.add("fade-out");
-  }, 1000);
-
-  // 1.8 seconds later remove it completely
-  setTimeout(() => {
-    loader.style.display = "none";
-  }, 1800);
+  setTimeout(() => loader.classList.add("fade-out"), 1000);
+  setTimeout(() => loader.style.display = "none", 1800);
 });
-
-
