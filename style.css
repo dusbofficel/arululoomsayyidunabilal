@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Jameel Noori Kasheeda", "Noto Nastaliq Urdu", serif;
-  background-color: #040429;
+  background-color: #fdfdfd;
   direction: rtl;
   text-align: right;
   scroll-behavior: smooth;
@@ -14,14 +14,14 @@ section, header, nav, footer {
   text-align: center;
 }
 
-/* ─── قرآنِ کریم کی آیت ───────────────────────── */
+/* ─── قرآنِ کریم ───────────────────────── */
 #quran-verse {
-  background: #040429;
+  background: #e8f5e9;
   padding: 12px;
   border-bottom: 2px solid #a5d6a7;
 }
 #quran-verse h3 {
-  font-size: 36px;
+  font-size: 28px;
   color: #1b5e20;
   margin-bottom: 5px;
 }
@@ -30,9 +30,9 @@ section, header, nav, footer {
   color: #33691e;
 }
 
-/* ─── ہیڈر ───────────────────────────── */
+/* ─── ہیڈر ───────────────────────── */
 #madarsa-header {
-  background: #079183;
+  background: #c8e6c9;
   padding: 20px 0;
   border-bottom: 2px solid #81c784;
   position: relative;
@@ -48,8 +48,8 @@ section, header, nav, footer {
 
 #madarsa-header h1 {
   font-family: "Adil", "Jameel Noori Kasheeda";
-  font-size: 72px;
-  color: #27f5c2;
+  font-size: 42px;
+  color: #004d40;
   margin-bottom: 5px;
 }
 #madarsa-header p {
@@ -78,7 +78,7 @@ section, header, nav, footer {
   color: white;
 }
 
-/* ─── نیویگیشن ───────────────────────── */
+/* ─── مینو ───────────────────────── */
 #main-menu {
   background-color: #c8e6c9;
   border-top: 2px solid #81c784;
@@ -110,34 +110,22 @@ section, header, nav, footer {
   background-color: #81c784;
   color: white;
 }
-#main-menu li ul {
-  display: none;
-  position: absolute;
-  right: 0;
-  background: #f1f8e9;
-  border-radius: 6px;
-  padding: 8px;
-  min-width: 180px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  z-index: 100;
-}
-#main-menu li ul li {
-  display: block;
-  margin: 5px 0;
-}
-#main-menu li:hover ul {
-  display: block;
-}
 
 /* ─── سلائیڈر ───────────────────────── */
 #slider {
   margin-top: 20px;
   text-align: center;
+  position: relative;
 }
 #slider img {
   width: 90%;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  animation: fadeSlide 1s ease-in-out;
+}
+@keyframes fadeSlide {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
 }
 #slide-caption {
   font-size: 20px;
@@ -179,6 +167,58 @@ section, header, nav, footer {
   margin-top: 5px;
   font-size: 16px;
   color: #33691e;
+}
+
+/* ─── مرکزی مضامین ───────────────────────── */
+.content-section {
+  padding: 60px 10%;
+  background-color: #f9fff9;
+  border-bottom: 1px solid #c8e6c9;
+}
+.content-section:nth-child(even) {
+  background-color: #f1f8f1;
+}
+.content-section h2 {
+  font-size: 32px;
+  color: #1b5e20;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px solid #81c784;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.content-box {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #004d40;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  text-align: justify;
+}
+.content-box[contenteditable="true"]:hover {
+  outline: 2px dashed #81c784;
+  cursor: text;
+}
+
+/* ─── Scroll Animation ─── */
+.content-section::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 2px;
+  margin: 40px auto 0 auto;
+  background: linear-gradient(to right, transparent, #81c784, transparent);
+}
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ─── یوٹیوب سیکشن ───────────────────────── */
@@ -236,53 +276,45 @@ footer {
   25%, 75% { opacity: 0; }
 }
 
-/* ─── موبائل کے لیے ───────────────────────── */
-@media (max-width: 768px) {
-  #madarsa-header h1 { font-size: 30px; }
-  #madarsa-header p { font-size: 18px; }
-  #gallery figure { width: 90%; }
-  .logo.left, .logo.right { display: none; }
-}
-
-/* ─── Loading Screen Animation ─── */
+/* ─── Loader ───────────────────────── */
 #loader {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: radial-gradient(circle, #a5d6a7 20%, #e8f5e9 100%);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 5000;
+  z-index: 9999;
   transition: opacity 0.8s ease-out;
 }
 .loader-content {
   text-align: center;
   color: #004d40;
-  font-family: "Jameel Noori Kasheeda";
 }
 .loader-content h2 {
   font-size: 36px;
   margin-bottom: 10px;
+  animation: fadeIn 1.2s ease-in-out;
 }
 .loader-content p {
   font-size: 20px;
   color: #1b5e20;
+  animation: fadeIn 1.6s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .fade-out {
   opacity: 0;
   pointer-events: none;
 }
 
-/* ─── Loader Text Animation ─── */
-.loader-content h2, .loader-content p {
-  animation: fadeIn 1.2s ease-in-out;
+/* ─── موبائل ───────────────────────── */
+@media (max-width: 768px) {
+  #madarsa-header h1 { font-size: 30px; }
+  #madarsa-header p { font-size: 18px; }
+  #gallery figure { width: 90%; }
+  .logo.left, .logo.right { display: none; }
 }
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-
