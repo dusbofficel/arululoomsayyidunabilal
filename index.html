@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>دارالعلوم سیدنا بلالؓ</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
 
 <body>
 
-<!-- ─── قرآن کی آیت ───────────────────────────── -->
+<!-- ─── Loading Screen ─── -->
+<div id="loader">
+  <div class="loader-content">
+    <h2>بِسْمِ اللّٰـهِ الرَّحْمٰنِ الرَّحِيْمِ</h2>
+    <p>Loading...</p>
+  </div>
+</div>
+
+<!-- ─── قرآن کی آیت ─── -->
 <section id="quran-verse">
   <h3 data-lang
       data-ur="اِنَّمَا یَخْشَی اللّٰہَ مِنْ عِبَادِہِ الْعُلَمٰؤُا"
@@ -26,7 +34,7 @@
   </p>
 </section>
 
-<!-- ─── مدرسے کا نام و ایڈریس ─────────────────── -->
+<!-- ─── ہیڈر ─── -->
 <header id="madarsa-header">
   <img src="assets/logo.png" alt="Logo Right" class="logo right">
   <div class="title-block">
@@ -46,111 +54,94 @@
   <img src="assets/logo.png" alt="Logo Left" class="logo left">
 </header>
 
-<!-- ─── زبان منتخب کرنے کا بٹن ─────────────────── -->
+<!-- ─── زبان کا انتخاب ─── -->
 <div id="language-switcher">
   <button onclick="setLanguage('ur')">اردو</button>
   <button onclick="setLanguage('hi')">हिन्दी</button>
   <button onclick="setLanguage('en')">English</button>
 </div>
 
-<!-- ─── نیویگیشن مینو ───────────────────────────── -->
+<!-- ─── مینو ─── -->
 <nav id="main-menu">
   <ul>
-    <li><a href="index.html" data-lang data-ur="ہوم" data-hi="मुखपृष्ठ" data-en="Home">ہوم</a></li>
-    <li><a href="pages/ta'aruf.html" data-lang data-ur="تعارف" data-hi="परिचय" data-en="About">تعارف</a></li>
-    <li><a href="pages/taleemi-hedaf.html" data-lang data-ur="تعلیمی اہداف" data-hi="शैक्षिक उद्देश्य" data-en="Educational Goals">تعلیمی اہداف</a></li>
-
-    <li class="dropdown">
-      <a href="#" data-lang data-ur="نصاب تعلیم ▾" data-hi="पाठ्यक्रम ▾" data-en="Curriculum ▾">نصاب تعلیم ▾</a>
-      <ul>
-        <li><a href="pages/nisab.html#nazira" data-lang data-ur="شعبہ ناظرہ" data-hi="नाज़िरा विभाग" data-en="Nazirah Section">شعبہ ناظرہ</a></li>
-        <li><a href="pages/nisab.html#hifz" data-lang data-ur="شعبہ تحفیظ" data-hi="हिफ़्ज़ विभाग" data-en="Hifz Section">شعبہ تحفیظ</a></li>
-        <li><a href="pages/nisab.html#farsi" data-lang data-ur="شعبہ فارسی" data-hi="फारसी विभाग" data-en="Farsi Section">شعبہ فارسی</a></li>
-        <li><a href="pages/nisab.html#arabic" data-lang data-ur="شعبہ عربی" data-hi="अरबी विभाग" data-en="Arabic Section">شعبہ عربی</a></li>
-      </ul>
-    </li>
-
-    <li class="dropdown">
-      <a href="#" data-lang data-ur="شعبہ جات ▾" data-hi="विभाग ▾" data-en="Departments ▾">شعبہ جات ▾</a>
-      <ul>
-        <li><a href="pages/shobajat.html#iftah" data-lang data-ur="شعبہ افتاء" data-hi="इफ्ता विभाग" data-en="Iftaa Section">شعبہ افتاء</a></li>
-        <li><a href="pages/shobajat.html#arabic" data-lang data-ur="شعبہ عربی" data-hi="अरबी विभाग" data-en="Arabic Dept.">شعبہ عربی</a></li>
-        <li><a href="pages/shobajat.html#hifz" data-lang data-ur="شعبہ تحفیظ" data-hi="हिफ़्ज़ विभाग" data-en="Hifz Dept.">شعبہ تحفیظ</a></li>
-      </ul>
-    </li>
-
-    <li><a href="pages/deegar-nashatat.html" data-lang data-ur="دیگر نشاطات" data-hi="अन्य गतिविधियाँ" data-en="Activities">دیگر نشاطات</a></li>
-
-    <li class="dropdown">
-      <a href="#" data-lang data-ur="نتائج امتحان ▾" data-hi="परीक्षा परिणाम ▾" data-en="Results ▾">نتائج امتحان ▾</a>
-      <ul>
-        <li><a href="pages/nataij.html#half" data-lang data-ur="ششماہی نتائج" data-hi="अर्धवार्षिक" data-en="Half-yearly Results">ششماہی نتائج</a></li>
-        <li><a href="pages/nataij.html#annual" data-lang data-ur="سالانہ نتائج" data-hi="वार्षिक" data-en="Annual Results">سالانہ نتائج</a></li>
-      </ul>
-    </li>
-
-    <li><a href="pages/jadeed-dakhila.html" data-lang data-ur="جدید داخلے" data-hi="प्रवेश" data-en="Admissions">جدید داخلے</a></li>
+    <li><a href="#slider" data-lang data-ur="ہوم" data-hi="मुखपृष्ठ" data-en="Home">ہوم</a></li>
+    <li><a href="#introduction" data-lang data-ur="تعارف" data-hi="परिचय" data-en="Introduction">تعارف</a></li>
+    <li><a href="#education-concept" data-lang data-ur="ہمارا تصورِ تعلیم" data-hi="शैक्षिक अवधारणा" data-en="Education Concept">ہمارا تصورِ تعلیم</a></li>
+    <li><a href="#goals" data-lang data-ur="تعلیمی اہداف" data-hi="शैक्षिक उद्देश्य" data-en="Educational Goals">تعلیمی اہداف</a></li>
+    <li><a href="#method" data-lang data-ur="تعلیمی طریقہ کار" data-hi="शिक्षण पद्धति" data-en="Method">تعلیمی طریقہ کار</a></li>
+    <li><a href="#support" data-lang data-ur="تعاون" data-hi="सहयोग" data-en="Support">تعاون</a></li>
   </ul>
 </nav>
 
-<!-- ─── سلائیڈر ───────────────────────────── -->
+<!-- ─── سلائیڈر ─── -->
 <section id="slider">
   <img id="slide-image" src="assets/slide1.jpg" alt="Slide">
-  <p id="slide-caption" data-lang
-     data-ur="مدرسہ کی جامع عمارت"
-     data-hi="मदरसें की भव्य इमारत"
-     data-en="Main campus building">
-     مدرسہ کی جامع عمارت
-  </p>
+  <p id="slide-caption">مدرسہ کی جامع عمارت</p>
 </section>
 
-<!-- ─── گیلری ───────────────────────────── -->
+<!-- ─── گیلری ─── -->
 <section id="gallery">
-  <h2 data-lang data-ur="مدرسے کی تصویری جھلکیاں" data-hi="मदरसे की झलकियाँ" data-en="Glimpses of the Madrasa">
-    مدرسے کی تصویری جھلکیاں
-  </h2>
+  <h2>مدرسے کی تصویری جھلکیاں</h2>
   <div class="gallery-grid">
-    <figure><img src="assets/gallery1.jpg"><figcaption data-lang data-ur="طلبہ کا درس" data-hi="छात्र अध्ययन" data-en="Students in class">طلبہ کا درس</figcaption></figure>
-    <figure><img src="assets/gallery2.jpg"><figcaption data-lang data-ur="اساتذہ کی مجلس" data-hi="शिक्षक सभा" data-en="Teachers' gathering">اساتذہ کی مجلس</figcaption></figure>
-    <figure><img src="assets/gallery3.jpg"><figcaption data-lang data-ur="ادارہ کا منظر" data-hi="संस्थान दृश्य" data-en="Campus view">ادارہ کا منظر</figcaption></figure>
+    <figure><img src="assets/gallery1.jpg"><figcaption>طلبہ کا درس</figcaption></figure>
+    <figure><img src="assets/gallery2.jpg"><figcaption>اساتذہ کی مجلس</figcaption></figure>
+    <figure><img src="assets/gallery3.jpg"><figcaption>ادارہ کا منظر</figcaption></figure>
   </div>
 </section>
 
-<!-- ─── یوٹیوب سیکشن ───────────────────────────── -->
-<section id="youtube">
-  <h2 data-lang data-ur="دارالعلوم کا یوٹیوب چینل" data-hi="दारुल उलूम का यूट्यूब चैनल" data-en="Darul Uloom YouTube Channel">
-    دارالعلوم کا یوٹیوب چینل
-  </h2>
+<!-- ─── مرکزی حصے ─── -->
+<section id="introduction" class="content-section">
+  <h2>تعارف</h2>
+  <div class="content-box" contenteditable="true">
+    <p>یہاں دارالعلوم کا تعارف درج ہوگا...</p>
+  </div>
+</section>
 
+<section id="education-concept" class="content-section">
+  <h2>ہمارا تصورِ تعلیم</h2>
+  <div class="content-box" contenteditable="true">
+    <p>یہاں تصورِ تعلیم کی تفصیل آئے گی...</p>
+  </div>
+</section>
+
+<section id="goals" class="content-section">
+  <h2>تعلیمی اہداف</h2>
+  <div class="content-box" contenteditable="true">
+    <p>یہاں تعلیمی اہداف تحریر کیے جائیں گے...</p>
+  </div>
+</section>
+
+<section id="method" class="content-section">
+  <h2>تعلیمی طریقہ کار</h2>
+  <div class="content-box" contenteditable="true">
+    <p>یہاں طریقہ تعلیم کی وضاحت درج ہوگی...</p>
+  </div>
+</section>
+
+<section id="support" class="content-section">
+  <h2>آپ ہمارا تعاون کیسے کر سکتے ہیں</h2>
+  <div class="content-box" contenteditable="true">
+    <p>یہاں تعاون کے متعلق تفصیل آئے گی...</p>
+  </div>
+</section>
+
+<!-- ─── یوٹیوب سیکشن ─── -->
+<section id="youtube">
+  <h2>دارالعلوم کا یوٹیوب چینل</h2>
   <a href="https://youtube.com/@mewatidunyanaat?si=wOB5Cwt89x5z3V9i" target="_blank" id="youtube-box">
     <img src="assets/youtube-thumb.jpg" alt="YouTube Thumbnail">
     <div id="play-button">
       <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="28" height="28" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
     </div>
   </a>
-
-  <p data-lang data-ur="مزید ویڈیوز دیکھنے کے لیے کلک کریں" data-hi="और वीडियो देखने के लिए क्लिक करें" data-en="Click to watch more videos">
-    مزید ویڈیوز دیکھنے کے لیے کلک کریں
-  </p>
+  <p>مزید ویڈیوز دیکھنے کے لیے کلک کریں</p>
 </section>
 
-<!-- ─── فُٹر ───────────────────────────── -->
+<!-- ─── فُٹر ─── -->
 <footer>
-  <p data-lang data-ur="دارالعلوم سیدنا بلالؓ - تمام حقوق محفوظ ہیں © 2025"
-     data-hi="दारुल उलूम सैयदुना बिलाल - सर्वाधिकार सुरक्षित © 2025"
-     data-en="Darul Uloom Sayyiduna Bilal - All Rights Reserved © 2025">
-     دارالعلوم سیدنا بلالؓ - تمام حقوق محفوظ ہیں © 2025
-  </p>
-
-  <p id="blink" data-lang
-     data-ur="(بینک اکاؤنٹ کی تفصیل جلد آرہی ہے...)"
-     data-hi="(बैंक विवरण शीघ्र आ रहा है...)"
-     data-en="(Bank account details coming soon...)">
-     (بینک اکاؤنٹ کی تفصیل جلد آرہی ہے...)
-  </p>
+  <p>دارالعلوم سیدنا بلالؓ - تمام حقوق محفوظ ہیں © 2025</p>
+  <p id="blink">(بینک اکاؤنٹ کی تفصیل جلد آرہی ہے...)</p>
 </footer>
 
 </body>
 </html>
-
-
