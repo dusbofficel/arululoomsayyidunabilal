@@ -62,18 +62,18 @@ function toggleMenu() {
   menu.classList.toggle("active");
 }
 
-// ─── موبائل dropdown toggle ───
+// ─── Dropdown Toggle ───
 document.addEventListener("DOMContentLoaded", () => {
   const dropdowns = document.querySelectorAll(".dropdown > .dropbtn");
+
   dropdowns.forEach(btn => {
     btn.addEventListener("click", e => {
-      // صرف موبائل پر dropdown کھلے
       if (window.innerWidth <= 768) {
         e.preventDefault();
         const parent = btn.parentElement;
         parent.classList.toggle("open");
 
-        // باقی سب dropdown بند ہو جائیں
+        // باقی dropdown بند ہو جائیں
         document.querySelectorAll(".dropdown").forEach(d => {
           if (d !== parent) d.classList.remove("open");
         });
