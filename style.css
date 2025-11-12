@@ -318,3 +318,56 @@ footer {
   #gallery figure { width: 90%; }
   .logo.left, .logo.right { display: none; }
 }
+
+/* ─── Dropdown Menu Style ─── */
+#main-menu ul {
+  list-style: none;
+  background-color: #006400;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+#main-menu ul li {
+  display: inline-block;
+  position: relative;
+}
+
+#main-menu ul li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 12px 18px;
+  font-size: 16px;
+}
+
+#main-menu ul li a:hover, .dropdown:hover .dropbtn {
+  background-color: #004d00;
+}
+
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #e8f5e9;
+  min-width: 220px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+  text-align: right;
+}
+
+.dropdown-content a {
+  color: #004d00;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #c8e6c9;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
