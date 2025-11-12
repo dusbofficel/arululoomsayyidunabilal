@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Jameel Noori Kasheeda", "Noto Nastaliq Urdu", serif;
-  background-color: #06634c;
+  background-color: #040429;
   direction: rtl;
   text-align: right;
   scroll-behavior: smooth;
@@ -16,12 +16,12 @@ section, header, nav, footer {
 
 /* ─── قرآنِ کریم کی آیت ───────────────────────── */
 #quran-verse {
-  background: #e8f5e9;
+  background: #040429;
   padding: 12px;
   border-bottom: 2px solid #a5d6a7;
 }
 #quran-verse h3 {
-  font-size: 28px;
+  font-size: 36px;
   color: #1b5e20;
   margin-bottom: 5px;
 }
@@ -32,7 +32,7 @@ section, header, nav, footer {
 
 /* ─── ہیڈر ───────────────────────────── */
 #madarsa-header {
-  background: #c8e6c9;
+  background: #079183;
   padding: 20px 0;
   border-bottom: 2px solid #81c784;
   position: relative;
@@ -48,7 +48,7 @@ section, header, nav, footer {
 
 #madarsa-header h1 {
   font-family: "Adil", "Jameel Noori Kasheeda";
-  font-size: 42px;
+  font-size: 72px;
   color: #27f5c2;
   margin-bottom: 5px;
 }
@@ -284,4 +284,5 @@ footer {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 
