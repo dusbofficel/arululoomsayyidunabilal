@@ -35,7 +35,7 @@ body {
 }
 
 .date-time {
-  font-family: "Jameel Noori Nastaleeq regulare", serif;
+  font-family: "Jameel Noori Nastaleeq", serif;
   font-size: 18px;
 }
 
@@ -375,4 +375,5 @@ footer {
     height: 180px;
   }
 }
+
 
