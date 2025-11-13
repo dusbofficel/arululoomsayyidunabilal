@@ -81,3 +81,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// ─── Gallery Lightbox ───
+function openLightbox(src) {
+  document.getElementById("lightbox-img").src = src;
+  document.getElementById("lightbox").classList.add("active");
+}
+function closeLightbox() {
+  document.getElementById("lightbox").classList.remove("active");
+}
+
+// ─── Show More / Show Less ───
+function toggleGallery() {
+  const hiddenItems = document.querySelectorAll(".gallery-item.hidden");
+  const btn = document.getElementById("viewMoreBtn");
+  const showing = btn.classList.toggle("expanded");
+
+  hiddenItems.forEach(item => {
+    item.style.display = showing ? "block" : "none";
+  });
+
+  btn.textContent = showing ? "کم دیکھائیں ↑" : "مزید دیکھیں ↓";
+}
