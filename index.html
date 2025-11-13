@@ -1,167 +1,144 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>دارالعلوم سیدنا بلالؓ</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- ────── 🌿 Top Bar ────── -->
-<div id="top-bar">
-  <div class="lang-dropdown">
-    <button class="lang-btn">🌐 زبان ▾</button>
-    <div class="lang-list">
-      <button onclick="setLanguage('ur')">اردو</button>
-      <button onclick="setLanguage('hi')">हिन्दी</button>
-      <button onclick="setLanguage('en')">English</button>
+  <!-- ──────── اوپر والی پٹی ──────── -->
+  <div class="top-bar">
+    <div class="language-select">
+      <select id="languageSwitcher">
+        <option value="ur">اردو</option>
+        <option value="hi">हिन्दी</option>
+        <option value="en">English</option>
+      </select>
     </div>
+    <div class="bismillah">بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِیْمِ</div>
+    <div class="date-time" id="hijriDate"></div>
   </div>
 
-  <div class="bismillah">بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِیمِ</div>
-
-  <div class="top-right">
-    <a href="#" class="login-link">لاگ اِن</a>
-  </div>
-</div>
-
-<!-- ────── 🌿 Date Row ────── -->
-<div id="date-row">
-  <span id="today-date"></span>
-</div>
-
-<!-- ────── 🌿 Header Section ────── -->
-<header id="main-header">
-  <div class="header-inner">
-    <div class="hdr-left">
-      <img src="assets/logo-left.jpg" alt="Logo" class="logo">
-    </div>
-    <div class="hdr-center">
+  <!-- ──────── مدرسے کا نام و ایڈریس ──────── -->
+  <div class="main-header">
+    <img src="assets/logo.png" alt="Logo" class="logo">
+    <div class="madarsa-info">
       <h1 class="madarsa-name">دارالعلوم سیدنا بلالؓ</h1>
-      <p class="address">مقام ناکھنول، تحصیل تجارہ، ضلع خیرتھل، راجستھان – 301707</p>
+      <p class="madarsa-address">مقام ناکھنول، تحصیل تجارہ، ضلع خیرتھل، راجستھان — 301707</p>
     </div>
-    <div class="hdr-right">
-      <div class="info-box">📚 علم و تربیت کا مرکز</div>
-    </div>
-  </div>
-</header>
 
-<!-- ────── 🌿 Navigation Bar ────── -->
-<nav id="main-menu">
-  <ul>
-    <li><a href="#home">ہوم</a></li>
-    <li><a href="#introduction">تعارف</a></li>
-
-    <li class="dropdown">
-      <a href="#">نصاب تعلیم ▾</a>
-      <ul class="dropdown-content">
-        <li><a href="#">شعبہ ابتدائیہ</a></li>
-        <li><a href="#">شعبہ ناظرہ</a></li>
-        <li><a href="#">تحفیظ القرآن</a></li>
-        <li><a href="#">تجوید و قرأت</a></li>
-        <li><a href="#">فارسی و انشاء</a></li>
-        <li><a href="#">عربی اوّل</a></li>
-      </ul>
-    </li>
-
-    <li class="dropdown">
-      <a href="#">شعبہ جات ▾</a>
-      <ul class="dropdown-content">
-        <li><a href="#">ناظرہ قرآن کریم</a></li>
-        <li><a href="#">تحفیظ القرآن الکریم</a></li>
-        <li><a href="#">تجوید و قرأت</a></li>
-        <li><a href="#">فارسی و انشاء پردازی</a></li>
-      </ul>
-    </li>
-
-    <li class="dropdown">
-      <a href="#">نتائج امتحانات ▾</a>
-      <ul class="dropdown-content">
-        <li><a href="#">2023</a></li>
-        <li><a href="#">2024</a></li>
-        <li><a href="#">2025</a></li>
-      </ul>
-    </li>
-
-    <li><a href="#">جدید داخلے</a></li>
-    <li><input type="text" placeholder="🔍 تلاش کریں" style="padding:5px;border-radius:5px;border:none;"></li>
-  </ul>
-</nav>
-
-<!-- ────── 🌿 Slider Section ────── -->
-<section id="slider">
-  <img id="slide-image" src="assets/slider1.jpg" alt="Slider Image" style="width:100%;height:auto;">
-</section>
-
-<!-- ────── 🌿 Introduction Section ────── -->
-<section id="introduction" class="section-box">
-  <h2 style="text-align:center;color:#065;">تعارف</h2>
-  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:20px;">
-    <div class="section-box" style="flex:1;min-width:300px;max-width:500px;">
-      <h3 style="text-align:center;">دارالعلوم سیدنا بلالؓ</h3>
-      <p>یہاں آپ ادارے کا تفصیلی تعارف لکھ سکیں گے...</p>
-    </div>
-    <div class="section-box" style="flex:1;min-width:300px;max-width:500px;">
-      <h3 style="text-align:center;">الہدیٰ پبلک اسکول</h3>
-      <p>یہاں اسکول کے متعلق معلومات لکھی جائیں گی...</p>
+    <div class="prayer-box" id="prayerTimes">
+      <h4>اوقاتِ نماز (راجستھان)</h4>
+      <ul id="prayerList"></ul>
     </div>
   </div>
-</section>
 
-<!-- ────── 🌿 Four Boxes Section ────── -->
-<section id="education-sections" style="text-align:center;">
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1100px;margin:auto;">
-    <div class="section-box"><h3>تصور تعلیم</h3></div>
-    <div class="section-box"><h3>تعلیمی اہداف</h3></div>
-    <div class="section-box"><h3>طریقہ تعلیم</h3></div>
-    <div class="section-box"><h3>تعمیراتی منصوبے</h3></div>
-  </div>
-</section>
+  <!-- ──────── نیویگیشن ──────── -->
+  <nav class="navbar">
+    <ul class="menu">
+      <li><a href="#">ہوم</a></li>
+      <li><a href="#about">تعارف</a></li>
 
-<!-- ────── 🌿 Gallery Section ────── -->
-<section id="gallery" class="section-box">
-  <h2 style="text-align:center;color:#065;">گیلری</h2>
-  <div id="gallery-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;">
-    <script>
-      for(let i=1;i<=6;i++){
-        document.write(`<img src="assets/gallery${i}.jpg" style="width:100%;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.1)">`);
-      }
-    </script>
-  </div>
-  <div style="text-align:center;margin-top:15px;">
-    <button onclick="window.location.href='gallery.html'" style="padding:10px 20px;background:#006400;color:white;border:none;border-radius:6px;">مزید دیکھیں ↓</button>
-  </div>
-</section>
+      <li class="dropdown">
+        <a href="#">نصاب تعلیم ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="#">شعبہ ابتدائیہ</a></li>
+          <li><a href="#">شعبہ ناظرہ</a></li>
+          <li><a href="#">تحفیظ القرآن</a></li>
+          <li><a href="#">تجوید و قرأت</a></li>
+          <li><a href="#">فارسی و انشاء پردازی</a></li>
+          <li><a href="#">عربی اول</a></li>
+          <li><a href="#">عربی دوم</a></li>
+          <li><a href="#">عربی سوم</a></li>
+          <li><a href="#">عربی چہارم</a></li>
+          <li><a href="#">عربی پنجم</a></li>
+        </ul>
+      </li>
 
-<!-- ────── 🌿 YouTube Section ────── -->
-<section id="youtube" class="section-box" style="text-align:center;">
-  <h2>🎥 ہمارے یوٹیوب چینل سے</h2>
-  <a href="https://youtube.com/@mewatidunyanaat" target="_blank">
-    <img src="assets/youtube-thumb.jpg" alt="YouTube Thumbnail" style="width:320px;border-radius:10px;margin-top:15px;">
-  </a>
-</section>
+      <li class="dropdown">
+        <a href="#">شعبہ جات ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="#">ناظرہ قرآن کریم</a></li>
+          <li><a href="#">تحفیظ القرآن الکریم</a></li>
+          <li><a href="#">تجوید و قرأت</a></li>
+          <li><a href="#">فارسی و انشاء پردازی</a></li>
+          <li><a href="#">عالمیت</a></li>
+          <li><a href="#">عصری علوم و فنون</a></li>
+          <li><a href="#">امتحانات و مسابقات</a></li>
+          <li><a href="#">کمپیوٹر سائنس</a></li>
+        </ul>
+      </li>
 
-<!-- ────── 🌿 Footer ────── -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-col">
-      <h4>رابطہ</h4>
-      <p>📞 9024352763 / 9309026986<br>✉️ dusb212@gmail.com</p>
-      <p>🏦 بینک اکاؤنٹ: [جلد شامل ہوگا]</p>
+      <li class="dropdown">
+        <a href="#">طلبہ کی سرگرمیاں ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="#">بزم طیب</a></li>
+          <li><a href="#">بزم الیاسی</a></li>
+          <li><a href="#">بزم انور شاہ</a></li>
+          <li><a href="#">بزم عطاء اللہ</a></li>
+          <li><a href="#">بزم مفکر اسلام</a></li>
+          <li><a href="#">بزم حجۃ الاسلام</a></li>
+          <li><a href="#">بزم حکیم الامت</a></li>
+          <li><a href="#">بزم آزاد</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">نتائج امتحانات ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="#">2023</a></li>
+          <li><a href="#">2024</a></li>
+          <li><a href="#">2025</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#">جدید داخلے</a></li>
+    </ul>
+  </nav>
+
+  <!-- ──────── گیلری ──────── -->
+  <section id="gallery">
+    <h2>گیلری</h2>
+    <div class="gallery-grid">
+      <img src="assets/gallery1.jpg" alt="">
+      <img src="assets/gallery2.jpg" alt="">
+      <img src="assets/gallery3.jpg" alt="">
+      <img src="assets/gallery4.jpg" alt="">
+      <img src="assets/gallery5.jpg" alt="">
+      <img src="assets/gallery6.jpg" alt="">
     </div>
-    <div class="footer-col">
-      <h4>اہم روابط</h4>
-      <p>ہوم | تعارف | نصاب تعلیم | شعبہ جات | نتائج | داخلہ</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    © 2025 دارالعلوم سیدنا بلالؓ — تمام حقوق محفوظ ہیں۔
-  </div>
-</footer>
+  </section>
 
+  <!-- ──────── فوٹر ──────── -->
+  <footer>
+    <div class="footer-top">
+      <div class="contact-info">
+        <h4>رابطہ</h4>
+        <p>📞 9024352763 / 9309026986</p>
+        <p>✉️ dusb212@gmail.com</p>
+        <p>🏦 بینک اکاؤنٹ: ————</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>اہم روابط</h4>
+        <ul>
+          <li><a href="#">ہوم</a></li>
+          <li><a href="#about">تعارف</a></li>
+          <li><a href="#">نصاب تعلیم</a></li>
+          <li><a href="#">شعبہ جات</a></li>
+          <li><a href="#">سرگرمیاں</a></li>
+          <li><a href="#">نتائج</a></li>
+          <li><a href="#">جدید داخلے</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 دارالعلوم سیدنا بلالؓ — تمام حقوق محفوظ ہیں</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
