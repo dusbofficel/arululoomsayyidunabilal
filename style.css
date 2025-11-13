@@ -371,3 +371,49 @@ footer {
   #main-menu ul { flex-direction: column; }
   .footer-top { flex-direction: column; text-align: center; }
 }
+
+/* ──────── 🌿 Hover Effects for Boxes ──────── */
+
+/* عمومی تعارف، نصاب، اور باکسز کے لئے */
+.section-box {
+  transition: all 0.3s ease;
+}
+.section-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0, 64, 32, 0.2);
+  border-color: #9ed59e;
+}
+
+/* تعلیمی باکسز (چار خانے) کے اندر کی حرکت */
+#education-sections .section-box {
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #cfe6cf;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#education-sections .section-box:hover {
+  background: #f4fff4;
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0, 64, 32, 0.2);
+}
+
+/* گیلری کے فوٹو پر زوم */
+#gallery img {
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+#gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* یوٹیوب تھمب نیل پر اینیمیشن */
+#youtube img {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+#youtube img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+}
