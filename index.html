@@ -1,247 +1,164 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>دارالعلوم سیدنا بلالؓ</title>
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
+
 <body>
 
-<!-- ─── Top thin bar: Languages (left), Bismillah (center), small logo/login (right) -->
+<!-- ────── 🌿 Top Bar ────── -->
 <div id="top-bar">
-  <div class="top-left">
-    <div class="lang-dropdown">
-      <button class="lang-btn">زبان ▾</button>
-      <div class="lang-list">
-        <button onclick="setLanguage('ur')">اردو</button>
-        <button onclick="setLanguage('hi')">हिन्दी</button>
-        <button onclick="setLanguage('en')">English</button>
-      </div>
+  <div class="lang-dropdown">
+    <button class="lang-btn">🌐 زبان ▾</button>
+    <div class="lang-list">
+      <button onclick="setLanguage('ur')">اردو</button>
+      <button onclick="setLanguage('hi')">हिन्दी</button>
+      <button onclick="setLanguage('en')">English</button>
     </div>
   </div>
 
-  <div class="top-center">
-    <span class="bismillah">بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِیمِ</span>
-  </div>
+  <div class="bismillah">بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِیمِ</div>
 
   <div class="top-right">
-    <span class="small-logo">
-      <img src="assets/logo-small.png" alt="logo" />
-    </span>
-    <a href="#" class="login-link" data-lang data-ur="لاگ ان" data-hi="लॉग इन" data-en="Login">لاگ ان</a>
+    <a href="#" class="login-link">لاگ اِن</a>
   </div>
 </div>
 
-<!-- ─── Date row (immediately under top bar) -->
+<!-- ────── 🌿 Date Row ────── -->
 <div id="date-row">
-  <div class="date-left">
-    <span id="hijri-date"></span> &nbsp; | &nbsp;
-    <span id="gregorian-date"></span> &nbsp; | &nbsp;
-    <span id="weekday"></span>
-  </div>
+  <span id="today-date"></span>
 </div>
 
-<!-- ─── Main header with big name (white background) -->
+<!-- ────── 🌿 Header Section ────── -->
 <header id="main-header">
   <div class="header-inner">
     <div class="hdr-left">
-      <img src="assets/logo-left.png" alt="logo left" class="big-logo" />
-      <div class="address" data-lang
-           data-ur="مقام ناکھنول، تحصیل تجارہ، ضلع خیرتھل، راجستھان - 301707"
-           data-hi="स्थान: नखनोल, तहसील तिजारा, ज़िला खैरथल, राजस्थान - 301707"
-           data-en="Location: Nakhnaul, Tehsil Tijara, District Khairthal, Rajasthan - 301707">
-        مقام ناکھنول، تحصیل تجارہ، ضلع خیرتھل، راجستھان - 301707
-      </div>
+      <img src="assets/logo-left.png" alt="Logo" class="logo">
     </div>
-
     <div class="hdr-center">
-      <h1 class="madarsa-name" data-lang
-          data-ur="دارالعلوم سیدنا بلالؓ"
-          data-hi="दारुल उलूम सैयदुना बिलाल"
-          data-en="Darul Uloom Sayyiduna Bilal">
-        دارالعلوم سیدنا بلالؓ
-      </h1>
+      <h1 class="madarsa-name">دارالعلوم سیدنا بلالؓ</h1>
+      <p class="address">مقام ناکھنول، تحصیل تجارہ، ضلع خیرتھل، راجستھان – 301707</p>
     </div>
-
     <div class="hdr-right">
-      <img src="assets/logo-right.png" alt="logo right" class="big-logo" />
+      <div class="info-box">📚 علم و تربیت کا مرکز</div>
     </div>
   </div>
 </header>
 
-<!-- ─── Navigation bar (green) with dropdowns and search on far left/right as requested -->
-<nav id="main-menu" class="sticky">
-  <button class="menu-toggle" onclick="toggleMenu()">☰ مینو</button>
+<!-- ────── 🌿 Navigation Bar ────── -->
+<nav id="main-menu">
   <ul>
-    <li><a href="#slider" data-lang data-ur="ہوم" data-hi="मुखपृष्ठ" data-en="Home">ہوم</a></li>
-    <li><a href="#introduction" data-lang data-ur="تعارف" data-hi="परिचय" data-en="Introduction">تعارف</a></li>
+    <li><a href="#home">ہوم</a></li>
+    <li><a href="#introduction">تعارف</a></li>
 
     <li class="dropdown">
-      <a href="#" class="dropbtn">نصابِ تعلیم ▾</a>
-      <div class="dropdown-content">
-        <a href="pages/ibtidaya.html">شعبہ ابتدائیہ</a>
-        <a href="pages/nazirah.html">شعبہ ناظرہ</a>
-        <a href="pages/hifz.html">تحفیظ القرآن الکریم</a>
-        <a href="pages/tajweed.html">تجوید و قرأت</a>
-        <a href="pages/farsi.html">فارسی و انشاء پردازی</a>
-        <a href="pages/arabic1.html">عربی اوّل</a>
-        <a href="pages/arabic2.html">عربی دوم</a>
-        <a href="pages/arabic3.html">عربی سوم</a>
-        <a href="pages/arabic4.html">عربی چہارم</a>
-        <a href="pages/arabic5.html">عربی پنجم</a>
-      </div>
+      <a href="#">نصاب تعلیم ▾</a>
+      <ul class="dropdown-content">
+        <li><a href="#">شعبہ ابتدائیہ</a></li>
+        <li><a href="#">شعبہ ناظرہ</a></li>
+        <li><a href="#">تحفیظ القرآن</a></li>
+        <li><a href="#">تجوید و قرأت</a></li>
+        <li><a href="#">فارسی و انشاء</a></li>
+        <li><a href="#">عربی اوّل</a></li>
+      </ul>
     </li>
 
     <li class="dropdown">
-      <a href="#" class="dropbtn">شعبہ جات ▾</a>
-      <div class="dropdown-content">
-        <a href="pages/nazirah-quran.html">شعبہ ناظرہ قرآن کریم</a>
-        <a href="pages/hifz-quran.html">شعبہ تحفیظ القرآن الکریم</a>
-        <a href="pages/tajweed-qiraat.html">شعبہ تجوید و قرأت</a>
-        <a href="pages/farsi-insa.html">شعبہ فارسی و انشاء پردازی</a>
-        <a href="pages/aalimiyat.html">شعبہ عالمیت</a>
-        <a href="pages/asri-ulum.html">شعبہ عصری علوم و فنون</a>
-        <a href="pages/exams.html">شعبہ امتحانات و مسابقات</a>
-        <a href="pages/computer.html">شعبہ کمپیوٹر و سائنس</a>
-      </div>
+      <a href="#">شعبہ جات ▾</a>
+      <ul class="dropdown-content">
+        <li><a href="#">ناظرہ قرآن کریم</a></li>
+        <li><a href="#">تحفیظ القرآن الکریم</a></li>
+        <li><a href="#">تجوید و قرأت</a></li>
+        <li><a href="#">فارسی و انشاء پردازی</a></li>
+      </ul>
     </li>
 
     <li class="dropdown">
-      <a href="#" class="dropbtn">طلبہ کی علمی و فکری سرگرمیاں ▾</a>
-      <div class="dropdown-content">
-        <a href="pages/bazm-tayyib.html">بزم طیب</a>
-        <a href="pages/bazm-ilyasi.html">بزم الیاسی</a>
-        <a href="pages/bazm-anwar.html">بزم انور شاہ</a>
-        <a href="pages/bazm-ataullah.html">بزم عطاء اللہ</a>
-        <a href="pages/bazm-mufakkir.html">بزم مفکر اسلام</a>
-        <a href="pages/bazm-hujjat.html">بزم حجۃ الاسلام</a>
-        <a href="pages/bazm-hakeem.html">بزم حکیم الامت</a>
-        <a href="pages/bazm-azad.html">بزم آزاد</a>
-      </div>
+      <a href="#">نتائج امتحانات ▾</a>
+      <ul class="dropdown-content">
+        <li><a href="#">2023</a></li>
+        <li><a href="#">2024</a></li>
+        <li><a href="#">2025</a></li>
+      </ul>
     </li>
 
-    <li class="dropdown">
-      <a href="#" class="dropbtn">نتائجِ امتحانات ▾</a>
-      <div class="dropdown-content">
-        <a href="pages/results2023.html">2023</a>
-        <a href="pages/results2024.html">2024</a>
-        <a href="pages/results2025.html">2025</a>
-      </div>
-    </li>
-
-    <li><a href="pages/admission.html" data-lang data-ur="جدید داخلے" data-hi="नए प्रवेश" data-en="Admissions">جدید داخلے</a></li>
-
-    <!-- search on far left (RTL layout will show it visually on the left) -->
-    <li class="search-li">
-      <input id="site-search" type="search" placeholder="تلاش کریں..." />
-      <button onclick="doSearch()" title="Search">🔍</button>
-    </li>
+    <li><a href="#">جدید داخلے</a></li>
+    <li><input type="text" placeholder="🔍 تلاش کریں" style="padding:5px;border-radius:5px;border:none;"></li>
   </ul>
 </nav>
 
-<!-- ─── Slider (full width) -->
+<!-- ────── 🌿 Slider Section ────── -->
 <section id="slider">
-  <img id="slide-image" src="assets/slider1.jpg" alt="slider image" />
-  <div id="slide-caption" data-lang data-ur="مدرسہ کی جامع عمارت" data-hi="मदरसें की भव्य इमारत" data-en="Main campus building">مدرسہ کی جامع عمارت</div>
+  <img id="slide-image" src="assets/slider1.jpg" alt="Slider Image" style="width:100%;height:auto;">
 </section>
 
-<!-- ─── Intro two-box row (single line split into two boxes) -->
-<section id="intro-pair" class="container">
-  <h2 class="section-title" data-lang data-ur="تعارف" data-hi="परिचय" data-en="Introduction">تعارف</h2>
-  <div class="intro-row">
-    <div class="intro-box">
-      <h3>دارالعلوم سیدنا بلال</h3>
-      <div class="intro-editable" contenteditable="true">یہاں دارالعلوم سیدنا بلال کا مضمون لکھیں — آپ بعد میں یہاں مکمل متن داخل کر سکتے ہیں۔</div>
+<!-- ────── 🌿 Introduction Section ────── -->
+<section id="introduction" class="section-box">
+  <h2 style="text-align:center;color:#065;">تعارف</h2>
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:20px;">
+    <div class="section-box" style="flex:1;min-width:300px;max-width:500px;">
+      <h3 style="text-align:center;">دارالعلوم سیدنا بلالؓ</h3>
+      <p>یہاں آپ ادارے کا تفصیلی تعارف لکھ سکیں گے...</p>
     </div>
-
-    <div class="intro-box">
-      <h3>الہدیٰ پبلک اسکول</h3>
-      <div class="intro-editable" contenteditable="true">یہاں الہدیٰ پبلک اسکول کا مضمون لکھیں — آپ بعد میں یہاں مکمل متن داخل کر سکتے ہیں۔</div>
+    <div class="section-box" style="flex:1;min-width:300px;max-width:500px;">
+      <h3 style="text-align:center;">الہدیٰ پبلک اسکول</h3>
+      <p>یہاں اسکول کے متعلق معلومات لکھی جائیں گی...</p>
     </div>
   </div>
 </section>
 
-<!-- ─── Four feature boxes (تصورِ تعلیم، اہداف، طریقہ کار، تعمیراتی منصوبے) -->
-<section id="features" class="container">
-  <div class="feature-grid">
-    <a class="feature-card" href="pages/education-concept.html">
-      <h3 data-lang data-ur="تصورِ تعلیم" data-hi="शैक्षिक अवधारणा" data-en="Education Concept">تصورِ تعلیم</h3>
-    </a>
-    <a class="feature-card" href="pages/goals.html">
-      <h3 data-lang data-ur="تعلیمی اہداف" data-hi="शैक्षिक उद्देश्य" data-en="Educational Goals">تعلیمی اہداف</h3>
-    </a>
-    <a class="feature-card" href="pages/method.html">
-      <h3 data-lang data-ur="طریقہ کار" data-hi="शिक्षण पद्धति" data-en="Methodology">طریقہ کار</h3>
-    </a>
-    <a class="feature-card" href="pages/construction.html">
-      <h3 data-lang data-ur="تعمیراتی منصوبے" data-hi="निर्माण परियोजनाएँ" data-en="Construction">تعمیراتی منصوبے</h3>
-    </a>
+<!-- ────── 🌿 Four Boxes Section ────── -->
+<section id="education-sections" style="text-align:center;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1100px;margin:auto;">
+    <div class="section-box"><h3>تصور تعلیم</h3></div>
+    <div class="section-box"><h3>تعلیمی اہداف</h3></div>
+    <div class="section-box"><h3>طریقہ تعلیم</h3></div>
+    <div class="section-box"><h3>تعمیراتی منصوبے</h3></div>
   </div>
 </section>
 
-<!-- ─── Gallery (6 shown, rest hidden) -->
-<section id="gallery" class="container">
-  <h2 class="section-title" data-lang data-ur="تصویری گیلری" data-hi="गैलरी" data-en="Gallery">تصویری گیلری</h2>
-
-  <div id="gallery-grid" class="gallery-grid">
+<!-- ────── 🌿 Gallery Section ────── -->
+<section id="gallery" class="section-box">
+  <h2 style="text-align:center;color:#065;">گیلری</h2>
+  <div id="gallery-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;">
     <script>
-      for (let i = 1; i <= 50; i++) {
-        const hiddenClass = (i > 6) ? 'hidden' : '';
-        document.write(`
-          <div class="gallery-item ${hiddenClass}">
-            <img src="assets/gallery${i}.jpg" alt="گیلری ${i}" onclick="openLightbox('assets/gallery${i}.jpg')">
-            <p>گیلری ${i}</p>
-          </div>
-        `);
+      for(let i=1;i<=6;i++){
+        document.write(`<img src="assets/gallery${i}.jpg" style="width:100%;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.1)">`);
       }
     </script>
   </div>
-
-  <div class="gallery-controls">
-    <button id="viewMoreBtn" class="view-more-btn" onclick="toggleGallery()">مزید دیکھیں ↓</button>
-  </div>
-
-  <!-- YouTube thumbnail below gallery -->
-  <div id="youtube-box" class="youtube-box">
-    <a href="https://youtube.com/@mewatidunyanaat?si=wOB5Cwt89x5z3V9i" target="_blank">
-      <img src="assets/youtube-thumb.jpg" alt="YouTube" />
-      <div class="yt-play">▶</div>
-    </a>
-    <p data-lang data-ur="ہمارا یوٹیوب چینل" data-hi="हमारा यूट्यूब चैनल" data-en="Our YouTube Channel">ہمارا یوٹیوب چینل</p>
-  </div>
-
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="" alt="preview" />
+  <div style="text-align:center;margin-top:15px;">
+    <button onclick="window.location.href='gallery.html'" style="padding:10px 20px;background:#006400;color:white;border:none;border-radius:6px;">مزید دیکھیں ↓</button>
   </div>
 </section>
 
-<!-- ─── Footer (two-line) -->
+<!-- ────── 🌿 YouTube Section ────── -->
+<section id="youtube" class="section-box" style="text-align:center;">
+  <h2>🎥 ہمارے یوٹیوب چینل سے</h2>
+  <a href="https://youtube.com/@mewatidunyanaat" target="_blank">
+    <img src="assets/youtube-thumb.jpg" alt="YouTube Thumbnail" style="width:320px;border-radius:10px;margin-top:15px;">
+  </a>
+</section>
+
+<!-- ────── 🌿 Footer ────── -->
 <footer>
   <div class="footer-top">
-    <div class="contact">
+    <div class="footer-col">
       <h4>رابطہ</h4>
-      <p>فون: 9024352763 / 9309026986</p>
-      <p>ای میل: dusb212@gmail.com</p>
-      <p>بینک: (تفصیل بعد میں)</p>
+      <p>📞 9024352763 / 9309026986<br>✉️ dusb212@gmail.com</p>
+      <p>🏦 بینک اکاؤنٹ: [جلد شامل ہوگا]</p>
     </div>
-
-    <div class="footer-links">
-      <h4 data-lang data-ur="روابط" data-hi="लिंक" data-en="Links">روابط</h4>
-      <ul>
-        <li><a href="#slider" data-lang data-ur="ہوم" data-hi="मुखपृष्ठ" data-en="Home">ہوم</a></li>
-        <li><a href="#introduction" data-lang data-ur="تعارف" data-hi="परिचय" data-en="Introduction">تعارف</a></li>
-        <li><a href="pages/ibtidaya.html">نصاب تعلیم</a></li>
-        <li><a href="pages/nazirah-quran.html">شعبہ جات</a></li>
-        <li><a href="pages/results2023.html">نتائج</a></li>
-      </ul>
+    <div class="footer-col">
+      <h4>اہم روابط</h4>
+      <p>ہوم | تعارف | نصاب تعلیم | شعبہ جات | نتائج | داخلہ</p>
     </div>
   </div>
-
   <div class="footer-bottom">
-    <p>© 2025 دارالعلوم سیدنا بلالؓ — تمام حقوق محفوظ ہیں</p>
+    © 2025 دارالعلوم سیدنا بلالؓ — تمام حقوق محفوظ ہیں۔
   </div>
 </footer>
 
