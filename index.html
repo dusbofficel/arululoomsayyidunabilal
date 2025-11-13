@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- ──────── اوپر والی پٹی ──────── -->
+  <!-- ──────── اوپر بسم اللہ اور تاریخ ──────── -->
   <div class="top-bar">
     <div class="language-select">
       <select id="languageSwitcher">
@@ -21,7 +21,7 @@
     <div class="date-time" id="hijriDate"></div>
   </div>
 
-  <!-- ──────── مدرسے کا نام و ایڈریس ──────── -->
+  <!-- ──────── لوگو، نام، ایڈریس، نماز ──────── -->
   <div class="main-header">
     <img src="assets/logo.jpg" alt="Logo" class="logo">
     <div class="madarsa-info">
@@ -30,8 +30,11 @@
     </div>
 
     <div class="prayer-box" id="prayerTimes">
-      <h4>اوقاتِ نماز (راجستھان)</h4>
-      <ul id="prayerList"></ul>
+      <h4>اوقاتِ نماز</h4>
+      <div class="prayer-lines">
+        <p id="main-prayers"></p>
+        <p id="other-prayers"></p>
+      </div>
     </div>
   </div>
 
@@ -72,7 +75,7 @@
       </li>
 
       <li class="dropdown">
-        <a href="#">طلبہ کی سرگرمیاں ▾</a>
+        <a href="#">سرگرمیاں ▾</a>
         <ul class="dropdown-content">
           <li><a href="#">بزم طیب</a></li>
           <li><a href="#">بزم الیاسی</a></li>
@@ -86,7 +89,7 @@
       </li>
 
       <li class="dropdown">
-        <a href="#">نتائج امتحانات ▾</a>
+        <a href="#">نتائج ▾</a>
         <ul class="dropdown-content">
           <li><a href="#">2023</a></li>
           <li><a href="#">2024</a></li>
@@ -95,13 +98,52 @@
       </li>
 
       <li><a href="#">جدید داخلے</a></li>
+
+      <li class="search-box">
+        <input type="text" placeholder="تلاش کریں...">
+      </li>
     </ul>
   </nav>
+
+  <!-- ──────── سلائیڈر ──────── -->
+  <section class="slider">
+    <div class="slides">
+      <img src="assets/slider1.jpg" alt="">
+      <img src="assets/slider2.jpg" alt="">
+      <img src="assets/slider3.jpg" alt="">
+      <img src="assets/slider4.jpg" alt="">
+      <img src="assets/slider5.jpg" alt="">
+    </div>
+  </section>
+
+  <!-- ──────── تعارف ──────── -->
+  <section id="about">
+    <h2>تعارف</h2>
+    <div class="about-boxes">
+      <div class="section-box">
+        <h3>دارالعلوم سیدنا بلالؓ</h3>
+        <p>— یہاں تعارف کا مواد بعد میں شامل کیا جائے گا —</p>
+      </div>
+      <div class="section-box">
+        <h3>الہدٰی پبلک اسکول</h3>
+        <p>— یہاں تعارف کا مواد بعد میں شامل کیا جائے گا —</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────── دیگر تعلیمی سیکشن ──────── -->
+  <section id="education-sections">
+    <div class="section-box">ہمارا تصور تعلیم</div>
+    <div class="section-box">تعلیمی اہداف</div>
+    <div class="section-box">تعلیمی طریقہ کار</div>
+    <div class="section-box">تعمیراتی منصوبے</div>
+  </section>
 
   <!-- ──────── گیلری ──────── -->
   <section id="gallery">
     <h2>گیلری</h2>
     <div class="gallery-grid">
+      <!-- 1 سے 50 تک تصاویر -->
       <img src="assets/gallery1.jpg" alt="">
       <img src="assets/gallery2.jpg" alt="">
       <img src="assets/gallery3.jpg" alt="">
@@ -142,4 +184,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
