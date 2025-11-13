@@ -35,8 +35,8 @@ body {
 }
 
 .date-time {
-  font-family: "Jameel Noori Nastaleeq", serif;
-  font-size: 15px;
+  font-family: "Jameel Noori Nastaleeq regulare", serif;
+  font-size: 18px;
 }
 
 /* ─────────── مین ہیڈر ─────────── */
@@ -59,7 +59,7 @@ body {
 
 .madarsa-name {
   font-family: "Diwani Unicode", serif;
-  font-size: 38px;
+  font-size: 48px;
   color: #003366;
   margin: 0;
 }
@@ -375,3 +375,4 @@ footer {
     height: 180px;
   }
 }
+
