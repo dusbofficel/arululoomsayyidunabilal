@@ -200,3 +200,38 @@ footer{ margin-top:40px; background-image: var(--white-pattern); }
 @media (max-width:600px){
   .search-input{ display:none; } /* hide on very small screens, mobile menu covers navigation */
 }
+
+.top-info-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 10px 0;
+    flex-wrap: wrap;
+}
+
+.date-box, .prayer-box, .countdown-box {
+    background: #ffffff;
+    border: 2px solid #006c57;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    padding: 15px;
+    border-radius: 12px;
+    width: 30%;
+    min-width: 260px;
+    text-align: center;
+}
+
+.date-box h4,
+.prayer-box h4,
+.countdown-box h4 {
+    color: #004c39;
+    font-size: 20px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#prayer-main, #prayer-extra, #today-hijri, #today-gregorian,
+#next-prayer-name, #countdown-timer {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #003d2e;
+}
