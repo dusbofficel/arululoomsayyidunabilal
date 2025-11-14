@@ -14,48 +14,140 @@ function updateDates() {
 updateDates();
 setInterval(updateDates, 60000);
 
-/* ---------------- prayer times (geolocation -> Aladhan) ---------------- */
-async function loadPrayerTimes() {
-  const defaultTimes = {
-    Fajr: "05:12", Dhuhr: "12:25", Asr: "15:45", Maghrib: "17:40", Isha: "19:10",
-    Sunrise: "06:35", Ishraq: "07:00", Zawal: "12:00", Sunset:"17:38"
-  };
-  const lineMain = document.getElementById("line-main");
-  const lineOther = document.getElementById("line-other");
+/* =============================
+   HIJRI + GREGORIAN DATE SYSTEM
+   ============================= */
 
-  function applyTimes(t){
-    lineMain.innerText = `فجر: ${t.Fajr} | ظہر: ${t.Dhuhr} | عصر: ${t.Asr} | مغرب: ${t.Maghrib} | عشاء: ${t.Isha}`;
-    lineOther.innerText = `صبح صادق: ${t.Sunrise} | طلوع: ${t.Sunrise} | اشراق: ${t.Ishraq} | زوال: ${t.Zawal} | غروب: ${t.Sunset}`;
-  }
+function loadDates() {
+    const today = new Date();
 
-  try {
-    if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(async pos => {
-        const lat = pos.coords.latitude;
-        const lon = pos.coords.longitude;
-        try {
-          const res = await fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=2`);
-          const json = await res.json();
-          if(json && json.data && json.data.timings){
-            const t = json.data.timings;
-            applyTimes(t);
-            return;
-          }
-        } catch(e){ console.warn("Aladhan API failed", e); }
-        applyTimes(defaultTimes);
-      }, err=>{
-        console.warn('geo err', err);
-        applyTimes(defaultTimes);
-      }, {timeout:8000});
-    } else {
-      applyTimes(defaultTimes);
-    }
-  } catch(e){
-    console.warn('prayer load error', e);
-    applyTimes(defaultTimes);
-  }
+    const gregorian = today.toLocaleDateString("ur-IN", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        weekday: "long"
+    });
+
+    // Hijri
+    const hijri = today.toLocaleDateString("ar-SA-u-ca-islamic", {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
+
+    document.getElementById("today-gregorian").innerHTML = `مطابق: ${gregorian}`;
+    document.getElementById("today-hijri").innerHTML = `تاریخ: ${hijri}`;
 }
-loadPrayerTimes();
+
+loadDates();
+
+/* =============================
+   PRAYER TIMES + GEO LOCATION
+   ============================= */
+
+const prayerMain = document.getElementById("prayer-main");
+const prayerExtra = document.getElementById("prayer-extra");
+
+const nextName = document.getElementById("next-prayer-name");
+const countdownBox = document.getElementById("countdown-timer");
+
+const DEFAULT_LOC = { lat: 27.6483, lon: 76.1991 };
+
+async function getTimes(lat, lon) {
+    try {
+        let res = await fetch(
+            `https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=2`
+        );
+        let data = await res.json();
+        return data.data.timings;
+    } catch {
+        return null;
+    }
+}
+
+function format(t) {
+    prayerMain.innerHTML =
+        `فجر: ${t.Fajr} | ظہر: ${t.Dhuhr} | عصر: ${t.Asr} | مغرب: ${t.Maghrib} | عشاء: ${t.Isha}`;
+
+    prayerExtra.innerHTML =
+        `صبح صادق: ${t.Fajr} | طلوع: ${t.Sunrise} | اشراق: ${t.Sunrise} | زوال: ${t.Dhuhr} | غروب: ${t.Sunset}`;
+}
+
+function convertToDate(time) {
+    const [h, m] = time.split(":");
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, m);
+}
+
+/* -------- NEXT PRAYER CALCULATION ---------- */
+
+function getNextPrayer(t) {
+    const now = new Date();
+
+    const prayers = [
+        { name: "فجر", time: convertToDate(t.Fajr) },
+        { name: "ظہر", time: convertToDate(t.Dhuhr) },
+        { name: "عصر", time: convertToDate(t.Asr) },
+        { name: "مغرب", time: convertToDate(t.Maghrib) },
+        { name: "عشاء", time: convertToDate(t.Isha) }
+    ];
+
+    for (let p of prayers) {
+        if (p.time > now) return p;
+    }
+
+    // اگلے دن کی فجر
+    let fajrTomorrow = convertToDate(t.Fajr);
+    fajrTomorrow.setDate(fajrTomorrow.getDate() + 1);
+
+    return { name: "فجر", time: fajrTomorrow };
+}
+
+/* -------- COUNTDOWN ---------- */
+function startCountdown(prayer) {
+    setInterval(() => {
+        const now = new Date();
+        let diff = prayer.time - now;
+
+        let h = Math.floor(diff / 1000 / 3600);
+        let m = Math.floor((diff % (3600 * 1000)) / 60000);
+        let s = Math.floor((diff % 60000) / 1000);
+
+        countdownBox.innerHTML = `${h} گھنٹے : ${m} منٹ : ${s} سیکنڈ`;
+    }, 1000);
+}
+
+/* -------- MAIN LOADER ---------- */
+async function loadPrayerBox() {
+    let timings;
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            async p => {
+                timings = await getTimes(p.coords.latitude, p.coords.longitude);
+                afterLoad(timings);
+            },
+            async () => {
+                timings = await getTimes(DEFAULT_LOC.lat, DEFAULT_LOC.lon);
+                afterLoad(timings);
+            }
+        );
+    } else {
+        timings = await getTimes(DEFAULT_LOC.lat, DEFAULT_LOC.lon);
+        afterLoad(timings);
+    }
+}
+
+function afterLoad(t) {
+    if (!t) return;
+    format(t);
+    let next = getNextPrayer(t);
+    nextName.innerHTML = next.name;
+    startCountdown(next);
+}
+
+loadPrayerBox();
+
 
 /* ---------------- mobile menu toggle ---------------- */
 const hamburger = document.getElementById('hamburger');
@@ -211,3 +303,4 @@ function applyLang(lang){
 applyLang('ur');
 
 /* ---------------- end ---------------- */
+
