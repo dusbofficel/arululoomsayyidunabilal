@@ -1,57 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ur" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>دارالعلوم سیدنا بلالؓ</title>
+
+  <!-- fonts: assume you have these in assets/fonts or system -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ──────── اوپر بسم اللہ اور تاریخ ──────── -->
-  <div class="top-bar">
-    <div class="language-select">
-      <select id="languageSwitcher">
-        <option value="ur">اردو</option>
-        <option value="hi">हिन्दी</option>
-        <option value="en">English</option>
-      </select>
-    </div>
-    <div class="bismillah">بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِیْمِ</div>
-    <div class="date-time" id="hijriDate"></div>
-  </div>
+  <!-- TOP PATTERN BAR (green pattern background) -->
+  <div class="top-pattern">
+    <div class="top-inner">
+      <div class="top-left">
+        <button id="hamburger" aria-label="menu">☰</button>
+        <div id="mobile-menu" class="mobile-menu hidden">
+          <!-- mobile expanded menu -->
+          <ul>
+            <li><a href="#">ہوم</a></li>
+            <li><a href="#about">تعارف</a></li>
+            <li class="has-sub">نصابِ تعلیم
+              <ul>
+                <li><a href="#">شعبہ ابتدائیہ</a></li>
+                <li><a href="#">شعبہ ناظرہ</a></li>
+                <!-- ... -->
+              </ul>
+            </li>
+            <li><a href="#gallery">گیلری</a></li>
+          </ul>
+        </div>
+      </div>
 
-  <!-- ──────── لوگو، نام، ایڈریس، نماز ──────── -->
-  <div class="main-header">
-    <img src="assets/logo.jpg" alt="Logo" class="logo">
-    <div class="madarsa-info">
-      <h1 class="madarsa-name">دارالعلوم سیدنا بلالؓ</h1>
-      <p class="madarsa-address">مقام ناکھنول، تحصیل تجارہ، ضلع خیرتھل، راجستھان — 301707</p>
-    </div>
+      <div class="top-center">
+        <div class="bismillah">بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِیْمِ</div>
+      </div>
 
-    <div class="prayer-box" id="prayerTimes">
-      <h4>اوقاتِ نماز</h4>
-      <div class="prayer-lines">
-        <p id="main-prayers"></p>
-        <p id="other-prayers"></p>
+      <div class="top-right">
+        <select id="langSelect" class="lang-select">
+          <option value="ur">اردو</option>
+          <option value="hi">हिन्दी</option>
+          <option value="en">English</option>
+        </select>
+        <div id="hijriDate" class="date-text">...</div>
       </div>
     </div>
   </div>
 
-  <!-- ──────── نیویگیشن ──────── -->
+  <!-- MAIN HEADER: WHITE BAND (logo at right, name center, prayer box left) -->
+  <header class="main-header">
+    <div class="header-right">
+      <img src="assets/logo.jpg" alt="logo" class="logo">
+    </div>
+
+    <div class="header-center">
+      <h1 class="site-title">دارالعلوم سیدنا بلالؓ</h1>
+      <p class="site-address">مقام ناکھنول، تحصیل تجارہ، ضلع خیرتھل، راجستھان — 301707</p>
+    </div>
+
+    <div class="header-left">
+      <div class="prayer-card" id="prayerCard">
+        <h4>اوقاتِ نماز</h4>
+        <div class="prayer-lines">
+          <div id="line-main" class="prayer-line">فجر — ظہر — عصر — مغرب — عشاء</div>
+          <div id="line-other" class="prayer-line small">صبح صادق — طلوع — اشراق — زوال — غروب</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVBAR (green band) -->
   <nav class="navbar">
-    <ul class="menu">
+    <ul class="nav-list">
       <li><a href="#">ہوم</a></li>
       <li><a href="#about">تعارف</a></li>
 
       <li class="dropdown">
-        <a href="#">نصاب تعلیم ▾</a>
+        <a href="javascript:void(0)" class="dropbtn">نصابِ تعلیم ▾</a>
         <ul class="dropdown-content">
           <li><a href="#">شعبہ ابتدائیہ</a></li>
           <li><a href="#">شعبہ ناظرہ</a></li>
           <li><a href="#">تحفیظ القرآن</a></li>
           <li><a href="#">تجوید و قرأت</a></li>
-          <li><a href="#">فارسی و انشاء پردازی</a></li>
+          <li><a href="#">فارسی و انشاء</a></li>
           <li><a href="#">عربی اول</a></li>
           <li><a href="#">عربی دوم</a></li>
           <li><a href="#">عربی سوم</a></li>
@@ -61,143 +92,155 @@
       </li>
 
       <li class="dropdown">
-        <a href="#">شعبہ جات ▾</a>
+        <a href="javascript:void(0)" class="dropbtn">شعبہ جات ▾</a>
         <ul class="dropdown-content">
           <li><a href="#">ناظرہ قرآن کریم</a></li>
-          <li><a href="#">تحفیظ القرآن الکریم</a></li>
+          <li><a href="#">تحفیظ القرآن</a></li>
           <li><a href="#">تجوید و قرأت</a></li>
-          <li><a href="#">فارسی و انشاء پردازی</a></li>
+          <li><a href="#">فارسی و انشاء</a></li>
           <li><a href="#">عالمیت</a></li>
-          <li><a href="#">عصری علوم و فنون</a></li>
+          <li><a href="#">عصری علوم</a></li>
           <li><a href="#">امتحانات و مسابقات</a></li>
           <li><a href="#">کمپیوٹر سائنس</a></li>
         </ul>
       </li>
 
       <li class="dropdown">
-        <a href="#">سرگرمیاں ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="#">بزم طیب</a></li>
-          <li><a href="#">بزم الیاسی</a></li>
-          <li><a href="#">بزم انور شاہ</a></li>
-          <li><a href="#">بزم عطاء اللہ</a></li>
-          <li><a href="#">بزم مفکر اسلام</a></li>
-          <li><a href="#">بزم حجۃ الاسلام</a></li>
-          <li><a href="#">بزم حکیم الامت</a></li>
-          <li><a href="#">بزم آزاد</a></li>
+        <a href="javascript:void(0)" class="dropbtn">نتائج ▾</a>
+        <ul class="dropdown-content years-list">
+          <li class="year-item" data-year="2023">2023
+            <ul class="sub-result">
+              <li><a href="results/2023/madarsa.html">مدرسہ</a></li>
+              <li><a href="results/2023/school.html">اسکول</a></li>
+            </ul>
+          </li>
+          <li class="year-item" data-year="2024">2024
+            <ul class="sub-result">
+              <li><a href="results/2024/madarsa.html">مدرسہ</a></li>
+              <li><a href="results/2024/school.html">اسکول</a></li>
+            </ul>
+          </li>
+          <li class="year-item" data-year="2025">2025
+            <ul class="sub-result">
+              <li><a href="results/2025/madarsa.html">مدرسہ</a></li>
+              <li><a href="results/2025/school.html">اسکول</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
 
-      <li class="dropdown">
-        <a href="#">نتائج ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="#">2023</a></li>
-          <li><a href="#">2024</a></li>
-          <li><a href="#">2025</a></li>
-        </ul>
-      </li>
+      <li><a href="#gallery">گیلری</a></li>
 
-      <li><a href="#">جدید داخلے</a></li>
-
-      <li class="search-box">
-        <input type="text" placeholder="تلاش کریں...">
+      <li class="search-li">
+        <input id="searchInput" class="search-input" placeholder="تلاش کریں..." />
       </li>
     </ul>
   </nav>
 
-  <!-- ──────── سلائیڈر ──────── -->
-  <section class="slider">
-    <div class="slides">
-      <img src="assets/slider1.jpg" alt="">
-      <img src="assets/slider2.jpg" alt="">
-      <img src="assets/slider3.jpg" alt="">
-      <img src="assets/slider4.jpg" alt="">
-      <img src="assets/slider5.jpg" alt="">
+  <!-- SLIDER (fade + zoom) -->
+  <section class="slider" aria-label="homepage slider">
+    <div class="slide-track">
+      <div class="slide"><img src="assets/slider1.jpg" alt=""></div>
+      <div class="slide"><img src="assets/slider2.jpg" alt=""></div>
+      <div class="slide"><img src="assets/slider3.jpg" alt=""></div>
+      <div class="slide"><img src="assets/slider4.jpg" alt=""></div>
+      <div class="slide"><img src="assets/slider5.jpg" alt=""></div>
     </div>
   </section>
 
-  <!-- ──────── تعارف ──────── -->
-  <section id="about">
-    <h2>تعارف</h2>
-    <div class="about-boxes">
-      <div class="section-box">
+  <!-- INTRO / ABOUT (heading large + two boxes) -->
+  <section id="about" class="content-section">
+    <h2 class="section-title">تعارف</h2>
+
+    <div class="intro-wrap">
+      <div class="intro-box">
         <h3>دارالعلوم سیدنا بلالؓ</h3>
-        <p>— یہاں تعارف کا مواد بعد میں شامل کیا جائے گا —</p>
+        <p>— مواد بعد میں یہاں لکھا جائے گا —</p>
       </div>
-      <div class="section-box">
+      <div class="intro-box">
         <h3>الہدٰی پبلک اسکول</h3>
-        <p>— یہاں تعارف کا مواد بعد میں شامل کیا جائے گا —</p>
+        <p>— مواد بعد میں یہاں لکھا جائے گا —</p>
       </div>
     </div>
   </section>
 
-  <!-- ──────── دیگر تعلیمی سیکشن ──────── -->
-  <section id="education-sections">
-    <div class="section-box">ہمارا تصور تعلیم</div>
-    <div class="section-box">تعلیمی اہداف</div>
-    <div class="section-box">تعلیمی طریقہ کار</div>
-    <div class="section-box">تعمیراتی منصوبے</div>
+  <!-- education quick boxes (hover lift effect) -->
+  <section class="content-section quad-boxes">
+    <div class="box">ہمارا تصورِ تعلیم</div>
+    <div class="box">تعلیمی اہداف</div>
+    <div class="box">تعلیمی طریقہ کار</div>
+    <div class="box">تعمیراتی منصوبے</div>
   </section>
 
-  <!-- ──────── گیلری ──────── -->
-  <section id="gallery">
-    <h2>گیلری</h2>
-    <div class="gallery-grid">
-      <!-- 1 سے 50 تک تصاویر -->
-      <img src="assets/gallery1.jpg" alt="">
-      <img src="assets/gallery2.jpg" alt="">
-      <img src="assets/gallery3.jpg" alt="">
-      <img src="assets/gallery4.jpg" alt="">
-      <img src="assets/gallery5.jpg" alt="">
-      <img src="assets/gallery6.jpg" alt="">
+  <!-- GALLERY -->
+  <section id="gallery" class="content-section">
+    <h2 class="section-title">گیلری</h2>
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- show first 6 thumbnails -->
+      <img data-src="assets/gallery1.jpg" src="assets/gallery1.jpg" alt="">
+      <img data-src="assets/gallery2.jpg" src="assets/gallery2.jpg" alt="">
+      <img data-src="assets/gallery3.jpg" src="assets/gallery3.jpg" alt="">
+      <img data-src="assets/gallery4.jpg" src="assets/gallery4.jpg" alt="">
+      <img data-src="assets/gallery5.jpg" src="assets/gallery5.jpg" alt="">
+      <img data-src="assets/gallery6.jpg" src="assets/gallery6.jpg" alt="">
+    </div>
+
+    <div class="more-photos">
+      <button id="showMoreBtn">مزید تصاویر دیکھیں</button>
     </div>
   </section>
-<!-- 📺 یوٹیوب چینل سیکشن -->
-<section id="youtube" class="youtube-section">
-  <h2>ہماری ویڈیوز</h2>
-  <div class="youtube-container">
-    <div class="youtube-thumb">
-      <a href="https://youtube.com/@mewatidunyanaat?si=wOB5Cwt89x5z3V9i" target="_blank">
-        <img src="assets/youtube-thumbnail.jpg" alt="YouTube Thumbnail">
-        <div class="play-icon">▶</div>
+
+  <!-- YouTube (live thumbnail handled in script) -->
+  <section id="youtube" class="content-section youtube-section">
+    <h2 class="section-title">ہماری ویڈیوز</h2>
+    <div class="youtube-wrap">
+      <a id="youtubeLink" href="#" target="_blank" class="yt-thumb">
+        <img id="youtubeThumbnail" src="assets/youtube-loading.jpg" alt="youtube thumbnail">
+        <div class="play-circle">▶</div>
       </a>
+      <p class="yt-text">نیچے چینل لنک پر جائیں یا تھمبنیل پر کلک کریں</p>
     </div>
-    <p class="youtube-text">
-      مزید ویڈیوز دیکھنے کے لیے ہمارا یوٹیوب چینل وزٹ کریں —
-      <a href="https://youtube.com/@mewatidunyanaat?si=wOB5Cwt89x5z3V9i" target="_blank" class="channel-link">Mewati Dunya Naat</a>
-    </p>
-  </div>
-</section>
+  </section>
 
-  <!-- ──────── فوٹر ──────── -->
+  <!-- FOOTER: green pattern band + footer content on bg-white pattern -->
   <footer>
-    <div class="footer-top">
-      <div class="contact-info">
+    <div class="footer-top green-band"></div> <!-- green band strip -->
+    <div class="footer-main">
+      <div class="footer-col">
         <h4>رابطہ</h4>
         <p>📞 9024352763 / 9309026986</p>
         <p>✉️ dusb212@gmail.com</p>
         <p>🏦 بینک اکاؤنٹ: ————</p>
       </div>
 
-      <div class="footer-links">
+      <div class="footer-col">
         <h4>اہم روابط</h4>
         <ul>
           <li><a href="#">ہوم</a></li>
           <li><a href="#about">تعارف</a></li>
-          <li><a href="#">نصاب تعلیم</a></li>
-          <li><a href="#">شعبہ جات</a></li>
-          <li><a href="#">سرگرمیاں</a></li>
-          <li><a href="#">نتائج</a></li>
-          <li><a href="#">جدید داخلے</a></li>
+          <li><a href="#gallery">گیلری</a></li>
         </ul>
       </div>
+
+      <div class="footer-col">
+        <h4>پتہ</h4>
+        <p>مقام ناکھنول، تحصیل تجارہ، ضلع خیرتھل، راجستھان — 301707</p>
+      </div>
     </div>
+
     <div class="footer-bottom">
-      <p>© 2025 دارالعلوم سیدنا بلالؓ — تمام حقوق محفوظ ہیں</p>
+      © 2025 دارالعلوم سیدنا بلالؓ — تمام حقوق محفوظ ہیں
     </div>
   </footer>
+
+  <!-- LIGHTBOX for gallery -->
+  <div id="lightbox" class="hidden">
+    <button id="lbClose" class="lb-close">✕</button>
+    <button id="lbPrev" class="lb-arrow lb-prev">‹</button>
+    <img id="lbImg" src="" alt="">
+    <button id="lbNext" class="lb-arrow lb-next">›</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
