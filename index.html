@@ -1,113 +1,226 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>دارالعلوم سیدنا بلالؓ</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>دارالعلوم سیدنا بلالؓ</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- TOP GREEN BAR -->
-<div class="top-bar">بسم اللہ الرحمن الرحیم</div>
+  <!-- TOP: thin green strip (decorative) -->
+  <div class="green-strip"></div>
 
-<!-- MADRASA NAME (white background) -->
-<div class="madrasa-name">دارالعلوم سیدنا بلالؓ</div>
-
-<!-- NAVIGATION -->
-<div class="navbar">
-    <a href="#">ہوم</a>
-    <a href="#">تعارف</a>
-    <a href="#">تعلیمات</a>
-    <a href="#">شعبہ جات</a>
-    <a href="#">نصاب تعلیم</a>
-    <a href="#">نتائج</a>
-    <a href="#">جدید داخلے</a>
-</div>
-
-<!-- MAIN SECTION (SLIDER + STATS) -->
-<div class="main-section">
-
-    <!-- SLIDER -->
-    <div class="slider">
-        <img src="assets/slider1.jpg" class="active">
-        <img src="assets/slider2.jpg">
-        <img src="assets/slider3.jpg">
+  <!-- Bismillah bar (fixed small height) -->
+  <div class="bismillah-bar">
+    <div class="bismillah-left">
+      <img src="assets/logo.jpg" alt="logo" class="brand-logo"> <!-- logo -->
     </div>
 
-    <!-- STATS SECTION -->
-    <div class="stats-box">
-        <div class="stats-title">دارالعلوم سیدنا بلالؓ ایک نظر میں</div>
+    <div class="bismillah-center">
+      <div class="bismillah-text">بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+    </div>
 
-        <div class="stats-row">
-            <div class="stat">اقامتی طلبہ: 450</div>
-            <div class="stat">غیر اقامتی: 500</div>
+    <div class="bismillah-right">
+      <div id="date-and-calendar"></div>
+      <select id="lang" aria-label="language select">
+        <option value="ur">اردو</option>
+        <option value="hi">हिंदी</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- White name strip -->
+  <header class="name-strip">
+    <div class="name-inner">
+      <h1 id="site-title">دارالعلوم سیدنا بلالؓ</h1>
+      <p id="site-address">مقام: ناک نول، تحصیل تجارہ، ضلع خیر، راجستھان — پن کوڈ: ۳۰۱۷۰۷</p>
+    </div>
+  </header>
+
+  <!-- NAV: hamburger (mobile) + menu + search -->
+  <nav class="main-nav">
+    <button id="hamburger" aria-label="menu">☰</button>
+
+    <div class="nav-left">
+      <div class="home-dropdown">
+        <button class="dropbtn" data-key="home">☰</button>
+        <div class="dropdown-panel home-panel" aria-hidden="true">
+          <a href="#home" class="nav-link" data-key="home">Home</a>
+          <a href="#about" class="nav-link" data-key="intro">تعارف</a>
+          <a href="#education" class="nav-link" data-key="education">تعلیمات</a>
         </div>
+      </div>
+    </div>
 
-        <div class="stats-row">
-            <div class="stat">کل طلبہ: 950</div>
-            <div class="stat">کل حفاظ: 110</div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#home" class="nav-link" data-key="home">ہوم</a></li>
+      <li class="has-dropdown">
+        <a href="#about" class="nav-link" data-key="intro">تعارف</a>
+      </li>
+      <li class="has-dropdown">
+        <button class="nav-link drop-toggle" data-key="education">تعلیمات ▾</button>
+        <ul class="submenu" data-parent="education">
+          <li><a href="#timings" class="nav-link" data-key="timings">نظام الاوقات</a></li>
+          <li><a href="#holidays" class="nav-link" data-key="holidays">تعطیلات</a></li>
+          <li><a href="#year" class="nav-link" data-key="academicYear">تعلیمی سال</a></li>
+          <li><a href="#calendar" class="nav-link" data-key="calendar">تعلیمی کلینڈر</a></li>
+          <li><a href="#teachers" class="nav-link" data-key="teachersList">فہرست اساتذہ</a></li>
+          <li><a href="#staff" class="nav-link" data-key="staffList">فہرست ملازمین</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <button class="nav-link drop-toggle" data-key="departments">شعبہ جات ▾</button>
+        <ul class="submenu" data-parent="departments">
+          <li><a href="#nazerah" class="nav-link" data-key="nazerah">شعبہ ناظرہ</a></li>
+          <li><a href="#hifz" class="nav-link" data-key="hifz">شعبہ تحفیظ القرآن الکریم</a></li>
+          <li><a href="#tajweed" class="nav-link" data-key="tajweed">شعبہ تجوید و قرأت</a></li>
+          <li><a href="#farsi" class="nav-link" data-key="farsi">شعبہ فارسی و انشاء</a></li>
+          <li><a href="#arabic1" class="nav-link" data-key="arabic1">شعبہ عربی</a></li>
+          <li><a href="#exams" class="nav-link" data-key="exams">شعبہ امتحانات/مسابقات</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <button class="nav-link drop-toggle" data-key="syllabus">نصاب تعلیم ▾</button>
+        <ul class="submenu" data-parent="syllabus">
+          <li><a href="#level-ibtedai" class="nav-link" data-key="ibtidai">ابتدائیہ</a></li>
+          <li><a href="#nazerah-level" class="nav-link" data-key="nazerahLevel">ناظرہ</a></li>
+          <li><a href="#hifz-level" class="nav-link" data-key="hifzLevel">تحفیظ</a></li>
+          <li><a href="#tajweed-level" class="nav-link" data-key="tajweedLevel">تجوید و قرأت</a></li>
+          <li><a href="#farsi-level" class="nav-link" data-key="farsiLevel">فارسی و انشاء</a></li>
+          <li><a href="#arabic-levels" class="nav-link" data-key="arabicLevels">عربی (سطور)</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <button class="nav-link drop-toggle" data-key="results">نتائج ▾</button>
+        <ul class="submenu" data-parent="results">
+          <li><a href="#" class="result-year" data-year="2023">2023</a></li>
+          <li><a href="#" class="result-year" data-year="2024">2024</a></li>
+          <li><a href="#" class="result-year" data-year="2025">2025</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#admissions" class="nav-link" data-key="admissions">جدید داخلے</a></li>
+      <li id="galleryLink"><a href="#gallery" class="nav-link" data-key="gallery">گیلری</a></li>
+    </ul>
+
+    <!-- right side: search box -->
+    <div class="nav-search">
+      <input id="searchBox" placeholder="تلاش کریں..." aria-label="search">
+      <button id="searchBtn">🔍</button>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT: home -->
+  <main id="home" class="page">
+
+    <!-- Slider + summary row (left slider, right stats) -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="slider" id="mainSlider">
+          <img src="assets/slider1.jpg" alt="1" class="slide active">
+          <img src="assets/slider2.jpg" alt="2" class="slide">
+          <img src="assets/slider3.jpg" alt="3" class="slide">
         </div>
+      </div>
 
-        <div class="stats-row">
-            <div class="stat">اساتذہ عربی: 10</div>
-            <div class="stat">اساتذہ تحفیظ: 15</div>
+      <aside class="hero-right">
+        <h2 id="oneLineTitle">دارالعلوم سیدنا بلالؓ ایک نظر میں</h2>
+
+        <div class="stat-grid">
+          <div class="stat-card"><strong id="resBoard1">اقامتی طلبہ</strong><span id="resVal1">450</span></div>
+          <div class="stat-card"><strong id="resBoard2">غیر اقامتی طلبہ</strong><span id="resVal2">500</span></div>
+          <div class="stat-card"><strong id="resBoard3">کل طلبہ</strong><span id="resVal3">950</span></div>
+          <div class="stat-card"><strong id="resBoard4">کل حفاظ</strong><span id="resVal4">110</span></div>
+
+          <div class="stat-card"><strong id="resBoard5">کل ملازمین</strong><span id="resVal5">75</span></div>
+          <div class="stat-card"><strong id="resBoard6">اساتذہ عربی</strong><span id="resVal6">10</span></div>
+          <div class="stat-card"><strong id="resBoard7">اساتذہ تحفیظ</strong><span id="resVal7">15</span></div>
+          <div class="stat-card"><strong id="resBoard8">اساتذہ ناظرہ</strong><span id="resVal8">10</span></div>
         </div>
+      </aside>
+    </section>
 
-        <div class="stats-row">
-            <div class="stat">اساتذہ ناظرہ: 10</div>
-            <div class="stat">ملازمین: 75</div>
+    <!-- boxes: 3 rows × 4 each inside bordered container -->
+    <section class="boxes">
+      <div class="box-row" id="row1">
+        <article class="box" data-target="maqsad">قیام دارالعلوم کا مقصد</article>
+        <article class="box" data-target="tasawwur">ہمارا تصورِ تعلیم</article>
+        <article class="box" data-target="tareeqa">طریقۂ تعلیم</article>
+        <article class="box" data-target="ahdaf">تعلیمی اہداف</article>
+      </div>
+
+      <div class="box-row" id="row2">
+        <article class="box" data-target="nashatat">تعلیمی نشاطات</article>
+        <article class="box" data-target="fikri">طلبہ کی علمی و فکری سرگرمیاں</article>
+        <article class="box" data-target="nisaab">دارالعلوم کا نصاب تعلیم</article>
+        <article class="box" data-target="otherActs">دیگر نشاطات</article>
+      </div>
+
+      <div class="box-row" id="row3">
+        <article class="box" data-target="plans">مستقبل کے تعمیراتی منصوبے</article>
+        <article class="box" data-target="admissionProcedure">داخلہ کا طریقۂ کار</article>
+        <article class="box" data-target="rules">اصول و ضوابط برائے سرپرستان</article>
+        <article class="box" data-target="support">آپ ہمارا تعاون کیسے کریں</article>
+      </div>
+    </section>
+
+    <!-- placeholders for each detailed section (click opens same page scroll) -->
+    <section id="maqsad" class="detail page-section"><h3>قیام دارالعلوم کا مقصد</h3><p>(تفصیل یہاں درج کریں)</p></section>
+    <section id="tasawwur" class="detail page-section"><h3>ہمارا تصورِ تعلیم</h3><p>(تفصیل)</p></section>
+    <section id="tareeqa" class="detail page-section"><h3>طریقۂ تعلیم</h3><p>(تفصیل)</p></section>
+    <section id="ahdaf" class="detail page-section"><h3>تعلیمی اہداف</h3><p>(تفصیل)</p></section>
+
+    <!-- other detail pages -->
+    <section id="nashatat" class="detail page-section"><h3>تعلیمی نشاطات</h3><p></p></section>
+    <section id="fikri" class="detail page-section"><h3>علمی و فکری سرگرمیاں</h3><p></p></section>
+    <section id="nisaab" class="detail page-section"><h3>نصاب تعلیم</h3><p></p></section>
+    <section id="otherActs" class="detail page-section"><h3>دیگر نشاطات</h3><p></p></section>
+
+    <section id="plans" class="detail page-section"><h3>تعمیراتی منصوبے</h3><p></p></section>
+    <section id="admissionProcedure" class="detail page-section"><h3>داخلہ طریقۂ کار</h3><p></p></section>
+    <section id="rules" class="detail page-section"><h3>اصول و ضوابط</h3><p></p></section>
+    <section id="support" class="detail page-section"><h3>تعاون</h3><p></p></section>
+
+    <!-- Results modal (hidden) -->
+    <div id="resultsModal" class="modal" aria-hidden="true">
+      <div class="modal-inner">
+        <h3 id="resultsTitle">نتائج — <span id="resultsYear"></span></h3>
+        <div class="results-options">
+          <button class="result-type" data-type="madrasa">مدرسہ</button>
+          <button class="result-type" data-type="school">اسکول</button>
         </div>
+        <div id="resultsLinks" class="pdf-links"></div>
+        <button class="close-modal" id="closeResults">بند کریں</button>
+      </div>
     </div>
 
-</div>
+  </main>
 
-<!-- 4 + 4 + 4 BOXES -->
-<div class="box-section">
-
-    <div class="box-row">
-        <div class="box">قیام دارالعلوم کا مقصد</div>
-        <div class="box">ہمارا تصور تعلیم</div>
-        <div class="box">طریقہ تعلیم</div>
-        <div class="box">تعلیمی اہداف</div>
+  <!-- FOOTER (vertical list per your request) -->
+  <footer class="site-footer">
+    <div class="footer-contact">
+      <p><strong>موبائل:</strong> 000000000</p>
+      <p><strong>ای میل:</strong> example@gmail.com</p>
+      <p><strong>واٹس ایپ:</strong> 000000000</p>
+      <p><strong>بینک:</strong> اکاؤنٹ نمبر ۔۔۔۔</p>
     </div>
 
-    <div class="box-row">
-        <div class="box">تعلیمی نشاطات</div>
-        <div class="box">طلبہ کی علمی وفکری سرگرمیاں</div>
-        <div class="box">دارالعلوم کا نصاب تعلیم</div>
-        <div class="box">دیگر نشاطات</div>
+    <div class="footer-links">
+      <a href="#home">ہوم</a>
+      <a href="#maqsad">تعارف</a>
+      <a href="#education">تعلیمات</a>
+      <a href="#departments">شعبہ جات</a>
+      <a href="#syllabus">نصاب تعلیم</a>
+      <a href="#results">نتائج</a>
+      <a href="#admissions">داخلہ</a>
     </div>
+  </footer>
 
-    <div class="box-row">
-        <div class="box">مستقبل کے تعمیراتی منصوبے</div>
-        <div class="box">داخلہ کا طریقہ کار</div>
-        <div class="box">اصول وضوابط برائے سرپرستان</div>
-        <div class="box">آپ ہمارا تعاون کیسے کرسکتے ہیں</div>
-    </div>
-
-</div>
-
-<!-- FOOTER -->
-<div class="footer">
-
-    <div class="footer-row">
-        <div>موبائل نمبر: 000000000</div>
-        <div>واٹس ایپ: 00000000</div>
-        <div>بینک اکاؤنٹ: xxxxxxxx</div>
-        <div>ای میل: example@gmail.com</div>
-    </div>
-
-    <div class="footer-row">
-        <a href="#">ہوم</a>
-        <a href="#">تعارف</a>
-        <a href="#">شعبے</a>
-        <a href="#">گیلری</a>
-        <a href="#">رابطہ</a>
-    </div>
-
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
