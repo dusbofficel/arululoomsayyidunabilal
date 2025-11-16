@@ -2,85 +2,358 @@
 <html lang="ur" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دارالعلوم سیدنا بلالؓ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <!-- ===========================
+          FULL CSS (INSIDE FILE)
+    ============================ -->
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Noto Nastaliq Urdu", serif;
+            background-image: url('bg-white-pattern.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.6;
+        }
+
+        /* ===========================
+           TOP GREEN STRIP
+        ============================ */
+        .top-strip {
+            background-image: url('bg-green-pattern.jpg');
+            background-size: cover;
+            padding: 6px 15px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+        }
+
+        .bismillah {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        /* ===========================
+           HEADER
+        ============================ */
+        .header {
+            background: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .header img {
+            height: 85px;
+        }
+
+        .title-area h1 {
+            margin: 0;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .title-area p {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        /* ===========================
+           MENU BAR
+        ============================ */
+        .menu {
+            background-image: url('bg-green-pattern.jpg');
+            background-size: cover;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 15px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===========================
+           SLIDER
+        ============================ */
+        .slider {
+            width: 100%;
+            height: 350px;
+            margin-top: 20px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        /* ===========================
+           ONE-LINE STATS
+        ============================ */
+        .stats-line {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 25px 0;
+            gap: 15px;
+        }
+
+        .stat-box {
+            flex: 1;
+            min-width: 200px;
+            background: white;
+            padding: 12px;
+            border-radius: 12px;
+            box-shadow: 0 0 7px #ccc;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* ===========================
+           4 BOX ROWS (CLICKABLE)
+        ============================ */
+        .four-box-section {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .info-box {
+            flex: 1;
+            min-width: 230px;
+            background: white;
+            padding: 25px 10px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            box-shadow: 0 0 7px #ccc;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .info-box:hover {
+            background: #e5f5e5;
+            transform: scale(1.03);
+        }
+
+        /* ===========================
+           FOOTER
+        ============================ */
+        .main-footer {
+            margin-top: 40px;
+            background-image: url('bg-green-pattern.jpg');
+            background-size: cover;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 18px;
+        }
+
+        .footer-menu {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .footer-menu a {
+            color: white;
+            font-size: 19px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+    </style>
+
 </head>
 <body>
 
-    <!-- ─── Top Green Bar ─────────────────────── -->
-    <div class="top-bar">
-        <div class="left-section">
-            <select id="langSelect">
-                <option value="ur">اردو</option>
-                <option value="hi">हिंदी</option>
-                <option value="en">English</option>
-            </select>
-        </div>
+<!-- ===========================
+     GREEN STRIP
+=========================== -->
+<div class="top-strip">
+    <div class="bismillah">بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِیْم</div>
+    <div id="dateArea"></div>
+</div>
 
-        <div class="center-section">
-            <h2 id="bismillah">بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِيْمِ</h2>
-        </div>
+<!-- ===========================
+     HEADER
+=========================== -->
+<div class="header">
+    <img src="logo.jpg" alt="Logo">
+    <div class="title-area">
+        <h1>دارالعلوم سیدنا بلالؓ</h1>
+        <p>مقام ناک نول، تحصیل تیجارہ، ضلع الور، راجستھان — 301707</p>
+    </div>
+</div>
 
-        <div class="right-section">
-            <span id="dateBox"></span>
-        </div>
+<!-- ===========================
+     MENU
+=========================== -->
+<div class="menu">
+    <a href="#">ہوم</a>
+    <a href="#">تعارف</a>
+    <a href="#">تعلیمات</a>
+    <a href="#">شعبہ جات</a>
+    <a href="#">نصاب تعلیم</a>
+    <a href="#">نتائج</a>
+    <a href="#">جدید داخلے</a>
+</div>
+
+<!-- ===========================
+     SLIDER
+=========================== -->
+<div class="slider">
+    <img id="slideImage" src="slider1.jpg">
+</div>
+
+<!-- ===========================
+     HEADING
+=========================== -->
+<h2 style="text-align:center; margin-top:25px; font-size:28px;">
+    دارالعلوم سیدنا بلالؓ ایک نظر میں
+</h2>
+
+<!-- ===========================
+     FIRST STATS LINE
+=========================== -->
+<div class="stats-line">
+    <div class="stat-box">اقامتی طلبہ: 450</div>
+    <div class="stat-box">غیر اقامتی طلبہ: 500</div>
+    <div class="stat-box">کل طلبہ: 950</div>
+    <div class="stat-box">کل حفاظ فارغ: 110</div>
+</div>
+
+<!-- ===========================
+     SECOND STATS LINE
+=========================== -->
+<div class="stats-line">
+    <div class="stat-box">کل ملازمین: 75</div>
+    <div class="stat-box">اساتذہ عربی: 10</div>
+    <div class="stat-box">اساتذہ تحفیظ: 15</div>
+    <div class="stat-box">اساتذہ ناظرہ: 10</div>
+</div>
+
+<!-- ===========================
+     ROW 1 — 4 BOXES
+=========================== -->
+<section class="four-box-section">
+    <div class="info-box">قیام دارالعلوم کا مقصد</div>
+    <div class="info-box">ہمارا تصورِ تعلیم</div>
+    <div class="info-box">طریقۂ تعلیم</div>
+    <div class="info-box">تعلیمی اہداف</div>
+</section>
+
+<!-- ===========================
+     ROW 2 — 4 BOXES
+=========================== -->
+<section class="four-box-section">
+    <div class="info-box">تعلیمی نشاطات</div>
+    <div class="info-box">علمی و فکری سرگرمیاں</div>
+    <div class="info-box">نصابِ تعلیم</div>
+    <div class="info-box">دیگر نشاطات</div>
+</section>
+
+<!-- ===========================
+     ROW 3 — 4 BOXES
+=========================== -->
+<section class="four-box-section">
+    <div class="info-box">تعمیراتی منصوبے</div>
+    <div class="info-box">داخلہ طریقہ کار</div>
+    <div class="info-box">اصول و ضوابط</div>
+    <div class="info-box">آپ تعاون کیسے کریں؟</div>
+</section>
+
+<!-- ===========================
+     FOOTER
+=========================== -->
+<footer class="main-footer">
+
+    <div class="footer-row">
+        <p><strong>موبائل:</strong> 0000-0000000</p>
+        <p><strong>ای میل:</strong> youremail@gmail.com</p>
+        <p><strong>واٹس ایپ:</strong> 0000-0000000</p>
+        <p><strong>بینک تفصیلات:</strong> (بینک کا نام / اکاؤنٹ نمبر)</p>
     </div>
 
-    <!-- ─── White Header Strip ─────────────────── -->
-    <div class="header-strip">
-        <img src="logo.jpg" class="logo">
-
-        <div class="title-block">
-            <h1 id="madarsaName" class="madarsa-name">
-                دارالعلوم سیدنا بلال رضی اللہ عنہ
-            </h1>
-
-            <p id="address" class="address">
-                مقام: ناک نول، تحصیل تجارہ، ضلع خیر، راجستھان<br>
-                پن کوڈ: ۳۰۱۷۰۷
-            </p>
-        </div>
+    <div class="footer-menu">
+        <a href="#">ہوم</a>
+        <a href="#">تعارف</a>
+        <a href="#">تعلیمات</a>
+        <a href="#">شعبہ جات</a>
+        <a href="#">نصاب تعلیم</a>
+        <a href="#">نتائج</a>
+        <a href="#">جدید داخلے</a>
     </div>
 
-    <!-- ─── Menu Bar ───────────────────────────── -->
-    <div class="menu-bar">
-        <ul class="menu">
-            <li>ہوم</li>
-            <li>تعارف</li>
-            <li>تعلیمات</li>
-            <li>شعبہ جات</li>
-            <li>نصاب تعلیم</li>
-            <li>نتائج</li>
-            <li>جدید داخلے</li>
-        </ul>
-    </div>
+</footer>
 
-    <!-- ─── Main Layout ────────────────────────── -->
-    <div class="main-box">
 
-        <div class="right-box">
-            <h2 id="introTitle">تعارف</h2>
+<!-- ===========================
+     FULL JAVASCRIPT
+=========================== -->
+<script>
 
-            <p id="introText">
-                ● طلبہ کی تعداد: 950<br>
-                ● اساتذہ و ملازمین: 75<br>
-                ● کل فارغین شعبہ تحفیظ القرآن الكريم: 45
-            </p>
-        </div>
+    /* ============ DATE ============ */
+    function updateDate() {
+        const days = ["اتوار","سوموار","منگل","بدھ","جمعرات","جمعہ","ہفتہ"];
 
-        <div class="left-box">
-            <div class="slider" id="slider">
-                <div class="slide" id="sl1">slider1</div>
-                <div class="slide" id="sl2">slider2</div>
-                <div class="slide" id="sl3">slider3</div>
-            </div>
-        </div>
+        const g = new Date();
+        const dayName = days[g.getDay()];
+        const gDate = `${g.getDate()}/${g.toLocaleString('ur', { month: 'long' })}/${g.getFullYear()}`;
 
-    </div>
+        /* سادہ قمری کیلکولیشن */
+        let lunarMonth = ["محرم","صفر","ربیع الاول","ربیع الثانی","جمادی الاول","جمادی الثانی","رجب","شعبان","رمضان","شوال","ذیقعدہ","ذی الحجہ"];
+        let lYear = g.getFullYear() - 579;
+        let lMonth = lunarMonth[g.getMonth()];
+        let lDay = g.getDate();
+
+        document.getElementById("dateArea").innerText =
+            `(${lDay}/${lMonth} ${lYear}ھ) مطابق (${gDate}ء) بروز: ${dayName}`;
+    }
+    updateDate();
+
+
+    /* ============ SLIDER ============ */
+    let slideIndex = 1;
+    function slider() {
+        slideIndex++;
+        if (slideIndex > 3) slideIndex = 1;
+        document.getElementById("slideImage").src = "slider" + slideIndex + ".jpg";
+    }
+    setInterval(slider, 3000);
+
+</script>
 
 </body>
 </html>
-
