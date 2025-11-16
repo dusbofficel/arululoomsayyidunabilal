@@ -1,226 +1,21 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>دارالعلوم سیدنا بلالؓ</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- ===========================
-          FULL CSS (INSIDE FILE)
-    ============================ -->
-    <style>
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Noto Nastaliq Urdu", serif;
-            background-image: url('bg-white-pattern.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-            line-height: 1.6;
-        }
-
-        /* ===========================
-           TOP GREEN STRIP
-        ============================ */
-        .top-strip {
-            background-image: url('bg-green-pattern.jpg');
-            background-size: cover;
-            padding: 6px 15px;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            font-size: 18px;
-        }
-
-        .bismillah {
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        /* ===========================
-           HEADER
-        ============================ */
-        .header {
-            background: white;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            border-bottom: 2px solid #ccc;
-        }
-
-        .header img {
-            height: 85px;
-        }
-
-        .title-area h1 {
-            margin: 0;
-            font-size: 40px;
-            font-weight: bold;
-        }
-
-        .title-area p {
-            margin: 0;
-            font-size: 20px;
-        }
-
-        /* ===========================
-           MENU BAR
-        ============================ */
-        .menu {
-            background-image: url('bg-green-pattern.jpg');
-            background-size: cover;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .menu a {
-            color: white;
-            margin: 0 15px;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .menu a:hover {
-            text-decoration: underline;
-        }
-
-        /* ===========================
-           SLIDER
-        ============================ */
-        .slider {
-            width: 100%;
-            height: 350px;
-            margin-top: 20px;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .slider img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-        }
-
-        /* ===========================
-           ONE-LINE STATS
-        ============================ */
-        .stats-line {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin: 25px 0;
-            gap: 15px;
-        }
-
-        .stat-box {
-            flex: 1;
-            min-width: 200px;
-            background: white;
-            padding: 12px;
-            border-radius: 12px;
-            box-shadow: 0 0 7px #ccc;
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        /* ===========================
-           4 BOX ROWS (CLICKABLE)
-        ============================ */
-        .four-box-section {
-            margin-top: 25px;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .info-box {
-            flex: 1;
-            min-width: 230px;
-            background: white;
-            padding: 25px 10px;
-            border-radius: 12px;
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-            box-shadow: 0 0 7px #ccc;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .info-box:hover {
-            background: #e5f5e5;
-            transform: scale(1.03);
-        }
-
-        /* ===========================
-           FOOTER
-        ============================ */
-        .main-footer {
-            margin-top: 40px;
-            background-image: url('bg-green-pattern.jpg');
-            background-size: cover;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .footer-row {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
-            font-size: 18px;
-        }
-
-        .footer-menu {
-            margin-top: 25px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
-        }
-
-        .footer-menu a {
-            color: white;
-            font-size: 19px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<title>دارالعلوم سیدنا بلالؓ</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- ===========================
-     GREEN STRIP
-=========================== -->
-<div class="top-strip">
-    <div class="bismillah">بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِیْم</div>
-    <div id="dateArea"></div>
-</div>
+<!-- TOP GREEN BAR -->
+<div class="top-bar">بسم اللہ الرحمن الرحیم</div>
 
-<!-- ===========================
-     HEADER
-=========================== -->
-<div class="header">
-    <img src="logo.jpg" alt="Logo">
-    <div class="title-area">
-        <h1>دارالعلوم سیدنا بلالؓ</h1>
-        <p>مقام ناک نول، تحصیل تیجارہ، ضلع الور، راجستھان — 301707</p>
-    </div>
-</div>
+<!-- MADRASA NAME (white background) -->
+<div class="madrasa-name">دارالعلوم سیدنا بلالؓ</div>
 
-<!-- ===========================
-     MENU
-=========================== -->
-<div class="menu">
+<!-- NAVIGATION -->
+<div class="navbar">
     <a href="#">ہوم</a>
     <a href="#">تعارف</a>
     <a href="#">تعلیمات</a>
@@ -230,130 +25,89 @@
     <a href="#">جدید داخلے</a>
 </div>
 
-<!-- ===========================
-     SLIDER
-=========================== -->
-<div class="slider">
-    <img id="slideImage" src="slider1.jpg">
+<!-- MAIN SECTION (SLIDER + STATS) -->
+<div class="main-section">
+
+    <!-- SLIDER -->
+    <div class="slider">
+        <img src="assets/slider1.jpg" class="active">
+        <img src="assets/slider2.jpg">
+        <img src="assets/slider3.jpg">
+    </div>
+
+    <!-- STATS SECTION -->
+    <div class="stats-box">
+        <div class="stats-title">دارالعلوم سیدنا بلالؓ ایک نظر میں</div>
+
+        <div class="stats-row">
+            <div class="stat">اقامتی طلبہ: 450</div>
+            <div class="stat">غیر اقامتی: 500</div>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat">کل طلبہ: 950</div>
+            <div class="stat">کل حفاظ: 110</div>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat">اساتذہ عربی: 10</div>
+            <div class="stat">اساتذہ تحفیظ: 15</div>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat">اساتذہ ناظرہ: 10</div>
+            <div class="stat">ملازمین: 75</div>
+        </div>
+    </div>
+
 </div>
 
-<!-- ===========================
-     HEADING
-=========================== -->
-<h2 style="text-align:center; margin-top:25px; font-size:28px;">
-    دارالعلوم سیدنا بلالؓ ایک نظر میں
-</h2>
+<!-- 4 + 4 + 4 BOXES -->
+<div class="box-section">
 
-<!-- ===========================
-     FIRST STATS LINE
-=========================== -->
-<div class="stats-line">
-    <div class="stat-box">اقامتی طلبہ: 450</div>
-    <div class="stat-box">غیر اقامتی طلبہ: 500</div>
-    <div class="stat-box">کل طلبہ: 950</div>
-    <div class="stat-box">کل حفاظ فارغ: 110</div>
+    <div class="box-row">
+        <div class="box">قیام دارالعلوم کا مقصد</div>
+        <div class="box">ہمارا تصور تعلیم</div>
+        <div class="box">طریقہ تعلیم</div>
+        <div class="box">تعلیمی اہداف</div>
+    </div>
+
+    <div class="box-row">
+        <div class="box">تعلیمی نشاطات</div>
+        <div class="box">طلبہ کی علمی وفکری سرگرمیاں</div>
+        <div class="box">دارالعلوم کا نصاب تعلیم</div>
+        <div class="box">دیگر نشاطات</div>
+    </div>
+
+    <div class="box-row">
+        <div class="box">مستقبل کے تعمیراتی منصوبے</div>
+        <div class="box">داخلہ کا طریقہ کار</div>
+        <div class="box">اصول وضوابط برائے سرپرستان</div>
+        <div class="box">آپ ہمارا تعاون کیسے کرسکتے ہیں</div>
+    </div>
+
 </div>
 
-<!-- ===========================
-     SECOND STATS LINE
-=========================== -->
-<div class="stats-line">
-    <div class="stat-box">کل ملازمین: 75</div>
-    <div class="stat-box">اساتذہ عربی: 10</div>
-    <div class="stat-box">اساتذہ تحفیظ: 15</div>
-    <div class="stat-box">اساتذہ ناظرہ: 10</div>
-</div>
-
-<!-- ===========================
-     ROW 1 — 4 BOXES
-=========================== -->
-<section class="four-box-section">
-    <div class="info-box">قیام دارالعلوم کا مقصد</div>
-    <div class="info-box">ہمارا تصورِ تعلیم</div>
-    <div class="info-box">طریقۂ تعلیم</div>
-    <div class="info-box">تعلیمی اہداف</div>
-</section>
-
-<!-- ===========================
-     ROW 2 — 4 BOXES
-=========================== -->
-<section class="four-box-section">
-    <div class="info-box">تعلیمی نشاطات</div>
-    <div class="info-box">علمی و فکری سرگرمیاں</div>
-    <div class="info-box">نصابِ تعلیم</div>
-    <div class="info-box">دیگر نشاطات</div>
-</section>
-
-<!-- ===========================
-     ROW 3 — 4 BOXES
-=========================== -->
-<section class="four-box-section">
-    <div class="info-box">تعمیراتی منصوبے</div>
-    <div class="info-box">داخلہ طریقہ کار</div>
-    <div class="info-box">اصول و ضوابط</div>
-    <div class="info-box">آپ تعاون کیسے کریں؟</div>
-</section>
-
-<!-- ===========================
-     FOOTER
-=========================== -->
-<footer class="main-footer">
+<!-- FOOTER -->
+<div class="footer">
 
     <div class="footer-row">
-        <p><strong>موبائل:</strong> 0000-0000000</p>
-        <p><strong>ای میل:</strong> youremail@gmail.com</p>
-        <p><strong>واٹس ایپ:</strong> 0000-0000000</p>
-        <p><strong>بینک تفصیلات:</strong> (بینک کا نام / اکاؤنٹ نمبر)</p>
+        <div>موبائل نمبر: 000000000</div>
+        <div>واٹس ایپ: 00000000</div>
+        <div>بینک اکاؤنٹ: xxxxxxxx</div>
+        <div>ای میل: example@gmail.com</div>
     </div>
 
-    <div class="footer-menu">
+    <div class="footer-row">
         <a href="#">ہوم</a>
         <a href="#">تعارف</a>
-        <a href="#">تعلیمات</a>
-        <a href="#">شعبہ جات</a>
-        <a href="#">نصاب تعلیم</a>
-        <a href="#">نتائج</a>
-        <a href="#">جدید داخلے</a>
+        <a href="#">شعبے</a>
+        <a href="#">گیلری</a>
+        <a href="#">رابطہ</a>
     </div>
 
-</footer>
+</div>
 
-
-<!-- ===========================
-     FULL JAVASCRIPT
-=========================== -->
-<script>
-
-    /* ============ DATE ============ */
-    function updateDate() {
-        const days = ["اتوار","سوموار","منگل","بدھ","جمعرات","جمعہ","ہفتہ"];
-
-        const g = new Date();
-        const dayName = days[g.getDay()];
-        const gDate = `${g.getDate()}/${g.toLocaleString('ur', { month: 'long' })}/${g.getFullYear()}`;
-
-        /* سادہ قمری کیلکولیشن */
-        let lunarMonth = ["محرم","صفر","ربیع الاول","ربیع الثانی","جمادی الاول","جمادی الثانی","رجب","شعبان","رمضان","شوال","ذیقعدہ","ذی الحجہ"];
-        let lYear = g.getFullYear() - 579;
-        let lMonth = lunarMonth[g.getMonth()];
-        let lDay = g.getDate();
-
-        document.getElementById("dateArea").innerText =
-            `(${lDay}/${lMonth} ${lYear}ھ) مطابق (${gDate}ء) بروز: ${dayName}`;
-    }
-    updateDate();
-
-
-    /* ============ SLIDER ============ */
-    let slideIndex = 1;
-    function slider() {
-        slideIndex++;
-        if (slideIndex > 3) slideIndex = 1;
-        document.getElementById("slideImage").src = "slider" + slideIndex + ".jpg";
-    }
-    setInterval(slider, 3000);
-
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
