@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>نتیجہ تلاش کریں — دارالعلوم سیدنا بلالؓ</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* small page-specific styling for results page */
+    .results-container{max-width:1000px;margin:22px auto;padding:18px}
+    .results-header{text-align:center;margin-bottom:12px}
+    .results-header h1{margin:0;font-size:20px;font-weight:900}
+    .results-header .line{margin-top:6px;color:#234;font-weight:700}
+    .search-panel{display:flex;gap:8px;align-items:center;justify-content:center;margin:18px 0;flex-wrap:wrap}
+    .search-panel input[type="text"]{padding:10px 12px;border-radius:8px;border:1px solid #ccc;width:280px}
+    .search-panel button{padding:10px 14px;border-radius:8px;border:none;background:#0a7c3b;color:white;font-weight:800;cursor:pointer}
+    .upload-note{font-size:13px;color:#444;text-align:center;margin-top:6px}
+    .result-table{width:100%;border-collapse:collapse;margin-top:18px}
+    .result-table th,.result-table td{border:1px solid #ddd;padding:10px;text-align:right}
+    .result-card{display:none;margin-top:18px;background:white;padding:18px;border-radius:10px;border:2px solid #0a7c5a}
+    .card-top{display:flex;align-items:center;gap:12px;justify-content:space-between}
+    .card-top .logo{height:72px}
+    .score-table{width:100%;margin-top:12px;border-collapse:collapse}
+    .score-table th,.score-table td{border:1px solid #eee;padding:8px;text-align:right}
+    @media print{
+      body *{visibility:hidden}
+      .result-card, .result-card *{visibility:visible}
+      .result-card{position:fixed;left:0;top:0;width:100%;height:100%}
+    }
+  </style>
+</head>
+<body>
+  <div class="results-container">
+    <div class="results-header">
+      <h1>نتیجہ امتحان — ششماہی / سالانہ &nbsp; <span id="header-year">1446ھ / 2025ء</span></h1>
+      <div class="line">شعبہ تحفیظ القرآن الکریم — شعبہ ناظرہ قرآن کریم — شعبہ فارسی — شعبہ عربی</div>
+      <div class="line">دارالعلوم سیدنا بلال رضی اللہ عنہ — مقام: ناکھنول ، ٹپوکڑہ ،تحصیل تجارہ ،ضلع خیرتھل ،راجستھان ،انڈیا — پن کوڈ ۳۰۱۷۰۷</div>
+    </div>
+
+    <div class="search-panel" role="region" aria-label="Search results">
+      <input id="searchInput" type="text" placeholder="رول نمبر یا نام درج کریں (مثلاً: 101 یا احمد)" />
+      <button id="searchBtnR">🔍 تلاش کریں</button>
+
+      <label style="display:flex;align-items:center;gap:8px;">
+        <input id="fileUpload" type="file" accept=".xlsx,.xls" />
+        <span style="font-size:13px;color:#333">(Upload Excel — optional)</span>
+      </label>
+    </div>
+
+    <div class="upload-note">نوٹ: حقیقی نتائج کی فائل `assets/results.xlsx` پر رکھیں — upload صرف عارضی ہے۔</div>
+
+    <table class="result-table" id="matchesTable" hidden>
+      <thead>
+        <tr>
+          <th>نمبر شمار</th>
+          <th>رول نمبر</th>
+          <th>نام طالب علم</th>
+          <th>کلاس</th>
+          <th>کل نمبرات</th>
+          <th>اوسط</th>
+          <th>پوزیشن</th>
+          <th>دیکھیں</th>
+        </tr>
+      </thead>
+      <tbody id="matchesBody"></tbody>
+    </table>
+
+    <div class="result-card" id="resultCard" role="region" aria-label="Result Card">
+      <div class="card-top">
+        <img src="assets/logo.jpg" class="logo" alt="logo">
+        <div style="flex:1;text-align:center">
+          <div style="font-weight:900;font-size:18px">نتیجہ امتحان — ششماہی / سالانہ</div>
+          <div style="margin-top:6px;font-weight:700">دارالعلوم سیدنا بلال رضی اللہ عنہ</div>
+          <div style="font-size:13px;margin-top:4px">مقام: ناکھنول ، ٹپوکڑہ ،تحصیل تجارہ ،ضلع خیرتھل ،راجستھان ،انڈیا</div>
+        </div>
+        <div style="width:110px;text-align:center">
+          <div style="font-weight:700">حلقہ نمبر</div>
+          <div id="cardRing" style="font-size:18px"></div>
+        </div>
+      </div>
+
+      <hr style="margin:12px 0;border:none;border-top:2px solid #eee">
+
+      <div style="display:flex;gap:20px;justify-content:space-between;flex-wrap:wrap">
+        <div><strong>نمبر شمار:</strong> <span id="cardSerial"></span></div>
+        <div><strong>رول نمبر:</strong> <span id="cardRoll"></span></div>
+        <div><strong>نام:</strong> <span id="cardName"></span></div>
+        <div><strong>ولدیت:</strong> <span id="cardFather"></span></div>
+        <div><strong>سکونت:</strong> <span id="cardAddressLocal"></span></div>
+        <div><strong>کلاس:</strong> <span id="cardClass"></span></div>
+      </div>
+
+      <table class="score-table" role="table" aria-label="Scores">
+        <thead>
+          <tr><th>مضمون</th><th>نمبرات</th></tr>
+        </thead>
+        <tbody id="scoresBody"></tbody>
+        <tfoot>
+          <tr><th>کل نمبرات</th><th id="cardTotal"></th></tr>
+          <tr><th>اوسط</th><th id="cardAvg"></th></tr>
+          <tr><th>پوزیشن</th><th id="cardPos"></th></tr>
+        </tfoot>
+      </table>
+
+      <div style="margin-top:16px;display:flex;justify-content:space-between;align-items:center">
+        <div>مدیر امتحانات: ____________________</div>
+        <div>
+          <button id="printBtn" style="padding:8px 12px;border-radius:8px;border:none;background:#0a7c3b;color:white;font-weight:800;cursor:pointer">پرنٹ کریں</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="results.js"></script>
+</body>
+</html>
