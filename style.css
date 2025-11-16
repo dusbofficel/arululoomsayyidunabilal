@@ -1,108 +1,131 @@
 body {
     margin: 0;
-    padding: 0;
     font-family: 'Noto Nastaliq Urdu', serif;
-    background: #f2f2f2;
-}
-
-/* Top Green Bar */
-.top-bar {
-    background: url('bg-green-pattern.jpg');
+    background: url("assets/bg-white-pattern.jpg");     /* ← سفید فوٹو */
     background-size: cover;
-    padding: 12px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
 }
 
-#langSelect {
-    font-size: 16px;
-    padding: 5px;
-}
-
-/* Header White Strip */
-.header-strip {
-    background: url('bg-white-pattern.jpg');
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    border-bottom: 3px solid #1b7f5b;
-}
-
-.logo {
-    width: 120px;
-    margin-left: 20px;
-}
-
-.madarsa-name {
-    font-size: 32px;
-    margin: 0;
-    color: #0b6940;
-}
-
-.address {
-    font-size: 18px;
-    margin-top: 5px;
-}
-
-/* Menu Bar */
-.menu-bar {
-    background: #0b6940;
+/* TOP GREEN BAR */
+.top-bar {
+    background: url('assets/bg-green-pattern.jpg');
     padding: 10px;
-}
-
-.menu {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.menu li {
     color: white;
+    font-size: 26px;
+    text-align: center;
+}
+
+/* MADRASA NAME WHITE STRIP */
+.madrasa-name {
+    background: white;
+    padding: 12px;
+    text-align: center;
+    font-size: 30px;
+    color: #006400;
+    border-bottom: 3px solid #006400;
+    font-weight: bold;
+}
+
+/* NAVBAR */
+.navbar {
+    background: url('assets/bg-green-pattern.jpg');
+    padding: 12px;
+    text-align: center;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 12px;
     font-size: 20px;
+    font-weight: bold;
+}
+
+/* SLIDER + STATS CONTAINER */
+.main-section {
+    display: flex;
+    width: 100%;
+    height: 360px;
+}
+
+/* SLIDER */
+.slider {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: 1s;
+}
+.slider img.active {
+    opacity: 1;
+}
+
+/* RIGHT SIDE BOXES */
+.stats-box {
+    width: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 25px;
+}
+.stats-title {
+    font-size: 24px;
+    color: #006400;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+.stats-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.stat {
+    background: white;
+    border: 2px solid #006400;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    width: 50%;
+    font-size: 20px;
+}
+
+/* 12 BOX SECTION */
+.box-section {
+    padding: 25px;
+}
+.box-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+.box {
+    flex: 1;
+    background: #f0f8f0;
+    border: 2px solid #006400;
+    padding: 18px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
 }
 
-/* Main Box */
-.main-box {
-    display: flex;
+/* FOOTER */
+.footer {
+    margin-top: 20px;
+    background: url('assets/bg-green-pattern.jpg');
     padding: 25px;
-    gap: 20px;
+    color: white;
 }
-
-/* Right Box */
-.right-box {
-    width: 50%;
-    background: white;
-    padding: 20px;
-    border: 2px solid #0b6940;
-    border-radius: 10px;
-    font-size: 20px;
-}
-
-/* Left Box – Slider */
-.left-box {
-    width: 50%;
-}
-
-.slider {
-    width: 100%;
-    height: 260px;
-    border: 2px solid #0b6940;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-}
-
-.slide {
-    min-width: 100%;
-    font-size: 32px;
-    background: #dcdcdc;
+.footer-row {
     display: flex;
     justify-content: center;
-    align-items: center;
+    gap: 25px;
+    margin-bottom: 12px;
+}
+.footer a {
+    color: white;
+    text-decoration: none;
 }
