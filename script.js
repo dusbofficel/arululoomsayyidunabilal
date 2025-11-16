@@ -3,7 +3,7 @@ const slides = document.querySelectorAll('.slide');
 let sIndex = 0;
 function showSlide(i){
   slides.forEach(s=>s.classList.remove('active'));
-  slides[i].classList.add('active');
+  if(slides[i]) slides[i].classList.add('active');
 }
 showSlide(0);
 setInterval(()=>{ sIndex = (sIndex+1) % slides.length; showSlide(sIndex); }, 3500);
@@ -13,7 +13,8 @@ function updateDates(){
   const now = new Date();
   // Gregorian (Ur locale)
   const gOpts = { day:'numeric', month:'long', year:'numeric', weekday:'long' };
-  const gStr = now.toLocaleDateString('ur-IN', gOpts); // e.g. '16 نومبر 2025، اتوار'
+  let gStr;
+  try { gStr = now.toLocaleDateString('ur-IN', gOpts); } catch(e) { gStr = now.toLocaleDateString(); }
   // Hijri via Intl (browser support modern)
   let hStr = '';
   try{
@@ -47,15 +48,10 @@ const langSelect = document.getElementById('lang');
 langSelect.addEventListener('change', ()=> applyLang(langSelect.value));
 function applyLang(code){
   const t = translations[code] || translations.ur;
-  // nav labels
+  // nav labels (elements with data-key)
   document.querySelectorAll('[data-key]').forEach(el=>{
     const key = el.getAttribute('data-key');
     if(key && t[key]) el.innerText = t[key];
-  });
-  // menu plain items
-  document.querySelectorAll('.nav-link').forEach(a=>{
-    const k = a.getAttribute('data-key');
-    if(k && t[k]) a.innerText = t[k];
   });
   // titles and boxes
   const one = document.getElementById('oneLineTitle'); if(one) one.innerText = t.oneLineTitle;
@@ -73,21 +69,22 @@ hamburger && hamburger.addEventListener('click', ()=>{
   navMenu.classList.toggle('show');
 });
 
-// ======= BOX CLICK: scroll to detail section =======
-document.querySelectorAll('.box').forEach(b=>{
-  b.addEventListener('click', ()=>{
-    const target = b.getAttribute('data-target');
-    if(target){
-      const el = document.getElementById(target);
-      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-    }
+// open/close submenus accessible
+document.querySelectorAll('.drop-toggle').forEach(btn=>{
+  btn.addEventListener('click', ()=> {
+    const parent = btn.parentElement;
+    const submenu = parent.querySelector('.submenu');
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    if(submenu) submenu.style.display = expanded ? 'none' : 'flex';
   });
 });
 
-// ======= RESULTS modal flow =======
+// ======= BOX CLICK: already link anchors to separate pages (no JS needed) =======
+
+// ======= RESULTS modal flow (year → madrasa/school → open pdf) =======
 const resultYearLinks = document.querySelectorAll('.result-year');
 const resultsModal = document.getElementById('resultsModal');
-const resultsTitle = document.getElementById('resultsTitle');
 const resultsYearSpan = document.getElementById('resultsYear');
 const resultsLinks = document.getElementById('resultsLinks');
 const closeResults = document.getElementById('closeResults');
@@ -96,42 +93,37 @@ resultYearLinks.forEach(link=>{
   link.addEventListener('click', (e)=>{
     e.preventDefault();
     const yr = link.getAttribute('data-year');
-    openResults(yr);
+    openResultsModal(yr);
   });
 });
 
-function openResults(year){
+function openResultsModal(year){
   resultsYearSpan.innerText = year;
-  // show modal
-  resultsModal.style.display = 'flex';
-  resultsModal.setAttribute('aria-hidden','false');
-  // show two options
   resultsLinks.innerHTML = `
     <p>منتخب کریں:</p>
     <button class="pdf-btn" data-file="assets/results/${year}-madrasa.pdf">مدرسہ — ششماہی/سالانہ</button>
     <button class="pdf-btn" data-file="assets/results/${year}-school.pdf">اسکول — ششماہی/سالانہ</button>
   `;
+  // show modal
+  if(resultsModal){ resultsModal.style.display = 'flex'; resultsModal.setAttribute('aria-hidden','false'); }
   // attach clicks
   document.querySelectorAll('.pdf-btn').forEach(b=>{
     b.addEventListener('click', ()=> {
       const file = b.getAttribute('data-file');
-      // open pdf in new tab (placeholder path)
       window.open(file, '_blank');
     });
   });
 }
-
 closeResults && closeResults.addEventListener('click', ()=> {
   resultsModal.style.display = 'none';
   resultsModal.setAttribute('aria-hidden','true');
 });
 
-// ======= Search button =======
+// ======= Search (site) =======
 document.getElementById('searchBtn')?.addEventListener('click', ()=>{
   const q = document.getElementById('searchBox')?.value || '';
   if(!q) return alert('براہِ کرم تلاش کے لیے لفظ درج کریں');
-  // naive search: highlight sections with matching text (simple)
-  const nodes = document.querySelectorAll('.detail, .box');
+  const nodes = document.querySelectorAll('.detail, .box, .stat-card');
   let found = false;
   nodes.forEach(n=>{
     if(n.innerText.toLowerCase().includes(q.toLowerCase())){ n.scrollIntoView({behavior:'smooth'}); found = true; }
@@ -139,7 +131,7 @@ document.getElementById('searchBtn')?.addEventListener('click', ()=>{
   if(!found) alert('نتیجہ موصول نہیں ہوا');
 });
 
-// ======= small accessibility: close modal on outside click =======
+// small accessibility: close modal on outside click
 resultsModal && resultsModal.addEventListener('click', (e)=>{
   if(e.target === resultsModal) { resultsModal.style.display='none'; resultsModal.setAttribute('aria-hidden','true'); }
 });
