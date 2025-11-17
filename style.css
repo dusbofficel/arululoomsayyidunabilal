@@ -6,7 +6,6 @@
   --radius:12px;
   --white: #fff;
   --glass: rgba(255,255,255,0.92);
-  --header-height:72px;
 }
 
 /* RESET */
@@ -14,7 +13,7 @@
 html,body{height:100%}
 body{
   margin:0;
-  font-family:"Jameel Noori Nastaleeq", "Noto Nastaliq Urdu", "Noto Sans", sans-serif;
+  font-family:"Jameel Noori Nastaleeq","Noto Nastaliq Urdu","Noto Sans",sans-serif;
   background:url('assets/bg-white-pattern.jpg') repeat;
   direction:rtl;
   color:#1a1a1a;
@@ -23,29 +22,33 @@ body{
 /* thin decorative green strip */
 .green-strip{height:10px;background:url('assets/bg-green-pattern.jpg') center/cover no-repeat;}
 
-/* bismillah bar (reduced size) */
+/* bismillah bar (reduced size + background pattern) */
 .bismillah-bar{
   display:flex;align-items:center;justify-content:space-between;
-  padding:6px 12px;background:linear-gradient(90deg,var(--green),var(--green-dark));
+  padding:4px 10px;
+  background-image: url('assets/bg-green-pattern.jpg');
+  background-size: cover;
+  background-position: center;
   color:white;
 }
-.brand-logo{width:62px;height:62px;object-fit:contain;border-radius:8px;background:rgba(255,255,255,0.04);margin-inline-start:8px}
-.lang-inline{margin-inline-start:8px;padding:6px;border-radius:8px;border:none;font-weight:700}
-.bismillah-text{font-size:18px;font-weight:700;letter-spacing:1px}
-#date-and-calendar{font-size:13px;color:rgba(255,255,255,0.9)}
+.bismillah-text{font-size:16px;font-weight:700;letter-spacing:1px}
+#date-and-calendar{font-size:13px;color:rgba(255,255,255,0.95);margin-inline-start:10px}
 
-/* white name strip */
+/* name strip (logo moved here) */
 .name-strip{
   background:var(--white);
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:12px 18px;
+  padding:10px 16px;
   border-bottom:1px solid rgba(0,0,0,0.06);
 }
-.name-inner{max-width:var(--container);margin:0 auto}
-#site-title{font-size:36px;color:var(--green-dark);margin:0;font-family:"Jameel Noori Nastaleeq",serif}
-#site-address{font-size:15px;color:var(--muted);margin:6px 0 0}
+.name-left{display:flex;align-items:center;gap:10px}
+.brand-logo{width:72px;height:72px;object-fit:contain;border-radius:8px;background:transparent}
+.lang-inline{padding:6px 8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);font-weight:700}
+.name-inner{flex:1;text-align:center}
+#site-title{font-size:34px;color:var(--green-dark);margin:0;font-family:"Jameel Noori Nastaleeq",serif}
+#site-address{font-size:14px;color:var(--muted);margin:6px 0 0}
 
 /* result small card in header */
 .result-search-card{margin-inline-start:16px}
@@ -58,50 +61,55 @@ body{
 
 /* main nav */
 .main-nav{
-  display:flex;align-items:center;gap:12px;padding:8px 18px;background:url('assets/bg-green-pattern.jpg') center/cover;color:white;position:sticky;top:0;z-index:50
+  display:flex;align-items:center;gap:12px;padding:8px 18px;background:url('assets/bg-green-pattern.jpg') center/cover;color:white;position:sticky;top:0;z-index:50;
+  font-weight:800;
 }
 #hamburger{display:none;background:transparent;border:none;color:white;font-size:22px;cursor:pointer;margin-inline-end:6px}
-.nav-menu{display:flex;gap:6px;list-style:none;margin:0;padding:0;align-items:center}
+.nav-menu{display:flex;gap:8px;list-style:none;margin:0;padding:0;align-items:center}
 .nav-menu li{position:relative}
-.nav-menu a, .nav-menu button{color:white;text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:700;border:none;background:transparent;cursor:pointer}
+.nav-menu a, .nav-menu button{color:white;text-decoration:none;padding:8px 12px;border-radius:8px;font-size:16px;background:transparent;cursor:pointer}
 .nav-menu a:hover, .nav-menu button:hover{background:rgba(255,255,255,0.06)}
-.nav-search{margin-inline-start:auto;display:flex;align-items:center;gap:6px}
-#searchBox{padding:6px 10px;border-radius:8px;border:none;width:180px}
-#searchBtn{padding:6px 10px;border-radius:8px;border:none;background:rgba(0,0,0,0.08);cursor:pointer}
 
-/* submenu */
-.submenu{position:absolute;top:44px;left:0;background:var(--white);color:#111;min-width:220px;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,0.12);display:none;flex-direction:column;padding:6px;z-index:60}
+/* submenu open on hover (desktop) */
+.submenu{position:absolute;top:44px;left:0;background:var(--white);color:#111;min-width:240px;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,0.12);display:none;flex-direction:column;padding:6px;z-index:60}
 .submenu a{color:var(--green);padding:8px 10px;border-radius:6px;font-weight:700;text-decoration:none}
-.has-dropdown:hover .submenu{display:flex}
+.has-dropdown:hover .submenu{display:flex} /* hover opens immediately */
 
-/* HERO (slider + stats) */
+/* hero: make left & right equal widths */
 .hero{display:flex;gap:18px;max-width:var(--container);margin:20px auto;padding:0 12px}
-.hero-left{flex:1}
-.hero-right{width:420px}
+.hero-left{flex:1;min-width:300px}
+.hero-right{flex:1;min-width:300px}
 .slider{
   position:relative;
   overflow:hidden;
   border-radius:14px;
   border:3px solid rgba(0,0,0,0.06);
-  min-height:300px;
+  min-height:360px;
   background:#f3f3f3;
 }
 .slider .slide{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
 .slider .slide.active{opacity:1}
-.hero-right{background:var(--glass);padding:18px;border-radius:12px;border:2px solid rgba(0,0,0,0.04)}
-.hero-right h2{margin-top:0;color:var(--green-dark)}
-.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
-.stat-card{background:white;border:2px solid var(--green);padding:12px;border-radius:10px;text-align:center;font-weight:800}
 
-/* boxes container: each row inside a bordered container */
+/* hero-right small stats grid (3 columns) */
+.hero-right{background:var(--glass);padding:18px;border-radius:12px;border:2px solid rgba(0,0,0,0.04);display:flex;flex-direction:column;align-items:stretch}
+.hero-right h2{margin:0 0 12px;color:var(--green-dark);text-align:center}
+.small-stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat-small{background:white;border:2px solid var(--green);padding:10px;border-radius:10px;text-align:center}
+.stat-label{font-weight:800;color:#333;margin-bottom:6px}
+.stat-value{font-size:20px;font-weight:900;color:var(--green-dark)}
+
+/* graduates-line (long box matching slider height) */
+.graduates-line{
+  margin-top:12px;
+  background:linear-gradient(90deg, rgba(10,124,59,0.08), rgba(10,124,59,0.04));
+  border:2px dashed rgba(10,124,59,0.25);
+  padding:12px;border-radius:10px;text-align:center;font-weight:800;color:var(--green-dark)
+}
+
+/* boxes rows (3 per row) */
 .boxes{max-width:var(--container);margin:18px auto;padding:0 12px}
-.box-row{background:linear-gradient(180deg,#fff,#f7fff7);border:3px solid var(--green);border-radius:14px;padding:14px;display:flex;gap:12px;margin-bottom:16px}
-.box{flex:1;background:var(--white);padding:16px;border-radius:10px;border:2px solid rgba(0,0,0,0.04);text-align:center;font-weight:800;cursor:pointer;transition:transform .18s;text-decoration:none;color:inherit;display:flex;align-items:center;justify-content:center}
-.box:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.06)}
-
-/* detail sections (separate pages now) */
-.detail{max-width:var(--container);margin:18px auto;background:var(--white);padding:18px;border-radius:10px;border:2px solid rgba(0,0,0,0.04)}
-.page-section h3{margin-top:0}
+.box-row{display:flex;gap:12px;margin-bottom:16px;justify-content:space-between}
+.box{flex:1;background:var(--white);padding:18px;border-radius:12px;border:2px solid rgba(0,0,0,0.04);text-align:center;font-weight:800;cursor:pointer;text-decoration:none;color:inherit;display:flex;align-items:center;justify-content:center}
 
 /* modal (results) */
 .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);z-index:200}
@@ -113,6 +121,9 @@ body{
 .site-footer{background:url('assets/bg-green-pattern.jpg');color:white;padding:22px 12px;display:flex;gap:30px;flex-direction:column;align-items:start}
 .footer-contact p, .footer-links a{margin:6px 0;color:white;text-decoration:none;font-weight:700}
 
+/* copyright */
+footer .copyright{font-size:13px}
+
 /* responsive */
 @media (max-width:980px){
   #hamburger{display:inline-block}
@@ -120,7 +131,8 @@ body{
   .nav-menu.show{display:flex}
   .nav-search{display:none}
   .hero{flex-direction:column}
-  .hero-right{width:100%}
+  .hero-left{order:0}
+  .hero-right{order:1;width:100%}
+  .small-stats-grid{grid-template-columns:repeat(2,1fr)}
   .box-row{flex-direction:column}
-  .inner-box-wrap{flex-direction:column}
 }
