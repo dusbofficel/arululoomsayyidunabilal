@@ -11,14 +11,14 @@ setInterval(()=>{ sIndex = (sIndex+1) % slides.length; showSlide(sIndex); }, 350
 // ======= DATE: Gregorian + Hijri + Day (day last) =======
 function updateDates(){
   const now = new Date();
-  // Gregorian (Ur locale)
+  // Gregorian
   let gStr='';
   try{
     gStr = now.toLocaleDateString('ur-IN', { day:'numeric', month:'long', year:'numeric' });
   }catch(e){
     gStr = `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`;
   }
-  // Hijri via Intl (browser)
+  // Hijri (Intl) fallback
   let hStr = '';
   try{
     hStr = new Intl.DateTimeFormat('ar-SA-u-ca-islamic', {day:'numeric', month:'long', year:'numeric'}).format(now);
@@ -26,7 +26,6 @@ function updateDates(){
     const y = now.getFullYear()-579, m = now.getMonth()+1, d = now.getDate();
     hStr = `${d}/${m}/${y}ھ`;
   }
-  // Day name Urdu
   const days = ['اتوار','پیر','منگل','بدھ','جمعرات','جمعہ','ہفتہ'];
   const dayName = days[now.getDay()];
   const out = `${gStr} — ${hStr} — ${dayName}`;
@@ -36,23 +35,24 @@ function updateDates(){
 updateDates();
 setInterval(updateDates, 60*1000);
 
-// ======= NAV TRANSLATION & simple mapping (keep bismillah fixed) =======
+// ======= NAV TRANSLATION & mapping (Bismillah fixed) =======
 const translations = {
   ur:{ home:'ہوم', education:'تعلیمات', departments:'شعبہ جات', syllabus:'نصاب تعلیم', results:'نتائج', admissions:'جدید داخلے', gallery:'گیلری' },
   hi:{ home:'होम', education:'शिक्षा', departments:'विभाग', syllabus:'पाठ्यक्रम', results:'परिणाम', admissions:'दाखिला', gallery:'गैलरी' },
   en:{ home:'Home', education:'Education', departments:'Departments', syllabus:'Syllabus', results:'Results', admissions:'Admissions', gallery:'Gallery' }
 };
 const langSelect = document.getElementById('lang');
-langSelect.addEventListener('change', ()=> applyLang(langSelect.value));
-function applyLang(code){
-  const t = translations[code] || translations['ur'];
-  document.querySelectorAll('[data-key]').forEach(el=>{
-    const key = el.getAttribute('data-key');
-    if(key && t[key]) el.innerText = t[key];
-  });
+if(langSelect){
+  langSelect.addEventListener('change', ()=> applyLang(langSelect.value));
+  function applyLang(code){
+    const t = translations[code] || translations['ur'];
+    document.querySelectorAll('[data-key]').forEach(el=>{
+      const key = el.getAttribute('data-key');
+      if(key && t[key]) el.innerText = t[key];
+    });
+  }
+  applyLang('ur');
 }
-// default
-applyLang('ur');
 
 // ======= HAMBURGER (mobile) & submenu toggles =======
 const hamburger = document.getElementById('hamburger');
@@ -61,7 +61,7 @@ hamburger && hamburger.addEventListener('click', ()=>{
   navMenu.classList.toggle('show');
 });
 
-// for accessibility: click toggles on small screens
+// make submenu open on hover (CSS handles desktop). Add accessible toggle for touch.
 document.querySelectorAll('.drop-toggle').forEach(btn=>{
   btn.addEventListener('click', ()=> {
     const parent = btn.parentElement;
@@ -76,15 +76,15 @@ document.querySelectorAll('.drop-toggle').forEach(btn=>{
 document.getElementById('searchBtn')?.addEventListener('click', ()=>{
   const q = document.getElementById('searchBox')?.value || '';
   if(!q) return alert('براہِ کرم تلاش کے لیے لفظ درج کریں');
-  const nodes = document.querySelectorAll('.box, .stat-small, .nav-link');
+  const nodes = document.querySelectorAll('.box, .stat-box, .stat-small, .nav-link');
   let found = false;
   nodes.forEach(n=>{
-    if(n.innerText.toLowerCase().includes(q.toLowerCase())){ n.scrollIntoView({behavior:'smooth'}); found = true; }
+    if(n.innerText.toLowerCase().includes(q.toLowerCase())){ n.scrollIntoView({behavior:'smooth'}); found = true; n.classList.add('pulse'); setTimeout(()=>n.classList.remove('pulse'),1500); }
   });
   if(!found) alert('نتیجہ موصول نہیں ہوا');
 });
 
-// ======= Results modal flow (unchanged) =======
+// ======= RESULTS modal flow =======
 const resultYearLinks = document.querySelectorAll('.result-year');
 const resultsModal = document.getElementById('resultsModal');
 const resultsYearSpan = document.getElementById('resultsYear');
@@ -99,18 +99,25 @@ resultYearLinks.forEach(link=>{
   });
 });
 function openResultsModal(year){
-  resultsYearSpan.innerText = year;
-  resultsLinks.innerHTML = `
+  if(resultsYearSpan) resultsYearSpan.innerText = year;
+  if(resultsLinks) resultsLinks.innerHTML = `
     <p>منتخب کریں:</p>
     <button class="pdf-btn" data-file="assets/results/${year}-madrasa.pdf">مدرسہ — ششماہی/سالانہ</button>
     <button class="pdf-btn" data-file="assets/results/${year}-school.pdf">اسکول — ششماہی/سالانہ</button>
   `;
-  if(resultsModal) { resultsModal.style.display = 'flex'; resultsModal.setAttribute('aria-hidden','false'); }
+  if(resultsModal){ resultsModal.style.display = 'flex'; resultsModal.setAttribute('aria-hidden','false'); }
   document.querySelectorAll('.pdf-btn').forEach(b=>{
     b.addEventListener('click', ()=> window.open(b.getAttribute('data-file'), '_blank'));
   });
 }
-closeResults && closeResults.addEventListener('click', ()=> { resultsModal.style.display = 'none'; resultsModal.setAttribute('aria-hidden','true'); });
+closeResults && closeResults.addEventListener('click', ()=> { if(resultsModal){ resultsModal.style.display = 'none'; resultsModal.setAttribute('aria-hidden','true'); }});
 
 // close modal on outside click
 resultsModal && resultsModal.addEventListener('click', (e)=> { if(e.target === resultsModal){ resultsModal.style.display='none'; resultsModal.setAttribute('aria-hidden','true'); }});
+
+// small helper: add simple pulse style for search highlight (inject)
+(function addPulseStyle(){
+  const s = document.createElement('style');
+  s.innerHTML = `.pulse{box-shadow:0 0 0 4px rgba(10,120,59,0.08) inset,0 6px 18px rgba(0,0,0,0.08);transform:scale(1.02);transition:transform .15s}`;
+  document.head.appendChild(s);
+})();
