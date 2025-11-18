@@ -1,47 +1,130 @@
-/* ------------------------
-   SLIDER AUTO CHANGE SYSTEM
-------------------------- */
+// ======= SLIDER =======
+const slides = document.querySelectorAll('.slide');
+let sIndex = 0;
+function showSlide(i){
+  slides.forEach(s=>s.classList.remove('active'));
+  if(slides[i]) slides[i].classList.add('active');
+}
+showSlide(0);
+setInterval(()=>{ sIndex = (sIndex+1) % slides.length; showSlide(sIndex); }, 3800);
 
-let slideIndex = 0;
-autoSlider();
+// ======= DATE: Gregorian + Hijri + Day (day last) =======
+function updateDates(){
+  const now = new Date();
+  let gStr='';
+  try{
+    gStr = now.toLocaleDateString('ur-IN', { day:'numeric', month:'long', year:'numeric' });
+  }catch(e){
+    gStr = `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`;
+  }
+  let hStr = '';
+  try{
+    hStr = new Intl.DateTimeFormat('ar-SA-u-ca-islamic', {day:'numeric', month:'long', year:'numeric'}).format(now);
+  }catch(e){
+    const y = now.getFullYear()-579, m = now.getMonth()+1, d = now.getDate();
+    hStr = `${d}/${m}/${y}ھ`;
+  }
+  const days = ['اتوار','پیر','منگل','بدھ','جمعرات','جمعہ','ہفتہ'];
+  const dayName = days[now.getDay()];
+  const out = `${gStr} — ${hStr} — ${dayName}`;
+  const el = document.getElementById('date-and-calendar');
+  if(el) el.innerText = out;
+}
+updateDates();
+setInterval(updateDates, 60*1000);
 
-function autoSlider() {
-    const slides = document.querySelectorAll(".slide");
-
-    slides.forEach((slide) => {
-        slide.style.display = "none";
+// ======= LANGUAGE (nav translation except Bismillah) =======
+const translations = {
+  ur:{ home:'ہوم', education:'تعلیمات', departments:'شعبہ جات', syllabus:'نصاب تعلیم', results:'نتائج', admissions:'جدید داخلے', gallery:'گیلری', timings:'نظام الاوقات', holidays:'تعطیلات' },
+  hi:{ home:'होम', education:'शिक्षा', departments:'विभाग', syllabus:'पाठ्यक्रम', results:'परिणाम', admissions:'दाखिला', gallery:'गैलरी', timings:'समय-सारिणी', holidays:'छुट्टियाँ' },
+  en:{ home:'Home', education:'Education', departments:'Departments', syllabus:'Syllabus', results:'Results', admissions:'Admissions', gallery:'Gallery', timings:'Timings', holidays:'Holidays' }
+};
+const langSelect = document.getElementById('lang');
+if(langSelect){
+  langSelect.addEventListener('change', ()=> applyLang(langSelect.value));
+  function applyLang(code){
+    const t = translations[code] || translations['ur'];
+    document.querySelectorAll('[data-key]').forEach(el=>{
+      const key = el.getAttribute('data-key');
+      if(key && t[key]) el.innerText = t[key];
     });
-
-    slideIndex++;
-
-    if (slideIndex > slides.length) { slideIndex = 1; }
-
-    slides[slideIndex - 1].style.display = "block";
-
-    setTimeout(autoSlider, 4000); // 4 seconds per slide
+  }
+  applyLang('ur');
 }
 
-
-
-/* ------------------------
-   SHOW SELECTED IMAGE PREVIEW
-------------------------- */
-
-document.querySelectorAll(".file-input").forEach((input) => {
-    input.addEventListener("change", function () {
-        if (this.files && this.files[0]) {
-            let imgPreview = document.createElement("img");
-            imgPreview.src = URL.createObjectURL(this.files[0]);
-            imgPreview.style.width = "100%";
-            imgPreview.style.marginTop = "10px";
-            imgPreview.style.borderRadius = "6px";
-
-            // Remove previous preview if exists
-            if (this.nextSibling) {
-                this.parentNode.removeChild(this.nextSibling);
-            }
-
-            this.parentNode.appendChild(imgPreview);
-        }
-    });
+// ======= HAMBURGER (mobile) =======
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+hamburger && hamburger.addEventListener('click', ()=>{
+  navMenu.classList.toggle('open');
 });
+
+// ======= DROP-DOWN: accessible toggles for touch + hover for desktop handled by CSS =======
+document.querySelectorAll('.drop-toggle').forEach(btn=>{
+  btn.addEventListener('click', ()=> {
+    const parent = btn.parentElement;
+    const submenu = parent.querySelector('.submenu');
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    if(submenu) submenu.style.display = expanded ? 'none' : 'flex';
+  });
+});
+
+// ======= SEARCH BOX (simple highlight) =======
+document.getElementById('searchBtn')?.addEventListener('click', ()=>{
+  const q = document.getElementById('searchBox')?.value || '';
+  if(!q) return alert('براہ کرم تلاش کے لیے لفظ درج کریں');
+  const nodes = document.querySelectorAll('.box, .stat-box, .stat-small, .nav-link');
+  let found = false;
+  nodes.forEach(n=>{
+    if(n.innerText.toLowerCase().includes(q.toLowerCase())){
+      found = true;
+      n.scrollIntoView({behavior:'smooth', block:'center'});
+      n.classList.add('pulse');
+      setTimeout(()=>n.classList.remove('pulse'),1500);
+    }
+  });
+  if(!found) alert('نتیجہ موصول نہیں ہوا');
+});
+
+// ======= RESULTS modal handling =======
+const resultYearLinks = document.querySelectorAll('.result-year');
+const resultsModal = document.getElementById('resultsModal');
+const resultsYearSpan = document.getElementById('resultsYear');
+const resultsLinks = document.getElementById('resultsLinks');
+const closeResults = document.getElementById('closeResults');
+
+resultYearLinks.forEach(link=>{
+  link.addEventListener('click', (e)=>{
+    e.preventDefault();
+    const yr = link.getAttribute('data-year');
+    if(yr) openResultsModal(yr);
+  });
+});
+
+function openResultsModal(year){
+  resultsYearSpan.innerText = year;
+  resultsLinks.innerHTML = `
+    <p>منتخب کریں:</p>
+    <button class="pdf-btn" data-file="assets/results/${year}-madrasa.pdf">مدرسہ — ششماہی/سالانہ</button>
+    <button class="pdf-btn" data-file="assets/results/${year}-school.pdf">اسکول — ششماہی/سالانہ</button>
+  `;
+  if(resultsModal){ resultsModal.style.display = 'flex'; resultsModal.setAttribute('aria-hidden','false'); }
+  document.querySelectorAll('.pdf-btn').forEach(b=>{
+    b.addEventListener('click', ()=> {
+      const file = b.getAttribute('data-file');
+      window.open(file, '_blank');
+    });
+  });
+}
+closeResults && closeResults.addEventListener('click', ()=> {
+  if(resultsModal){ resultsModal.style.display = 'none'; resultsModal.setAttribute('aria-hidden','true'); }
+});
+resultsModal && resultsModal.addEventListener('click', (e)=> { if(e.target===resultsModal){ resultsModal.style.display='none'; resultsModal.setAttribute('aria-hidden','true'); }});
+
+// ======= small helper pulse style addition =======
+(function addPulseStyle(){
+  const s = document.createElement('style');
+  s.innerHTML = `.pulse{box-shadow:0 0 0 6px rgba(10,120,59,0.06) inset;transform:scale(1.01);transition:transform .15s}`;
+  document.head.appendChild(s);
+})();
