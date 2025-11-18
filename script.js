@@ -1,11 +1,11 @@
 // ======= SLIDER =======
 const slides = document.querySelectorAll('.slide');
 let sIndex = 0;
-function showSlide(i){
+function Slide(i){
   slides.forEach(s=>s.classList.remove('active'));
   if(slides[i]) slides[i].classList.add('active');
 }
-showSlide(0);
+Slide(0);
 setInterval(()=>{ sIndex = (sIndex+1) % slides.length; showSlide(sIndex); }, 3800);
 
 // ======= DATE: Gregorian + Hijri + Day (day last) =======
@@ -128,3 +128,4 @@ resultsModal && resultsModal.addEventListener('click', (e)=> { if(e.target===res
   s.innerHTML = `.pulse{box-shadow:0 0 0 6px rgba(10,120,59,0.06) inset;transform:scale(1.01);transition:transform .15s}`;
   document.head.appendChild(s);
 })();
+
