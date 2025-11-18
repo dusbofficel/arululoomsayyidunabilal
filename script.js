@@ -6,7 +6,7 @@ function Slide(i){
   if(slides[i]) slides[i].classList.add('active');
 }
 Slide(0);
-setInterval(()=>{ sIndex = (sIndex+1) % slides.length; showSlide(sIndex); }, 3800);
+setInterval(()=>{ sIndex = (sIndex+1) % slides.length; Slide(sIndex); }, 3800);
 
 // ======= DATE: Gregorian + Hijri + Day (day last) =======
 function updateDates(){
@@ -35,9 +35,27 @@ setInterval(updateDates, 60*1000);
 
 // ======= LANGUAGE (nav translation except Bismillah) =======
 const translations = {
-  ur:{ home:'ہوم', education:'تعلیمات', departments:'شعبہ جات', syllabus:'نصاب تعلیم', results:'نتائج', admissions:'جدید داخلے', gallery:'گیلری', timings:'نظام الاوقات', holidays:'تعطیلات' },
-  hi:{ home:'होम', education:'शिक्षा', departments:'विभाग', syllabus:'पाठ्यक्रम', results:'परिणाम', admissions:'दाखिला', gallery:'गैलरी', timings:'समय-सारिणी', holidays:'छुट्टियाँ' },
-  en:{ home:'Home', education:'Education', departments:'Departments', syllabus:'Syllabus', results:'Results', admissions:'Admissions', gallery:'Gallery', timings:'Timings', holidays:'Holidays' }
+  ur:{
+    home:'ہوم', education:'تعلیمات', departments:'شعبہ جات', syllabus:'نصاب تعلیم', results:'نتائج',
+    admissions:'جدید داخلے', gallery:'گیلری', timings:'نظام الاوقات', holidays:'تعطیلات',
+    academicYear:'تعلیمی سال', calendar:'تعلیمی کلینڈر', teachersList:'فہرست اساتذہ', staffList:'فہرست ملازمین',
+    nazerah:'شعبہ ناظرہ', hifz:'شعبہ تحفیظ القرآن الکریم', tajweed:'شعبہ تجوید و قرأت', farsi:'شعبہ فارسی و انشاء',
+    ibtidai:'ابتدائیہ', nazerahLevel:'ناظرہ', hifzLevel:'تحفیظ', searchResults:'🔍 نتیجہ تلاش کریں'
+  },
+  hi:{
+    home:'होम', education:'शिक्षा', departments:'विभाग', syllabus:'पाठ्यक्रम', results:'परिणाम',
+    admissions:'दाखिला', gallery:'गैलरी', timings:'समय-सारिणी', holidays:'छुट्टियाँ',
+    academicYear:'शैक्षणिक वर्ष', calendar:'शैक्षणिक कैलेंडर', teachersList:'शिक्षक सूची', staffList:'कर्मचारी सूची',
+    nazerah:'नाज़िराह', hifz:'हिफ़्ज़', tajweed:'तज़वीद', farsi:'फ़ारसी',
+    ibtidai:'प्राथमिक', nazerahLevel:'नाज़िराह', hifzLevel:'हिफ़्ज़', searchResults:'🔍 परिणाम खोजें'
+  },
+  en:{
+    home:'Home', education:'Education', departments:'Departments', syllabus:'Syllabus', results:'Results',
+    admissions:'Admissions', gallery:'Gallery', timings:'Timings', holidays:'Holidays',
+    academicYear:'Academic Year', calendar:'Academic Calendar', teachersList:'Teachers', staffList:'Staff',
+    nazerah:'Nazerah', hifz:'Hifz', tajweed:'Tajweed', farsi:'Farsi',
+    ibtidai:'Primary', nazerahLevel:'Nazerah', hifzLevel:'Hifz', searchResults:'🔍 Search results'
+  }
 };
 const langSelect = document.getElementById('lang');
 if(langSelect){
@@ -66,7 +84,7 @@ document.querySelectorAll('.drop-toggle').forEach(btn=>{
     const submenu = parent.querySelector('.submenu');
     const expanded = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', String(!expanded));
-    if(submenu) submenu.style.display = expanded ? 'none' : 'flex';
+    if(submenu) submenu.style.display = expanded ? 'none' : 'block';
   });
 });
 
@@ -77,7 +95,7 @@ document.getElementById('searchBtn')?.addEventListener('click', ()=>{
   const nodes = document.querySelectorAll('.box, .stat-box, .stat-small, .nav-link');
   let found = false;
   nodes.forEach(n=>{
-    if(n.innerText.toLowerCase().includes(q.toLowerCase())){
+    if(n.innerText && n.innerText.toLowerCase().includes(q.toLowerCase())){
       found = true;
       n.scrollIntoView({behavior:'smooth', block:'center'});
       n.classList.add('pulse');
@@ -128,4 +146,3 @@ resultsModal && resultsModal.addEventListener('click', (e)=> { if(e.target===res
   s.innerHTML = `.pulse{box-shadow:0 0 0 6px rgba(10,120,59,0.06) inset;transform:scale(1.01);transition:transform .15s}`;
   document.head.appendChild(s);
 })();
-
