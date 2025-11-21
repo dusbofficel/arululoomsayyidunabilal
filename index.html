@@ -101,32 +101,53 @@
     </div>
   </nav>
 
-  <!-- MAIN: hero (slider left, small stats right) -->
-  <main id="home">
-    <section class="hero">
-      <div class="hero-left">
-        <div class="slider" id="mainSlider" aria-hidden="false">
-          <img src="assets/slider1.jpg" alt="Slider 1" class="slide active">
-          <img src="assets/slider2.jpg" alt="Slider 2" class="slide">
-          <img src="assets/slider3.jpg" alt="Slider 3" class="slide">
-          <!-- captions -->
-          <div class="slide-caption" id="cap1">Slide 1</div>
-          <div class="slide-caption" id="cap2">Slide 2</div>
-          <div class="slide-caption" id="cap3">Slide 3</div>
-        </div>
+  <!-- BEGIN: Custom slider + numbers section -->
+<section class="custom-section container">
+  <div class="row">
+    <!-- left: slider / big image -->
+    <div class="col left-slider">
+      <!-- اگر آپ اصلی سلائیڈر استعمال کرنا چاہیں تو یہاں carousel رکھیں -->
+      <div class="slider-frame" role="img" aria-label="Slider image">
+        <!-- using uploaded image path as background -->
       </div>
+    </div>
 
-      <aside class="hero-right" aria-labelledby="oneLineTitle">
-        <h2 id="oneLineTitle">دارالعلوم سیدنا بلالؓ — ایک نظر میں</h2>
+    <!-- right: title + (placeholder removed) -->
+    <aside class="col right-panel">
+      <h2 class="panel-title">دارالعلوم ایک نظر میں</h2>
 
-        <div class="small-stats-grid">
-          <div class="stat-small"><div class="stat-label">اقامتی طلبہ</div><div class="stat-value">450</div></div>
-          <div class="stat-small"><div class="stat-label">غیر اقامتی طلبہ</div><div class="stat-value">500</div></div>
-          <div class="stat-small"><div class="stat-label">کل طلبہ</div><div class="stat-value">950</div></div>
-          <div class="stat-small"><div class="stat-label">کل حفاظ</div><div class="stat-value">110</div></div>
-          <div class="stat-small"><div class="stat-label">کل ملازمین</div><div class="stat-value">75</div></div>
-          <div class="stat-small"><div class="stat-label">اساتذہ عربی</div><div class="stat-value">10</div></div>
+      <!-- نیچے 12 عددی باکس اوپر آ جائیں گے — گرڈ -->
+      <div class="numbers-grid">
+        <!-- ان باکسز کی تعداد 12 ہے؛ آپ متن بدل سکتے ہیں -->
+        <!-- ہر آئٹم: چھوٹا باکس + نیچے لمبا سبز باکس جس میں تعداد لکھیں -->
+        <!-- repeat 12 times -->
+        <div class="num-item">
+          <div class="num-box">#1</div>
+          <div class="num-bar"><span class="num-label">تعداد حفاظ: 120</span></div>
         </div>
+
+        <div class="num-item">
+          <div class="num-box">#2</div>
+          <div class="num-bar"><span class="num-label">تعداد حفاظ: 95</span></div>
+        </div>
+
+        <!-- مزید باکسز -->
+        <div class="num-item"><div class="num-box">#3</div><div class="num-bar"><span class="num-label">تعداد حفاظ: 80</span></div></div>
+        <div class="num-item"><div class="num-box">#4</div><div class="num-bar"><span class="num-label">تعداد حفاظ: 60</span></div></div>
+        <div class="num-item"><div class="num-box">#5</div><div class="num-bar"><span class="num-label">تعداد حفاظ: 40</span></div></div>
+        <div class="num-item"><div class="num-box">#6</div><div class="num-bar"><span class="num-label">تعداد حفاظ: 27</span></div></div>
+        <div class="num-item"><div class="num-box">#7</div><div class="num-bar"><span class="num-label">تعداد حفاظ: 22</span></div></div>
+        <div class="num-item"><div class="num-box">#8</div><div class="num-bar"><span class="num-label">تعداد حفاظ: 18</span></div></div>
+        <div class="num-item"><div class="num-box">#9</div><div class="num-bar"><span class="num-label">تعداد حفاظ: 15</span></div></div>
+        <div class="num-item"><div class="num-box">#10</div><div class="num-bar"><span class="num-label">تعداد حفاظ: 12</span></div></div>
+        <div class="num-item"><div class="num-box">#11</div><div class="num-bar"><span class="num-label">تعداد حفاظ: 9</span></div></div>
+        <div class="num-item"><div class="num-box">#12</div><div class="num-bar"><span class="num-label">تعداد حفاظ: 5</span></div></div>
+      </div>
+    </aside>
+  </div>
+</section>
+<!-- END: Custom slider + numbers section -->
+
 
         <div class="graduates-line">کل فارغین حفاظ سن 2014 تا 2025</div>
       </aside>
@@ -224,3 +245,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
