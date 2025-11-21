@@ -115,3 +115,103 @@ body{
   .stats-row{grid-template-columns:1fr;gap:12px}
   .box-row{grid-template-columns:1fr}
              }
+
+:root{
+  /* آپ کی سائٹ کے اصل کلر سے بدل دیں اگر ضروری ہو */
+  --primary-teal: #17a2a2; /* اگر آپ کی سائٹ کا teal مختلف ہو تو اسے ریپلیس کریں */
+  --box-bg: #ffffff;
+  --box-border: #bfbfbf;
+  --radius: 10px;
+}
+
+/* container basic */
+.container { max-width: 1100px; margin: 0 auto; padding: 15px; }
+.row { display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap; }
+
+/* left slider area */
+.left-slider { flex: 1 1 58%; min-width: 300px; }
+.slider-frame{
+  width:100%;
+  height:360px; /* desktop height */
+  border-radius: var(--radius);
+  border: 2px solid var(--box-border);
+  background-image: url("/mnt/data/WhatsApp Image 2025-11-18 at 12.31.01_4300332a.jpg");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.02);
+}
+
+/* right panel */
+.right-panel { flex: 0 1 38%; min-width: 260px; }
+.panel-title {
+  font-size: 22px;
+  text-align:center;
+  margin: 0 0 12px 0;
+  padding: 10px 12px;
+  background: var(--box-bg);
+  border-radius: var(--radius);
+  border: 2px solid var(--box-border);
+  font-weight:700;
+}
+
+/* numbers grid: 4 columns x 3 rows on wide screens, responsive */
+.numbers-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr); /* in right panel keep 2 columns */
+  gap: 12px;
+  margin-top:12px;
+}
+
+/* single item: small box on top, long bar below */
+.num-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+
+/* small box (count / icon etc) */
+.num-box{
+  width:110px; /* چھوٹا سائز */
+  height:60px;
+  background: var(--box-bg);
+  border:2px solid var(--box-border);
+  border-radius: 8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+}
+
+/* long green bar below */
+.num-bar{
+  width:110px; /* same چوڑائی as small box */
+  height:28px;
+  background: linear-gradient(90deg, var(--primary-teal), var(--primary-teal));
+  border-radius: 6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.num-label{
+  color:#fff;
+  font-size:12px;
+  font-weight:600;
+}
+
+/* responsive: on small screens put slider on top and grid below full width */
+@media (max-width:900px){
+  .row { flex-direction:column; }
+  .left-slider, .right-panel { flex: 1 1 100%; }
+  .slider-frame { height:260px; }
+  .numbers-grid { grid-template-columns: repeat(3,1fr); gap:10px; }
+  .num-box, .num-bar { width:100%; }
+}
+
+@media (max-width:480px){
+  .numbers-grid { grid-template-columns: repeat(2,1fr); }
+  .num-box{ height:50px; }
+  .slider-frame{ height:220px; }
+}
