@@ -2,53 +2,118 @@
 <html lang="ur" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>دارالعلوم سیدنا بلالؓ</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<section class="home-layout">
+<!-- TOP STRIP -->
+<div class="top-pattern"></div>
 
-  <div class="stats-section">
-    <h2 class="section-title">دارالعلوم ایک نظر میں</h2>
-
-    <div class="stats-grid">
-      <div class="stat-box"><div class="stat-number">120</div><div class="stat-title">زیر تعلیم طلبہ</div></div>
-      <div class="stat-box"><div class="stat-number">25</div><div class="stat-title">اساتذہ کرام</div></div>
-      <div class="stat-box"><div class="stat-number">80</div><div class="stat-title">مکمل حفاظ</div></div>
-      <div class="stat-box"><div class="stat-number">15</div><div class="stat-title">علمی شعبے</div></div>
-      <div class="stat-box"><div class="stat-number">10</div><div class="stat-title">اساتذہ حفظ</div></div>
-      <div class="stat-box"><div class="stat-number">250</div><div class="stat-title">سالانہ داخلے</div></div>
-      <div class="stat-box"><div class="stat-number">45</div><div class="stat-title">اقامتی طلبہ</div></div>
-      <div class="stat-box"><div class="stat-number">300+</div><div class="stat-title">سالانہ حفاظ</div></div>
-      <div class="stat-box"><div class="stat-number">12</div><div class="stat-title">اساتذہ ناظرہ</div></div>
-      <div class="stat-box"><div class="stat-number">80+</div><div class="stat-title">زمانے کے شعبے</div></div>
-      <div class="stat-box"><div class="stat-number">50</div><div class="stat-title">باثبات طلبہ</div></div>
-      <div class="stat-box"><div class="stat-number">100+</div><div class="stat-title">سالانہ فارغین</div></div>
-    </div>
+<!-- BISMILLAH + DATE BAR -->
+<div class="bismillah-row">
+  <div class="bismillah-left">
+    <select id="lang">
+      <option value="ur">اردو</option>
+      <option value="hi">हिंदी</option>
+      <option value="en">English</option>
+    </select>
   </div>
+  <div class="bismillah-center">بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+  <div class="bismillah-right" id="date-and-calendar">—</div>
+</div>
 
-  <div class="slider-section">
-    <div class="slider">
-      <img src="assets/slide1.jpg" class="slide active">
-      <img src="assets/slide2.jpg" class="slide">
-      <img src="assets/slide3.jpg" class="slide">
-    </div>
+<!-- HEADER -->
+<header class="name-strip">
+  <div class="name-left">
+    <img src="assets/logo.jpg" class="brand-logo" alt="لوگو" />
   </div>
+  <div class="name-inner">
+    <h1>دارالعلوم سیدنا بلالؓ</h1>
+    <p>مقام: ناک نول، تحصیل تجارہ، ضلع خیرتھل، راجستھان — پن کوڈ: ۳۰۱۷۰۷</p>
+  </div>
+  <div class="result-search-card">
+    <a href="results.html">🔍 نتیجہ تلاش کریں</a>
+  </div>
+</header>
 
+<!-- NAVIGATION -->
+<nav class="main-nav" role="navigation">
+  <button id="hamburger">☰</button>
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="#home">ہوم</a></li>
+    <li><a href="#">تعلیمات</a></li>
+    <li><a href="#">شعبہ جات</a></li>
+    <li><a href="#">نصاب تعلیم</a></li>
+    <li><a href="#">نتائج</a></li>
+    <li><a href="#">داخلے</a></li>
+    <li><a href="#">گیلری</a></li>
+  </ul>
+  <div class="nav-search">
+    <input id="searchBox" placeholder="تلاش کریں..." />
+    <button id="searchBtn">🔍</button>
+  </div>
+</nav>
+
+<!-- MAIN SECTION: LEFT = 12 BOXES | RIGHT = SLIDER -->
+<section class="custom-section container">
+  <div class="row">
+
+    <!-- LEFT 12 BOX GRID -->
+    <aside class="col left-panel">
+      <h2 class="panel-title">دارالعلوم ایک نظر میں</h2>
+
+      <div class="numbers-grid">
+        <!-- Each num-item: top small box + green bar below -->
+        <!-- Repeated 12 items -->
+        <div class="num-item"><div class="num-box">#1</div><div class="num-bar">تعداد حفاظ: 120</div></div>
+        <div class="num-item"><div class="num-box">#2</div><div class="num-bar">تعداد حفاظ: 95</div></div>
+        <div class="num-item"><div class="num-box">#3</div><div class="num-bar">تعداد حفاظ: 80</div></div>
+        <div class="num-item"><div class="num-box">#4</div><div class="num-bar">تعداد حفاظ: 60</div></div>
+        <div class="num-item"><div class="num-box">#5</div><div class="num-bar">تعداد حفاظ: 40</div></div>
+        <div class="num-item"><div class="num-box">#6</div><div class="num-bar">تعداد حفاظ: 27</div></div>
+        <div class="num-item"><div class="num-box">#7</div><div class="num-bar">تعداد حفاظ: 22</div></div>
+        <div class="num-item"><div class="num-box">#8</div><div class="num-bar">تعداد حفاظ: 18</div></div>
+        <div class="num-item"><div class="num-box">#9</div><div class="num-bar">تعداد حفاظ: 15</div></div>
+        <div class="num-item"><div class="num-box">#10</div><div class="num-bar">تعداد حفاظ: 12</div></div>
+        <div class="num-item"><div class="num-box">#11</div><div class="num-bar">تعداد حفاظ: 9</div></div>
+        <div class="num-item"><div class="num-box">#12</div><div class="num-bar">تعداد حفاظ: 5</div></div>
+      </div>
+    </aside>
+
+    <!-- RIGHT SLIDER -->
+    <div class="col right-slider">
+      <div class="slider">
+        <img class="slide active" src="assets/slide1.jpg" />
+        <img class="slide" src="assets/slide2.jpg" />
+        <img class="slide" src="assets/slide3.jpg" />
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<script>
-let index = 0;
-let slides = document.querySelectorAll(".slide");
+<!-- STATS SECTION -->
+<section class="stats-wrapper">
+  <div class="stats-row">
+    <div class="stat-box"><div class="s-label">کل تعداد طلبہ</div><div class="s-val">950</div></div>
+    <div class="stat-box"><div class="s-label">اقامتی طلبہ</div><div class="s-val">450</div></div>
+    <div class="stat-box"><div class="s-label">غیر اقامتی</div><div class="s-val">500</div></div>
+    <div class="stat-box"><div class="s-label">تحفیظ</div><div class="s-val">45</div></div>
+  </div>
+</section>
 
-setInterval(() => {
-  slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
-  slides[index].classList.add("active");
-}, 3000);
-</script>
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p><strong>موبائل:</strong> 000000000</p>
+  <p><strong>ای میل:</strong> example@gmail.com</p>
+  <p><strong>واٹس ایپ:</strong> 000000000</p>
+  <p><strong>بینک:</strong> اکاؤنٹ نمبر ۔۔۔۔</p>
+  <div class="copyright">© 2025 دارالعلوم سیدنا بلال — تمام حقوق محفوظ ہیں</div>
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
