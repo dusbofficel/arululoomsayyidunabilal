@@ -77,7 +77,7 @@ hamburger && hamburger.addEventListener('click', ()=>{
   navMenu.classList.toggle('open');
 });
 
-// ======= DROP-DOWN: accessible toggles for touch + hover for desktop handled by CSS =======
+// ======= DROP-DOWN =======
 document.querySelectorAll('.drop-toggle').forEach(btn=>{
   btn.addEventListener('click', ()=> {
     const parent = btn.parentElement;
@@ -88,7 +88,7 @@ document.querySelectorAll('.drop-toggle').forEach(btn=>{
   });
 });
 
-// ======= SEARCH BOX (simple highlight) =======
+// ======= SEARCH BOX =======
 document.getElementById('searchBtn')?.addEventListener('click', ()=>{
   const q = document.getElementById('searchBox')?.value || '';
   if(!q) return alert('براہ کرم تلاش کے لیے لفظ درج کریں');
@@ -105,7 +105,7 @@ document.getElementById('searchBtn')?.addEventListener('click', ()=>{
   if(!found) alert('نتیجہ موصول نہیں ہوا');
 });
 
-// ======= RESULTS modal handling =======
+// ======= RESULTS MODAL =======
 const resultYearLinks = document.querySelectorAll('.result-year');
 const resultsModal = document.getElementById('resultsModal');
 const resultsYearSpan = document.getElementById('resultsYear');
@@ -140,7 +140,7 @@ closeResults && closeResults.addEventListener('click', ()=> {
 });
 resultsModal && resultsModal.addEventListener('click', (e)=> { if(e.target===resultsModal){ resultsModal.style.display='none'; resultsModal.setAttribute('aria-hidden','true'); }});
 
-// ======= small helper pulse style addition =======
+// ======= pulse helper =======
 (function addPulseStyle(){
   const s = document.createElement('style');
   s.innerHTML = `.pulse{box-shadow:0 0 0 6px rgba(10,120,59,0.06) inset;transform:scale(1.01);transition:transform .15s}`;
