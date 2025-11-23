@@ -114,3 +114,35 @@ body{
   .num-box{padding:12px;font-size:16px}
   .slider{min-height:220px}
 }
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.num-item {
+  text-align: center;
+}
+
+.num-box {
+  background: #ffffff;
+  border: 2px solid #0a783b;
+  border-radius: 8px;
+  padding: 18px 10px;
+  font-weight: bold;
+  color: #0a783b;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 16px;
+}
+
+.num-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.num-text {
+  font-size: 15px;
+  font-weight: 600;
+}
