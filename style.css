@@ -55,8 +55,8 @@ body{
 
 /* ========== Custom Section: Numbers & Slider ========== */
 .custom-section{margin:28px auto}
-.right-panel{flex:1 1 58%;min-width:280px}
-.left-slider{flex:0 1 38%;min-width:280px}
+.right-panel{flex:1 1 58%;min-width:220px}
+.left-slider{flex:0 1 38%;min-width:220px}
 
 .panel-title{font-size:28px;text-align:center;margin:0 0 12px 0;padding:10px 12px;background:var(--box-bg);border-radius:var(--radius);border:2px solid var(--box-border);font-weight:700}
 
