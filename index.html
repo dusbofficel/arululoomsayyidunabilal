@@ -56,53 +56,119 @@
   </div>
 </nav>
 
-<!-- ===================== MAIN SLIDER + BOXES SECTION ===================== -->
+<!-- ====== SLIDER + 12 BOX SECTION (FIXED LAYOUT) ====== -->
+<style>
+/* MAIN WRAPPER */
+.slider-box-wrapper{
+  width:100%;
+  display:flex;
+  gap:20px;
+  margin-top:25px;
+}
 
-<section class="home-main">
+/* LEFT: SLIDER */
+.slider-panel{
+  flex:1.3;           /* ← Slider wider */
+  height:330px;
+  border-radius:12px;
+  overflow:hidden;
+  position:relative;
+}
+.slider-panel img{
+  width:100%; height:100%; object-fit:cover;
+  position:absolute; top:0; left:0;
+  opacity:0; transition:opacity .6s;
+}
+.slider-panel img.active{ opacity:1; }
 
-  <!-- ========== SLIDER (Left Wide) ========== -->
-  <div class="home-slider">
-      <div class="slide active"><img src="assets/slide1.jpg" alt=""></div>
-      <div class="slide"><img src="assets/slide2.jpg" alt=""></div>
-      <div class="slide"><img src="assets/slide3.jpg" alt=""></div>
+/* RIGHT: 12 SMALL BOXES */
+.box-panel{
+  flex:1;
+}
+.box-panel h2{
+  margin-bottom:12px;
+  font-size:20px;
+  text-align:right;
+  color:#0a783b;
+}
+
+.numbers-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);   /* 3 per row */
+  gap:10px;
+}
+
+.num-item{
+  background:#ffffff;
+  border:2px solid #0a783b;
+  border-radius:14px;
+  box-shadow:0 3px 8px rgba(0,0,0,.10);
+  padding:15px 10px;
+  text-align:center;
+  font-size:15px;
+  font-weight:bold;
+  color:#0a783b;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.num-item .num-value{
+  font-size:22px;
+  color:#0a783b;
+}
+.num-item .num-title{
+  font-size:13px;
+  color:#333;
+}
+
+/* LONG BAR UNDER GRID */
+.total-bar{
+  margin-top:15px;
+  width:100%;
+  background:#0a783b;
+  color:white;
+  padding:10px;
+  border-radius:10px;
+  text-align:center;
+  font-size:18px;
+  font-weight:bold;
+}
+</style>
+
+<div class="slider-box-wrapper">
+
+  <!-- LEFT SLIDER -->
+  <div class="slider-panel">
+    <img src="assets/slide1.jpg" class="active slide">
+    <img src="assets/slide2.jpg" class="slide">
+    <img src="assets/slide3.jpg" class="slide">
   </div>
 
-  <!-- ========== RIGHT 12 BOX GRID ========== -->
-  <aside class="right-box-panel">
+  <!-- RIGHT: 12 BOX GRID -->
+  <div class="box-panel">
+    <h2>دارالعلوم ایک نظر میں</h2>
 
-      <h2 class="panel-title">دارالعلوم ایک نظر میں</h2>
+    <div class="numbers-grid">
+      <div class="num-item"><div class="num-value">120</div><div class="num-title">تعداد حفاظ</div></div>
+      <div class="num-item"><div class="num-value">95</div><div class="num-title">درجہ حفظ</div></div>
+      <div class="num-item"><div class="num-value">80</div><div class="num-title">شعبہ ناظرہ</div></div>
+      <div class="num-item"><div class="num-value">60</div><div class="num-title">شعبہ فارسی</div></div>
+      <div class="num-item"><div class="num-value">40</div><div class="num-title">اساتذہ کرام</div></div>
+      <div class="num-item"><div class="num-value">27</div><div class="num-title">ملازمین</div></div>
+      <div class="num-item"><div class="num-value">22</div><div class="num-title">معلمین</div></div>
+      <div class="num-item"><div class="num-value">18</div><div class="num-title">طلبہ معہد</div></div>
+      <div class="num-item"><div class="num-value">15</div><div class="num-title">شعبہ تجوید</div></div>
+      <div class="num-item"><div class="num-value">12</div><div class="num-title">شعبہ قرأت</div></div>
+      <div class="num-item"><div class="num-value">9</div><div class="num-title">معہد عربی</div></div>
+      <div class="num-item"><div class="num-value">5</div><div class="num-title">شعبہ ابتدائیہ</div></div>
+    </div>
 
-      <div class="numbers-grid">
-
-        <!-- 12 Boxes same style -->
-        <div class="num-item"><div class="num-title">حفاظ</div><div class="num-value">120</div></div>
-        <div class="num-item"><div class="num-title">اساتذہ</div><div class="num-value">95</div></div>
-        <div class="num-item"><div class="num-title">طلباء</div><div class="num-value">80</div></div>
-        <div class="num-item"><div class="num-title">مکاتب</div><div class="num-value">60</div></div>
-        <div class="num-item"><div class="num-title">عالمیت</div><div class="num-value">40</div></div>
-        <div class="num-item"><div class="num-title">ناظرہ</div><div class="num-value">27</div></div>
-        <div class="num-item"><div class="num-title">تحفیظ</div><div class="num-value">22</div></div>
-        <div class="num-item"><div class="num-title">تجوید</div><div class="num-value">18</div></div>
-        <div class="num-item"><div class="num-title">فارسی</div><div class="num-value">15</div></div>
-        <div class="num-item"><div class="num-title">ابتدائیہ</div><div class="num-value">12</div></div>
-        <div class="num-item"><div class="num-title">معاونین</div><div class="num-value">09</div></div>
-        <div class="num-item"><div class="num-title">دیگر</div><div class="num-value">05</div></div>
-
-      </div>
-
-      <!-- LONG GREEN BAR -->
-      <div class="graduates-bar">
-        کل فارغین: <strong>520+</strong>
-      </div>
-
-  </aside>
-
-</section>
-
-
-
+    <!-- LONG GREEN BAR -->
+    <div class="total-bar">کل فارغین: ۴۵۰+</div>
   </div>
-</section>
+
+</div>
+
 
 <!-- STATS SECTION -->
 <section class="stats-wrapper">
