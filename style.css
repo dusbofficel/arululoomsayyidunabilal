@@ -130,78 +130,85 @@ font-weight:700;
   .slider{min-height:260px}
 }
 
-.num-text {
-  font-size: 15px;
-  font-weight: 600;
-}
-/* MAIN GRID */
-.home-row {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr; /* slider bigger, boxes smaller */
-  gap: 20px;
-  margin: 20px 0;
+/* Main Section Layout */
+.home-main{
+  display:flex;
+  gap:20px;
+  margin:20px auto;
+  width:95%;
 }
 
-/* SLIDER SIZE BIGGER */
-.slider-side {
-  width: 100%;
+/* Slider Left */
+.home-slider{
+  width:65%;        /* ← سلائیڈر چوڑا */
+  height:380px;
+  overflow:hidden;
+  border-radius:10px;
 }
 
-.slider {
-  width: 100%;
-  height: 340px;     /* Increase height if needed */
-  overflow: hidden;
-  border-radius: 10px;
-  border: 3px solid #0a783b;
+.home-slider .slide{
+  display:none;
+  width:100%;
+  height:100%;
 }
 
-.slider img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: none;
+.home-slider .slide.active{
+  display:block;
 }
 
-.slide.active {
-  display: block;
+.home-slider img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-/* RIGHT BOXES SMALLER */
-.numbers-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+/* Right Panel with Boxes */
+.right-box-panel{
+  width:35%;       /* ← باکس والا حصہ کم */
 }
 
-.num-box {
-  background: #fff;
-  border: 2px solid #0a783b;
-  border-radius: 7px;
-  padding: 10px 6px;
-  text-align: center;
-  font-size: 14px;
-  color: #0a783b;
+.panel-title{
+  text-align:center;
+  margin-bottom:10px;
+  font-size:20px;
+  font-weight:bold;
 }
 
-.num-box span {
-  display: block;
-  font-weight: bold;
-  font-size: 17px;
+/* 12 Boxes Grid */
+.numbers-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
 }
 
-.num-box p {
-  margin: 3px 0 0;
-  font-size: 13px;
+.num-item{
+  background:white;
+  border:1px solid #e0e0e0;
+  padding:12px;
+  border-radius:8px;
+  text-align:center;
+  box-shadow:0 2px 4px rgba(0,0,0,0.06);
 }
 
-/* LONG BOX UNDERNEATH */
-.graduates-box {
-  margin-top: 20px;
-  padding: 15px;
-  background: #0a783b;
-  color: white;
-  text-align: center;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: bold;
+.num-title{
+  font-weight:600;
+  font-size:15px;
+  margin-bottom:4px;
+}
+
+.num-value{
+  font-size:18px;
+  font-weight:bold;
+  color:#0a783b;  /* Green */
+}
+
+/* long graduates bar */
+.graduates-bar{
+  margin-top:15px;
+  background:#0a783b;
+  padding:12px;
+  color:white;
+  text-align:center;
+  border-radius:8px;
+  font-size:18px;
 }
